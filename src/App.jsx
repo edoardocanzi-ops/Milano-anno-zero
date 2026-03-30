@@ -44,22 +44,22 @@ const CUSTOM_IMAGES = {
   'Scarponi da Lavoro': 'https://i.postimg.cc/MHYWhRLd/Screenshot_20260330_141126_4.jpg',
 
   // --- SET 3: CACCIA/SOPRAVVIVENZA (Epico) ---
-  'Cappello Mimetico': '',
-  'Giacca da Caccia': '',
-  'Pantaloni Sopravvivenza': '',
-  'Stivali da Trekking': '',
+  'Cappello Mimetico': 'https://i.postimg.cc/T1xd7Qt9/Screenshot_20260330_132744_4.jpg',
+  'Giacca da Caccia': 'https://i.postimg.cc/hvnDyM2K/Screenshot_20260330_141043_7.jpg',
+  'Pantaloni Sopravvivenza': 'https://i.postimg.cc/BbCqdDzw/Screenshot_20260330_164352_4.jpg',
+  'Stivali da Trekking': 'https://i.postimg.cc/3Nh8S9t8/Screenshot_20260330_141126_5.jpg',
 
   // --- SET 4: ANTISOMMOSSA (Leggendario) ---
-  'Casco Antisommossa': '',
-  'Corazza Antisommossa': '',
-  'Pantaloni Antisommossa': '',
-  'Anfibi Antisommossa': '',
+  'Casco Antisommossa': 'https://i.postimg.cc/wx5Ty8BB/Screenshot_20260330_132744_5.jpg',
+  'Corazza Antisommossa': 'https://i.postimg.cc/qqGk9nFw/Screenshot_20260330_141043_8.jpg',
+  'Pantaloni Antisommossa': 'https://i.postimg.cc/rsTVngfD/Screenshot_20260330_164352_5.jpg',
+  'Anfibi Antisommossa': 'https://i.postimg.cc/Wz72QryH/Screenshot_20260330_141126_6.jpg',
 
   // --- SET 5: FORZE SPECIALI (Mitico) ---
-  'Casco Tattico Visore': '',
-  'Corazza Forze Speciali': '',
-  'Pantaloni Forze Speciali': '',
-  'Stivali Tattici Avanzati': '',
+  'Casco Tattico Visore': 'https://i.postimg.cc/x8Qfxg6y/Screenshot_20260330_132744_6.jpg',
+  'Corazza Forze Speciali': 'https://i.postimg.cc/nrxFRT3x/Screenshot_20260330_141043_4.jpg',
+  'Pantaloni Forze Speciali': 'https://i.postimg.cc/5ymxZvr5/Screenshot_20260330_164352_6.jpg',
+  'Stivali Tattici Avanzati': 'https://i.postimg.cc/VvwfG4K0/Screenshot_20260330_141126_7.jpg',
 };
 
 // --- SISTEMA RARITÀ E COLORI VIBRANTI ---
