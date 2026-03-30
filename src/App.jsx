@@ -32,10 +32,10 @@ const CUSTOM_IMAGES = {
   'Zaino Sopravvivenza': '',
 
   // --- SET 1: CASUAL (Comune) ---
-  'Cappello di Lana': '',
-  'Giacca Casual': '',
-  'Jeans Strappati': '',
-  'Scarpe da Ginnastica': '',
+  'Cappello di Lana': 'https://i.postimg.cc/3Nh8S9tj/Screenshot_20260330_132744_2.jpg',
+  'Giacca Casual': 'https://i.postimg.cc/wvLxQnQT/Screenshot_20260330_141043_5.jpg',
+  'Jeans Strappati': 'https://i.postimg.cc/D0c2tsNc/Screenshot_20260330_164352_2.jpg',
+  'Scarpe da Ginnastica': 'https://i.postimg.cc/L5S9Cvx5/Screenshot_20260330_141126_3.jpg',
 
   // --- SET 2: CIVILE PESANTE (Raro) ---
   'Casco da Lavoro': '',
