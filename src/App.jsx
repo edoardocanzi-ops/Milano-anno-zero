@@ -13,23 +13,23 @@ import {
 // e incollalo qui tra le virgolette. Fino ad allora, lasciale vuote ('').
 const CUSTOM_IMAGES = {
   // --- ARMI ---
-  'Pistola Glock': '',
-  'Fucile M16': '',
-  'Fucile AK-47': '',
-  'Mitraglietta Uzi': '',
-  'MP5 Silenziato': '',
-  'FAMAS Silenziato': '',
-  'Pistola Tamburo': '',
-  'AK-47 Tamburo': '',
-  'Mitragliatrice M249': '',
-  'Minigun Vulcan': '',
+  'Pistola Glock': 'https://i.postimg.cc/Hntpf5KC/Screenshot_20260330_143029_4.jpg',
+  'Fucile M16': 'https://i.postimg.cc/MHw6Pt9c/Screenshot_20260330_143029_5.jpg',
+  'Fucile AK-47': 'https://i.postimg.cc/yxK1QnLB/Screenshot_20260330_143029_12.jpg',
+  'Mitraglietta Uzi': 'https://i.postimg.cc/Qt1NJvJt/Screenshot_20260330_143029_10.jpg',
+  'MP5 Silenziato': 'https://i.postimg.cc/qqGk9nFK/Screenshot_20260330_143029_11.jpg',
+  'FAMAS Silenziato': 'https://i.postimg.cc/NMmGkZk0/Screenshot_20260330_143029_6.jpg',
+  'Pistola Tamburo': 'https://i.postimg.cc/sxzj6KTJ/Screenshot_20260330_143029_9.jpg',
+  'AK-47 Tamburo': 'https://i.postimg.cc/L5VHrfWZ/Screenshot_20260330_143029_13.jpg',
+  'Mitragliatrice M249': 'https://i.postimg.cc/vTvQp9KW/Screenshot_20260330_143029_7.jpg',
+  'Minigun Vulcan': 'https://i.postimg.cc/vBf8tCtZ/Screenshot_20260330_143029_8.jpg',
 
   // --- ZAINI ---
-  'Sacca Sportiva': '',
-  'Sacca a Tracolla': '',
-  'Zaino da Escursionismo': '',
-  'Zaino Tattico Militare': '',
-  'Zaino Sopravvivenza': '',
+  'Sacca Sportiva': 'https://i.postimg.cc/cCWx9TFJ/Screenshot_20260330_142331_2.jpg',
+  'Sacca a Tracolla': 'https://i.postimg.cc/cCcsVYjq/Screenshot_20260330_142331_3.jpg',
+  'Zaino da Escursionismo': 'https://i.postimg.cc/T1xd7QtW/Screenshot_20260330_142331_4.jpg',
+  'Zaino Tattico Militare': 'https://i.postimg.cc/D0hvj5xZ/Screenshot_20260330_142331_6.jpg',
+  'Zaino Sopravvivenza': 'https://i.postimg.cc/cCcsVYjq/Screenshot_20260330_142331_3.jpg',
 
   // --- SET 1: CASUAL (Comune) ---
   'Cappello di Lana': 'https://i.postimg.cc/3Nh8S9tj/Screenshot_20260330_132744_2.jpg',
@@ -38,10 +38,10 @@ const CUSTOM_IMAGES = {
   'Scarpe da Ginnastica': 'https://i.postimg.cc/L5S9Cvx5/Screenshot_20260330_141126_3.jpg',
 
   // --- SET 2: CIVILE PESANTE (Raro) ---
-  'Casco da Lavoro': '',
-  'Giacca di Pelle': '',
-  'Pantaloni Cargo': '',
-  'Scarponi da Lavoro': '',
+  'Casco da Lavoro': 'https://i.postimg.cc/PJMtBZ7g/Screenshot_20260330_132744_3.jpg',
+  'Giacca di Pelle': 'https://i.postimg.cc/2yxzPvtZ/Screenshot_20260330_141043_6.jpg',
+  'Pantaloni Cargo': 'https://i.postimg.cc/tJbqSDB7/Screenshot_20260330_164352_3.jpg',
+  'Scarponi da Lavoro': 'https://i.postimg.cc/MHYWhRLd/Screenshot_20260330_141126_4.jpg',
 
   // --- SET 3: CACCIA/SOPRAVVIVENZA (Epico) ---
   'Cappello Mimetico': '',
