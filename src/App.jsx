@@ -50,7 +50,7 @@ const CUSTOM_IMAGES = {
   'Stivali da Trekking': 'https://i.postimg.cc/3Nh8S9t8/Screenshot_20260330_141126_5.jpg',
 
   // --- SET 4: ANTISOMMOSSA (Leggendario) ---
-  'Casco Antisommossa': 'https://i.postimg.cc/wX5Ty8BB/Screenshot_20260330_132744_5.jpg',
+  'Casco Antisommossa': 'https://i.postimg.cc/wx5Ty8BB/Screenshot_20260330_132744_5.jpg',
   'Corazza Antisommossa': 'https://i.postimg.cc/qqGk9nFw/Screenshot_20260330_141043_8.jpg',
   'Pantaloni Antisommossa': 'https://i.postimg.cc/rsTVngfD/Screenshot_20260330_164352_5.jpg',
   'Anfibi Antisommossa': 'https://i.postimg.cc/Wz72QryH/Screenshot_20260330_141126_6.jpg',
