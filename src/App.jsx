@@ -62,7 +62,7 @@ const CUSTOM_IMAGES = {
 };
 
 const CUSTOM_ENEMIES_IMAGES = {
-  'Lurker': '', 'Slasher': '', 'Rioter': '', 'Chimera': '', 'Gilbert': ''
+  'Lurker': '', 'Slasher': '', 'Rioter': 'https://i.postimg.cc/tJwtKHdc/Gemini_Generated_Image_sefk1ysefk1ysefk.png', 'Chimera': 'https://i.postimg.cc/tJwtKHdc/Gemini_Generated_Image_sefk1ysefk1ysefk.png', 'Gilbert': ''
 };
 
 // --- STILE LDOE E XP ---
