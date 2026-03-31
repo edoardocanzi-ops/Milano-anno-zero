@@ -24,11 +24,11 @@ const CUSTOM_IMAGES = {
   'Mazza da Baseball': '', 
 
   // --- ZAINI ---
-  'Sacca Sportiva': 'https://i.postimg.cc/CCwx9TFJ/Screenshot_20260330_142331_2.jpg',
-  'Sacca a Tracolla': 'https://i.postimg.cc/cCcSVYjq/Screenshot_20260330_142331_3.jpg',
-  'Zaino da Escursionismo': 'https://i.postimg.cc/T1xd7QtW/Screenshot_20260330_142331_4.jpg',
-  'Zaino Tattico Militare': 'https://i.postimg.cc/D0hvj5xZ/Screenshot_20260330_142331_6.jpg',
-  'Zaino Sopravvivenza': 'https://i.postimg.cc/cCcSVYjq/Screenshot_20260330_142331_3.jpg',
+  'Sacca Sportiva': 'https://i.postimg.cc/cCWx9TFJ/Screenshot_20260330_142331_2.jpg',
+  'Zaino Normale': 'https://i.postimg.cc/cCcSVYjq/Screenshot_20260330_142331_3.jpg',
+  'Sacca Tattica': 'https://i.postimg.cc/T1xd7QtW/Screenshot_20260330_142331_4.jpg',
+  'Zaino SWAT': 'https://i.postimg.cc/h48PzWGP/Screenshot_20260330_142331_5.jpg',
+  'Zaino Forze Speciali': 'https://i.postimg.cc/D0hvj5xZ/Screenshot_20260330_142331_6.jpg',
 
   // --- SET 1: CASUAL (Comune) ---
   'Berretto di Lana': 'https://i.postimg.cc/3Nh8S9tj/Screenshot_20260330_132744_2.jpg',
@@ -49,7 +49,7 @@ const CUSTOM_IMAGES = {
   'Stivali da Trekking': 'https://i.postimg.cc/3Nh8S9t8/Screenshot_20260330_141126_5.jpg',
 
   // --- SET 4: ANTISOMMOSSA (Leggendario) ---
-  'Casco Antisommossa': 'https://i.postimg.cc/wX5Ty8BB/Screenshot_20260330_132744_5.jpg',
+  'Casco Antisommossa': 'https://i.postimg.cc/wx5Ty8BB/Screenshot_20260330_132744_5.jpg',
   'Corazza Antisommossa': 'https://i.postimg.cc/qqGk9nFw/Screenshot_20260330_141043_8.jpg',
   'Pantaloni Antisommossa': 'https://i.postimg.cc/rsTVngfD/Screenshot_20260330_164352_5.jpg',
   'Anfibi Antisommossa': 'https://i.postimg.cc/Wz72QryH/Screenshot_20260330_141126_6.jpg',
@@ -97,10 +97,10 @@ const ITEMS = {
   'Disco Dati Governativo': { type: 'resource', rarity: 'mitico', value: 500, desc: 'Codici di sicurezza.', iconType: Package },
 
   'Sacca Sportiva': { type: 'backpack', rarity: 'comune', value: 20, slots: 10, desc: 'Capienza: 10 Slot', iconType: Backpack },
-  'Sacca a Tracolla': { type: 'backpack', rarity: 'raro', value: 50, slots: 15, desc: 'Capienza: 15 Slot', iconType: Backpack },
-  'Zaino da Escursionismo': { type: 'backpack', rarity: 'epico', value: 120, slots: 20, desc: 'Capienza: 20 Slot', iconType: Backpack },
-  'Zaino Tattico Militare': { type: 'backpack', rarity: 'leggendario', value: 250, slots: 25, desc: 'Capienza: 25 Slot', iconType: Backpack },
-  'Zaino Sopravvivenza': { type: 'backpack', rarity: 'mitico', value: 600, slots: 30, desc: 'Capienza: 30 Slot', iconType: Backpack },
+  'Zaino Normale': { type: 'backpack', rarity: 'raro', value: 50, slots: 15, desc: 'Capienza: 15 Slot', iconType: Backpack },
+  'Sacca Tattica': { type: 'backpack', rarity: 'epico', value: 120, slots: 20, desc: 'Capienza: 20 Slot', iconType: Backpack },
+  'Zaino SWAT': { type: 'backpack', rarity: 'leggendario', value: 250, slots: 25, desc: 'Capienza: 25 Slot', iconType: Backpack },
+  'Zaino Forze Speciali': { type: 'backpack', rarity: 'mitico', value: 600, slots: 30, desc: 'Capienza: 30 Slot', iconType: Backpack },
 
   'Coltellino': { type: 'weapon', rarity: 'comune', value: 10, atk: 5, desc: 'Lama corta.', iconType: Crosshair },
   'Mazza da Baseball': { type: 'weapon', rarity: 'comune', value: 20, atk: 12, desc: 'Pesante.', iconType: Crosshair },
