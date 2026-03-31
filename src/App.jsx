@@ -134,7 +134,7 @@ const ITEMS = {
   'Zaino Tattico Militare': { type: 'backpack', rarity: 'leggendario', value: 250, slots: 25, desc: 'Capienza: 25 Slot', iconType: Backpack },
   'Zaino Sopravvivenza': { type: 'backpack', rarity: 'mitico', value: 600, slots: 30, desc: 'Capienza: 30 Slot', iconType: Backpack },
 
-  // ARMI (Hanno tutte Durabilità max 100)
+  // ARMI
   'Coltellino': { type: 'weapon', rarity: 'comune', value: 10, atk: 5, desc: 'Lama corta.', iconType: Crosshair },
   'Mazza da Baseball': { type: 'weapon', rarity: 'comune', value: 20, atk: 12, desc: 'Pesante.', iconType: Crosshair },
   'Pistola Glock': { type: 'weapon', rarity: 'raro', value: 80, atk: 25, desc: 'Affidabile 9mm.', iconType: Crosshair },
@@ -182,16 +182,6 @@ const ITEMS = {
   'Stivali Hazmat Potenziati': { type: 'shoes', rarity: 'mitico', value: 450, def: 30, desc: 'Assorbimento d\'impatto.', iconType: User },
 };
 
-// HELPER: Crea un oggetto tracciandone la Durabilità se equipaggiabile
-const createItemObj = (nameStr) => {
-  const isEquipment = ['weapon', 'helmet', 'chest', 'pants', 'shoes'].includes(ITEMS[nameStr]?.type);
-  return {
-    id: Math.random().toString(36).substr(2, 9),
-    name: nameStr,
-    dura: isEquipment ? 100 : null
-  };
-};
-
 // --- MAPPA ---
 const LOCATIONS = [
   { id: 'duomo', name: 'Cratere del Duomo', type: 'danger', x: 50, y: 50, reqRad: 2, desc: 'Ground Zero. REQUISITO: HAZMAT POTENZIATA.', lvl: 25, cost: 40, enemies: ['Chimera'], loot: ['Disco Dati Governativo', 'Chiavetta USB Criptata', 'Minigun Vulcan', 'Corazza Hazmat Potenziata', 'Casco Hazmat Potenziato', 'Zaino Sopravvivenza'], minLoot: 4, maxLoot: 6 },
@@ -216,23 +206,33 @@ const MAX_ENERGY = 100;
 const BASE_ATK = 5;
 const BASE_DEF = 0;
 
+// HELPER DI SICUREZZA: Garantiscono che non ci siano crash leggendo nomi errati o stringhe "legacy" dai salvataggi
+const getItemName = (item) => typeof item === 'string' ? item : item?.name;
+const createItemObj = (nameStr) => {
+  const isEquipment = ['weapon', 'helmet', 'chest', 'pants', 'shoes'].includes(ITEMS[nameStr]?.type);
+  return {
+    id: Math.random().toString(36).substr(2, 9),
+    name: nameStr,
+    dura: isEquipment ? 100 : null
+  };
+};
+
 export default function App() {
   const [gameState, setGameState] = useState('start');
   const [view, setView] = useState('equipment');
   const [marketTab, setMarketTab] = useState('sell'); 
   const [level, setLevel] = useState(1);
   const [xp, setXp] = useState(0);
-  const currentMaxHp = 100 + (level - 1) * 10; 
-  const [hp, setHp] = useState(currentMaxHp);
+  
+  // STATI
+  const [hp, setHp] = useState(100);
   const [energy, setEnergy] = useState(MAX_ENERGY);
   const [credits, setCredits] = useState(100);
   const [day, setDay] = useState(1);
   const [gameOver, setGameOver] = useState(false);
   const [deathReason, setDeathReason] = useState('');
-  
   const [shelterLevel, setShelterLevel] = useState(1);
 
-  // Tutto l'inventario ora usa gli oggetti strutturati (id, name, dura)
   const [equipped, setEquipped] = useState({
     helmet: createItemObj('Berretto di Lana'), 
     chest: createItemObj('Giacca Casual'), 
@@ -256,8 +256,11 @@ export default function App() {
   const [isTraveling, setIsTraveling] = useState(false);
   const [travelTarget, setTravelTarget] = useState(null);
   const [isEnemyTurn, setIsEnemyTurn] = useState(false);
+  const [loadError, setLoadError] = useState('');
 
   const logEndRef = useRef(null);
+
+  const currentMaxHp = 100 + (level - 1) * 10; 
 
   useEffect(() => { logEndRef.current?.scrollIntoView({ behavior: 'smooth' }); }, [logs]);
 
@@ -276,20 +279,20 @@ export default function App() {
     }
   }, [xp, level]);
 
-  const getMaxInventory = () => equipped.backpack ? ITEMS[equipped.backpack.name].slots : 5;
-  const getMaxStash = () => 20 + (shelterLevel - 1) * 30; // Il livello del rifugio sblocca spazio
+  const getMaxInventory = () => equipped.backpack ? (ITEMS[getItemName(equipped.backpack)]?.slots || 5) : 5;
+  const getMaxStash = () => 20 + (shelterLevel - 1) * 30;
 
-  const getAtk = () => BASE_ATK + (equipped.weapon ? ITEMS[equipped.weapon.name].atk : 0);
+  const getAtk = () => BASE_ATK + (equipped.weapon ? (ITEMS[getItemName(equipped.weapon)]?.atk || 0) : 0);
   const getDef = () => BASE_DEF + 
-    (equipped.helmet ? ITEMS[equipped.helmet.name].def : 0) +
-    (equipped.chest ? ITEMS[equipped.chest.name].def : 0) +
-    (equipped.pants ? ITEMS[equipped.pants.name].def : 0) +
-    (equipped.shoes ? ITEMS[equipped.shoes.name].def : 0);
+    (equipped.helmet ? (ITEMS[getItemName(equipped.helmet)]?.def || 0) : 0) +
+    (equipped.chest ? (ITEMS[getItemName(equipped.chest)]?.def || 0) : 0) +
+    (equipped.pants ? (ITEMS[getItemName(equipped.pants)]?.def || 0) : 0) +
+    (equipped.shoes ? (ITEMS[getItemName(equipped.shoes)]?.def || 0) : 0);
 
   const getRadProtect = () => {
     let rads = 0;
-    if (equipped.helmet && ITEMS[equipped.helmet.name].radProtect) rads += ITEMS[equipped.helmet.name].radProtect;
-    if (equipped.chest && ITEMS[equipped.chest.name].radProtect) rads += ITEMS[equipped.chest.name].radProtect;
+    if (equipped.helmet && ITEMS[getItemName(equipped.helmet)]?.radProtect) rads += ITEMS[getItemName(equipped.helmet)].radProtect;
+    if (equipped.chest && ITEMS[getItemName(equipped.chest)]?.radProtect) rads += ITEMS[getItemName(equipped.chest)].radProtect;
     return rads;
   };
 
@@ -300,7 +303,7 @@ export default function App() {
         if (!prev[type] || prev[type].dura === null) return prev;
         const newDura = prev[type].dura - amount;
         if (newDura <= 0) {
-            addLog(`💥 IL TUO ${prev[type].name.toUpperCase()} SI È DISTRUTTO!`, 'danger');
+            addLog(`💥 IL TUO ${getItemName(prev[type]).toUpperCase()} SI È DISTRUTTO!`, 'danger');
             return { ...prev, [type]: null };
         }
         return { ...prev, [type]: { ...prev[type], dura: newDura } };
@@ -322,7 +325,9 @@ export default function App() {
         if (calcTop < 10) calcTop = window.innerHeight / 2 - widgetHeight / 2; 
     }
     setPopupPos({ top: calcTop, left: calcLeft });
-    setSelectedItem({ obj: itemObj, name: itemObj.name, index, context, data: ITEMS[itemObj.name] });
+    
+    const name = getItemName(itemObj);
+    setSelectedItem({ obj: itemObj, name: name, index, context, data: ITEMS[name] });
   };
 
   const chiudiPopup = () => setSelectedItem(null);
@@ -338,7 +343,7 @@ export default function App() {
     if (currentEquipped) newInventory.push(currentEquipped);
     
     setInventory(newInventory); setEquipped(prev => ({ ...prev, [data.type]: obj }));
-    addLog(`Equipaggiato: ${obj.name}`, 'success'); chiudiPopup();
+    addLog(`Equipaggiato: ${getItemName(obj)}`, 'success'); chiudiPopup();
   };
 
   const unequipItem = (type) => {
@@ -348,7 +353,7 @@ export default function App() {
     if (inventory.length >= getMaxInventory()) { addLog('Inventario pieno.', 'warning'); chiudiPopup(); return; }
 
     setEquipped(prev => ({ ...prev, [type]: null })); setInventory(prev => [...prev, itemObj]);
-    addLog(`Rimosso: ${itemObj.name}`, 'info'); chiudiPopup();
+    addLog(`Rimosso: ${getItemName(itemObj)}`, 'info'); chiudiPopup();
   };
 
   const useItem = () => {
@@ -394,10 +399,12 @@ export default function App() {
     const wonObj = createItemObj(wonItemStr);
     setInventory(prev => [...prev, wonObj]);
     
-    const xpGained = RARITY[ITEMS[wonItemStr].rarity].xp;
-    if(xpGained > 0) setXp(prev => prev + xpGained);
-
-    addLog(`🎁 Cassa aperta! Trovato: ${wonItemStr} ${xpGained > 0 ? `(+${xpGained} XP)` : ''}`, 'success');
+    const itemInfo = ITEMS[wonItemStr];
+    if (itemInfo) {
+      const xpGained = RARITY[itemInfo.rarity]?.xp || 0;
+      if(xpGained > 0) setXp(prev => prev + xpGained);
+      addLog(`🎁 Cassa aperta! Trovato: ${wonItemStr} ${xpGained > 0 ? `(+${xpGained} XP)` : ''}`, 'success');
+    }
   };
 
   const upgradeShelter = () => {
@@ -412,10 +419,12 @@ export default function App() {
       let hasAll = true;
       let missingMsg = 'Mancano: ';
       
-      // Controllo risorse (Inventory + Stash)
       const allItems = [...inventory, ...stash];
       const itemsCount = {};
-      allItems.forEach(i => { itemsCount[i.name] = (itemsCount[i.name] || 0) + 1; });
+      allItems.forEach(i => { 
+        const name = getItemName(i);
+        itemsCount[name] = (itemsCount[name] || 0) + 1; 
+      });
 
       for (const [resName, required] of Object.entries(reqs)) {
           if ((itemsCount[resName] || 0) < required) {
@@ -426,18 +435,18 @@ export default function App() {
 
       if (!hasAll) { addLog(missingMsg, 'danger'); return; }
 
-      // Rimozione risorse (priorità alla cassa, poi zaino)
       let remainingToRemove = { ...reqs };
       let newStash = [...stash];
       let newInv = [...inventory];
 
       for (const resName of Object.keys(remainingToRemove)) {
           while (remainingToRemove[resName] > 0) {
-              let stashIdx = newStash.findIndex(i => i.name === resName);
+              let stashIdx = newStash.findIndex(i => getItemName(i) === resName);
               if (stashIdx !== -1) { newStash.splice(stashIdx, 1); remainingToRemove[resName]--; continue; }
               
-              let invIdx = newInv.findIndex(i => i.name === resName);
+              let invIdx = newInv.findIndex(i => getItemName(i) === resName);
               if (invIdx !== -1) { newInv.splice(invIdx, 1); remainingToRemove[resName]--; continue; }
+              break; // Sicurezza loop
           }
       }
 
@@ -453,9 +462,9 @@ export default function App() {
       let attempts = 0; let finalItemStr = null;
       while (attempts < 15) {
         let candidate = loc.loot[Math.floor(Math.random() * loc.loot.length)];
-        let candidateType = ITEMS[candidate].type;
+        let candidateType = ITEMS[candidate]?.type;
         if (!['weapon', 'helmet', 'chest', 'pants', 'shoes', 'backpack'].includes(candidateType)) { finalItemStr = candidate; break; }
-        if (!found.some(f => f.name === candidate) && !uniqueEquipmentFound.has(candidate)) {
+        if (!found.some(f => getItemName(f) === candidate) && !uniqueEquipmentFound.has(candidate)) {
           finalItemStr = candidate; uniqueEquipmentFound.add(candidate); break;
         }
         attempts++;
@@ -471,11 +480,15 @@ export default function App() {
     if (inventory.length >= getMaxInventory()) { addLog('Lo zaino è pieno!', 'danger'); return; }
     
     const itemObj = pendingLoot.items[index];
+    const name = getItemName(itemObj);
     setInventory(prev => [...prev, itemObj]);
 
-    const xpGained = RARITY[ITEMS[itemObj.name].rarity].xp;
-    if(xpGained > 0) { setXp(prev => prev + xpGained); addLog(`✨ +${xpGained} XP (${itemObj.name})`, 'success'); } 
-    else { addLog(`Preso: ${itemObj.name}`, 'info'); }
+    const itemInfo = ITEMS[name];
+    if (itemInfo) {
+      const xpGained = RARITY[itemInfo.rarity]?.xp || 0;
+      if(xpGained > 0) { setXp(prev => prev + xpGained); addLog(`✨ +${xpGained} XP (${name})`, 'success'); } 
+      else { addLog(`Preso: ${name}`, 'info'); }
+    }
 
     const newLoot = [...pendingLoot.items]; newLoot.splice(index, 1);
     if (newLoot.length === 0) { setPendingLoot(null); setView('map'); } 
@@ -489,7 +502,11 @@ export default function App() {
     let itemsToTake = pendingLoot.items.slice(0, spaceLeft);
     let itemsLeft = pendingLoot.items.slice(spaceLeft);
     let xpGained = 0;
-    itemsToTake.forEach(item => { xpGained += RARITY[ITEMS[item.name].rarity].xp; });
+    
+    itemsToTake.forEach(itemObj => { 
+      const itemInfo = ITEMS[getItemName(itemObj)];
+      if(itemInfo) xpGained += RARITY[itemInfo.rarity]?.xp || 0; 
+    });
 
     setInventory(prev => [...prev, ...itemsToTake]);
     if(xpGained > 0) { setXp(prev => prev + xpGained); addLog(`✨ +${xpGained} XP totali dai ritrovamenti!`, 'success'); }
@@ -503,8 +520,7 @@ export default function App() {
     if (energy < loc.cost) { addLog(`Energia insufficiente.`, 'warning'); return; }
     if (inventory.length >= getMaxInventory() && loc.type !== 'safe') { addLog('Inventario pieno. Svuotalo prima.', 'warning'); return; }
     
-    // --- CONTROLLO REQUISITI ZONA (Chiavi e Hazmat) ---
-    if (loc.reqKey && !inventory.some(i => i.name === loc.reqKey) && !stash.some(i => i.name === loc.reqKey)) {
+    if (loc.reqKey && !inventory.some(i => getItemName(i) === loc.reqKey) && !stash.some(i => getItemName(i) === loc.reqKey)) {
         addLog(`🔒 ACCESSO NEGATO. Richiesta: ${loc.reqKey}`, 'danger');
         return;
     }
@@ -536,7 +552,6 @@ export default function App() {
     let newEnemyHp = combatState.hp - pDmg;
     addLog(`💥 Danno inflitto: ${pDmg}!`, 'info');
     
-    // Usura Arma (1-5 danni)
     if (equipped.weapon) damageEquipment('weapon', Math.floor(Math.random() * 5) + 1);
 
     if (newEnemyHp <= 0) {
@@ -557,11 +572,10 @@ export default function App() {
             });
             addLog(`🩸 ${enemyName} colpisce per ${eDmg} danni.`, 'danger');
             
-            // Usura Armatura Casuale
             const armorSlots = ['helmet', 'chest', 'pants', 'shoes'].filter(slot => equipped[slot]);
             if (armorSlots.length > 0) {
                 const randomSlot = armorSlots[Math.floor(Math.random() * armorSlots.length)];
-                damageEquipment(randomSlot, Math.floor(Math.random() * 8) + 2); // Danno armatura più alto
+                damageEquipment(randomSlot, Math.floor(Math.random() * 8) + 2);
             }
 
             setIsEnemyTurn(false);
@@ -571,14 +585,17 @@ export default function App() {
 
   const combatHeal = () => {
     if (!combatState || isEnemyTurn) return;
-    const healIndex = inventory.findIndex(i => ITEMS[i.name].type === 'medical' || ITEMS[i.name].type === 'consumable');
+    const healIndex = inventory.findIndex(i => {
+      const name = getItemName(i);
+      return ITEMS[name]?.type === 'medical' || ITEMS[name]?.type === 'consumable';
+    });
     if (healIndex === -1) { addLog('❌ Nessun oggetto curativo rapido nello zaino!', 'warning'); return; }
     
     setIsEnemyTurn(true);
-    const item = ITEMS[inventory[healIndex].name];
-    setHp(prev => Math.min(currentMaxHp, prev + item.heal));
+    const itemInfo = ITEMS[getItemName(inventory[healIndex])];
+    setHp(prev => Math.min(currentMaxHp, prev + itemInfo.heal));
     let newInv = [...inventory]; newInv.splice(healIndex, 1); setInventory(newInv);
-    addLog(`🩹 Curato ${item.heal} HP.`, 'success');
+    addLog(`🩹 Curato ${itemInfo.heal} HP.`, 'success');
     
     const enemyName = combatState.enemy.name; const enemyAtk = combatState.enemy.atk; const locName = combatState.location.name; const playerDef = getDef();
     setTimeout(() => {
@@ -601,11 +618,12 @@ export default function App() {
 
   const rest = () => {
     chiudiPopup();
-    let hasFood = stash.some(i => i.name === 'Razione K'); let hasWater = stash.some(i => i.name === 'Acqua Purificata');
+    let hasFood = stash.some(i => getItemName(i) === 'Razione K'); 
+    let hasWater = stash.some(i => getItemName(i) === 'Acqua Purificata');
     let dmg = 0; let newStash = [...stash];
 
-    if (hasFood) { newStash.splice(newStash.findIndex(i => i.name === 'Razione K'), 1); addLog('Razione consumata.', 'success'); } else { dmg += 20; addLog('Fame estrema (-20 HP).', 'danger'); }
-    if (hasWater) { newStash.splice(newStash.findIndex(i => i.name === 'Acqua Purificata'), 1); addLog('Acqua consumata.', 'success'); } else { dmg += 20; addLog('Sete estrema (-20 HP).', 'danger'); }
+    if (hasFood) { newStash.splice(newStash.findIndex(i => getItemName(i) === 'Razione K'), 1); addLog('Razione consumata.', 'success'); } else { dmg += 20; addLog('Fame estrema (-20 HP).', 'danger'); }
+    if (hasWater) { newStash.splice(newStash.findIndex(i => getItemName(i) === 'Acqua Purificata'), 1); addLog('Acqua consumata.', 'success'); } else { dmg += 20; addLog('Sete estrema (-20 HP).', 'danger'); }
 
     setStash(newStash); setDay(prev => prev + 1); setEnergy(MAX_ENERGY);
 
@@ -625,6 +643,42 @@ export default function App() {
     setLogs([{ text: 'Nuova partita iniziata.', type: 'info' }]);
     setCombatState(null); setPendingLoot(null); chiudiPopup();
     setGameOver(false); setGameState('playing'); setView('equipment');
+  };
+
+  // --- DOWNLOAD DATI / UPLOAD DATI ---
+  const downloadSave = () => {
+    const saveData = { level, xp, hp, energy, credits, day, shelterLevel, equipped, inventory, stash, logs };
+    const blob = new Blob([JSON.stringify(saveData)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = `MilanoAnnoZero_Day${day}.json`;
+    document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url);
+    addLog('Dati salvati su disco esterno.', 'success');
+  };
+
+  const handleFileUpload = (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      try {
+        const data = JSON.parse(event.target.result);
+        if (data.level) {
+            setLevel(data.level); setXp(data.xp); setHp(data.hp); setEnergy(data.energy);
+            setCredits(data.credits); setDay(data.day); 
+            setShelterLevel(data.shelterLevel || 1);
+            setEquipped(data.equipped); setInventory(data.inventory); setStash(data.stash); 
+            setLogs(data.logs);
+            setGameState('playing'); setView('base');
+            addLog('Salvataggio caricato con successo.', 'success');
+        } else {
+            setLoadError('File non compatibile.'); setTimeout(() => setLoadError(''), 3000);
+        }
+      } catch (err) {
+        setLoadError('Errore nella lettura del disco dati.'); setTimeout(() => setLoadError(''), 3000);
+      }
+    };
+    reader.readAsText(file);
   };
 
   // ==========================================
@@ -694,7 +748,7 @@ export default function App() {
     const [imgError, setImgError] = useState(false);
     if (!itemData) return null;
     const customUrl = isEnemy ? CUSTOM_ENEMIES_IMAGES[itemName] : CUSTOM_IMAGES[itemName];
-    const IconComponent = isEnemy ? Skull : (itemData.iconType || Package);
+    const IconComponent = isEnemy ? Skull : (itemData?.iconType || Package);
 
     if (customUrl && customUrl.trim() !== '' && !imgError) {
       return (
@@ -715,22 +769,25 @@ export default function App() {
     for (let i = 0; i < maxSlots; i++) {
       const itemObj = items[i];
       if (itemObj) {
-        const itemData = ITEMS[itemObj.name];
-        const rColor = RARITY[itemData.rarity].color;
-        const rBorder = RARITY[itemData.rarity].border;
+        const name = getItemName(itemObj);
+        const itemData = ITEMS[name];
+        if (!itemData) continue; // Salta item invalidi in modo sicuro
+        
+        const rColor = RARITY[itemData.rarity]?.color || 'text-stone-300';
+        const rBorder = RARITY[itemData.rarity]?.border || 'border-stone-500';
         const isSelected = selectedItem?.index === i && selectedItem?.context === context;
 
         gridItems.push(
-          <div key={`${context}-${itemObj.id}`} onClick={(e) => { e.stopPropagation(); if (onSelect) onSelect(e, itemObj, i, context); }}
+          <div key={`${context}-${itemObj.id || i}`} onClick={(e) => { e.stopPropagation(); if (onSelect) onSelect(e, itemObj, i, context); }}
             className={`aspect-square rounded-md flex flex-col items-center justify-center cursor-pointer transition-all border relative overflow-hidden group ${isSelected ? `border-white z-10 bg-[#3a3f3b]` : `${rBorder} bg-gradient-to-br from-[#2a2e2b] to-[#1f221f] hover:brightness-125`}`}
-            style={{ boxShadow: isSelected ? `inset 0 0 15px ${RARITY[itemData.rarity].shadow}` : `inset 0 4px 6px rgba(0,0,0,0.6)` }}
+            style={{ boxShadow: isSelected ? `inset 0 0 15px ${RARITY[itemData.rarity]?.shadow}` : `inset 0 4px 6px rgba(0,0,0,0.6)` }}
           >
-            <CustomImageRenderer itemData={itemData} itemName={itemObj.name} />
+            <CustomImageRenderer itemData={itemData} itemName={name} />
             <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-[#111] via-[#111]/80 to-transparent pt-5 pb-1 px-1 z-20">
-              <span className={`text-[9px] text-center leading-tight line-clamp-1 font-bold block ${rColor}`}>{itemObj.name}</span>
+              <span className={`text-[9px] text-center leading-tight line-clamp-1 font-bold block ${rColor}`}>{name}</span>
             </div>
             {/* Barra Durabilità */}
-            {itemObj.dura !== null && (
+            {itemObj.dura !== null && itemObj.dura !== undefined && (
               <div className="absolute top-1 left-1 right-1 h-1 bg-black/60 rounded-full overflow-hidden z-20">
                  <div className={`h-full ${itemObj.dura > 50 ? 'bg-green-500' : itemObj.dura > 25 ? 'bg-amber-500' : 'bg-red-500'}`} style={{width: `${itemObj.dura}%`}}></div>
               </div>
@@ -763,7 +820,7 @@ export default function App() {
             <div className="p-3 border-b border-[#141615] bg-[#232624] flex justify-between items-center">
                <div className="flex-1">
                  <h4 className="font-black text-sm text-stone-100 uppercase tracking-widest leading-tight">{selectedItem.name}</h4>
-                 <p className={`text-[10px] font-bold uppercase tracking-widest mt-1 ${RARITY[selectedItem.data.rarity].color}`}>{RARITY[selectedItem.data.rarity].name}</p>
+                 <p className={`text-[10px] font-bold uppercase tracking-widest mt-1 ${RARITY[selectedItem.data.rarity]?.color}`}>{RARITY[selectedItem.data.rarity]?.name}</p>
                </div>
                <div className="w-12 h-12 bg-[#1b1d1b] rounded border border-[#141615] shadow-[inset_0_2px_4px_rgba(0,0,0,0.6)] relative overflow-hidden flex-shrink-0 ml-2">
                  <CustomImageRenderer itemData={selectedItem.data} itemName={selectedItem.name} />
@@ -772,7 +829,7 @@ export default function App() {
             
             <div className="p-2 bg-[#1b1d1b]">
                <p className="text-[11px] text-stone-400 italic mb-2 leading-tight">"{selectedItem.data.desc}"</p>
-               {selectedItem.obj.dura !== null && (
+               {selectedItem.obj.dura !== null && selectedItem.obj.dura !== undefined && (
                  <div className="mb-2">
                     <span className="text-[9px] text-stone-500 uppercase tracking-widest block mb-1">Durabilità: {selectedItem.obj.dura}%</span>
                     <div className="w-full h-1.5 bg-black rounded-full overflow-hidden"><div className={`h-full ${selectedItem.obj.dura > 50 ? 'bg-green-500' : selectedItem.obj.dura > 25 ? 'bg-amber-500' : 'bg-red-500'}`} style={{width: `${selectedItem.obj.dura}%`}}></div></div>
@@ -784,6 +841,7 @@ export default function App() {
                   {selectedItem.data.def && <span className="bg-[#111] px-2 py-1 rounded text-blue-500 border border-[#222] flex items-center"><Shield className="w-3 h-3 mr-1"/>+{selectedItem.data.def}</span>}
                   {selectedItem.data.radProtect && <span className="bg-[#111] px-2 py-1 rounded text-green-400 border border-[#222] flex items-center"><AlertTriangle className="w-3 h-3 mr-1"/>RAD +{selectedItem.data.radProtect}</span>}
                   {selectedItem.data.heal && <span className="bg-[#111] px-2 py-1 rounded text-green-500 border border-[#222] flex items-center"><PlusSquare className="w-3 h-3 mr-1"/>+{selectedItem.data.heal}</span>}
+                  {selectedItem.data.slots && <span className="bg-[#111] px-2 py-1 rounded text-stone-300 border border-[#222] flex items-center"><Backpack className="w-3 h-3 mr-1"/>{selectedItem.data.slots} Slt</span>}
                </div>
             </div>
 
@@ -915,17 +973,18 @@ export default function App() {
 
             <div className="grid grid-cols-4 sm:grid-cols-5 gap-2 mb-4 bg-[#141615] p-3 rounded-lg border border-[#2d312f] shadow-inner max-h-[40vh] overflow-y-auto custom-scrollbar">
               {pendingLoot.items.map((itemObj, idx) => {
-                const itemData = ITEMS[itemObj.name];
-                const rColor = RARITY[itemData.rarity].color;
-                const rBorder = RARITY[itemData.rarity].border;
+                const name = getItemName(itemObj);
+                const itemData = ITEMS[name];
+                const rColor = RARITY[itemData?.rarity]?.color || 'text-stone-300';
+                const rBorder = RARITY[itemData?.rarity]?.border || 'border-stone-500';
                 return (
                   <div key={idx} onClick={(e) => takeLootItem(e, idx)}
                     className={`aspect-square rounded-md flex flex-col items-center justify-center cursor-pointer transition-all border relative overflow-hidden group ${rBorder} bg-gradient-to-br from-[#2a2e2b] to-[#1f221f] hover:brightness-125 hover:scale-105`}
-                    style={{ boxShadow: `inset 0 0 10px ${RARITY[itemData.rarity].shadow}` }}
+                    style={{ boxShadow: `inset 0 0 10px ${RARITY[itemData?.rarity]?.shadow}` }}
                   >
-                    <CustomImageRenderer itemData={itemData} itemName={itemObj.name} />
+                    <CustomImageRenderer itemData={itemData} itemName={name} />
                     <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-[#111] via-[#111]/80 to-transparent pt-4 pb-1 px-1 z-20">
-                      <span className={`text-[8px] sm:text-[9px] text-center leading-tight line-clamp-1 font-bold block ${rColor}`}>{itemObj.name}</span>
+                      <span className={`text-[8px] sm:text-[9px] text-center leading-tight line-clamp-1 font-bold block ${rColor}`}>{name}</span>
                     </div>
                   </div>
                 )
@@ -1119,7 +1178,7 @@ export default function App() {
                 </div>
 
                 <div className="bg-[#111] p-3 rounded border border-[#232624] shadow-inner flex justify-between items-center">
-                  <span className="text-[9px] text-stone-500 font-bold uppercase tracking-widest">Saldo Attuale</span>
+                  <span className="text-[9px] text-stone-500 font-bold uppercase tracking-widest mb-1">Saldo Attuale</span>
                   <span className="text-xl font-black text-amber-500 flex items-center"><Coins className="w-5 h-5 mr-2 opacity-80"/>{credits}</span>
                 </div>
 
@@ -1209,21 +1268,23 @@ export default function App() {
 
   function EquipSlot({ type, itemObj, onUnequip, label }) {
     if (itemObj) {
-      const data = ITEMS[itemObj.name];
-      const rColor = RARITY[data.rarity].color;
-      const rBorder = RARITY[data.rarity].border;
+      const name = getItemName(itemObj);
+      const data = ITEMS[name];
+      if (!data) return null; // Safety check
+      const rColor = RARITY[data.rarity]?.color || 'text-stone-300';
+      const rBorder = RARITY[data.rarity]?.border || 'border-stone-500';
       return (
         <div className="flex flex-col items-center">
           <div onClick={onUnequip} 
                className={`w-14 h-14 sm:w-16 sm:h-16 bg-[#2a2e2b] border ${rBorder} rounded-md flex items-center justify-center cursor-pointer hover:brightness-110 transition-all relative group overflow-hidden shadow-[0_4px_10px_rgba(0,0,0,0.5)]`}
-               style={{ boxShadow: `inset 0 0 15px ${RARITY[data.rarity].shadow}` }}>
+               style={{ boxShadow: `inset 0 0 15px ${RARITY[data.rarity]?.shadow}` }}>
             
             <div className="absolute inset-0 flex items-center justify-center">
-              <CustomImageRenderer itemData={data} itemName={itemObj.name} />
+              <CustomImageRenderer itemData={data} itemName={name} />
             </div>
             
             {/* Barra Durabilità */}
-            {itemObj.dura !== null && (
+            {itemObj.dura !== null && itemObj.dura !== undefined && (
               <div className="absolute top-1 left-1 right-1 h-1 bg-black/60 rounded-full overflow-hidden z-20">
                  <div className={`h-full ${itemObj.dura > 50 ? 'bg-green-500' : itemObj.dura > 25 ? 'bg-amber-500' : 'bg-red-500'}`} style={{width: `${itemObj.dura}%`}}></div>
               </div>
