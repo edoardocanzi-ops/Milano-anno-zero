@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+
 import { 
   Shield, Zap, Heart, Map, Home, Backpack, Skull, AlertTriangle, 
   Package, ArchiveRestore, Coffee, PlusSquare, Crosshair, Shirt, 
@@ -24,11 +24,11 @@ const CUSTOM_IMAGES = {
   'Mazza da Baseball': '', 
 
   // --- ZAINI ---
-  'Sacca Sportiva': 'https://i.postimg.cc/cCWx9TFJ/Screenshot_20260330_142331_2.jpg',
-  'Zaino Normale': 'https://i.postimg.cc/cCcSVYjq/Screenshot_20260330_142331_3.jpg',
-  'Sacca Tattica': 'https://i.postimg.cc/T1xd7QtW/Screenshot_20260330_142331_4.jpg',
-  'Zaino SWAT': 'https://i.postimg.cc/h48PzWGP/Screenshot_20260330_142331_5.jpg',
-  'Zaino Forze Speciali': 'https://i.postimg.cc/D0hvj5xZ/Screenshot_20260330_142331_6.jpg',
+  'Sacca Sportiva': 'https://i.postimg.cc/CCwx9TFJ/Screenshot_20260330_142331_2.jpg',
+  'Sacca a Tracolla': 'https://i.postimg.cc/cCcSVYjq/Screenshot_20260330_142331_3.jpg',
+  'Zaino da Escursionismo': 'https://i.postimg.cc/T1xd7QtW/Screenshot_20260330_142331_4.jpg',
+  'Zaino Tattico Militare': 'https://i.postimg.cc/D0hvj5xZ/Screenshot_20260330_142331_6.jpg',
+  'Zaino Sopravvivenza': 'https://i.postimg.cc/cCcSVYjq/Screenshot_20260330_142331_3.jpg',
 
   // --- SET 1: CASUAL (Comune) ---
   'Berretto di Lana': 'https://i.postimg.cc/3Nh8S9tj/Screenshot_20260330_132744_2.jpg',
@@ -49,7 +49,7 @@ const CUSTOM_IMAGES = {
   'Stivali da Trekking': 'https://i.postimg.cc/3Nh8S9t8/Screenshot_20260330_141126_5.jpg',
 
   // --- SET 4: ANTISOMMOSSA (Leggendario) ---
-  'Casco Antisommossa': 'https://i.postimg.cc/wx5Ty8BB/Screenshot_20260330_132744_5.jpg',
+  'Casco Antisommossa': 'https://i.postimg.cc/wX5Ty8BB/Screenshot_20260330_132744_5.jpg',
   'Corazza Antisommossa': 'https://i.postimg.cc/qqGk9nFw/Screenshot_20260330_141043_8.jpg',
   'Pantaloni Antisommossa': 'https://i.postimg.cc/rsTVngfD/Screenshot_20260330_164352_5.jpg',
   'Anfibi Antisommossa': 'https://i.postimg.cc/Wz72QryH/Screenshot_20260330_141126_6.jpg',
@@ -62,7 +62,7 @@ const CUSTOM_IMAGES = {
 };
 
 const CUSTOM_ENEMIES_IMAGES = {
-  'Lurker': '', 'Slasher': '', 'Rioter': 'https://i.postimg.cc/tJwtKHdc/Gemini_Generated_Image_sefk1ysefk1ysefk.png', 'Chimera': 'https://i.postimg.cc/tJwtKHdc/Gemini_Generated_Image_sefk1ysefk1ysefk.png', 'Gilbert': ''
+  'Lurker': '', 'Slasher': '', 'Rioter': '', 'Chimera': '', 'Gilbert': ''
 };
 
 // --- STILE LDOE E XP ---
@@ -97,10 +97,10 @@ const ITEMS = {
   'Disco Dati Governativo': { type: 'resource', rarity: 'mitico', value: 500, desc: 'Codici di sicurezza.', iconType: Package },
 
   'Sacca Sportiva': { type: 'backpack', rarity: 'comune', value: 20, slots: 10, desc: 'Capienza: 10 Slot', iconType: Backpack },
-  'Zaino Normale': { type: 'backpack', rarity: 'raro', value: 50, slots: 15, desc: 'Capienza: 15 Slot', iconType: Backpack },
-  'Sacca Tattica': { type: 'backpack', rarity: 'epico', value: 120, slots: 20, desc: 'Capienza: 20 Slot', iconType: Backpack },
-  'Zaino SWAT': { type: 'backpack', rarity: 'leggendario', value: 250, slots: 25, desc: 'Capienza: 25 Slot', iconType: Backpack },
-  'Zaino Forze Speciali': { type: 'backpack', rarity: 'mitico', value: 600, slots: 30, desc: 'Capienza: 30 Slot', iconType: Backpack },
+  'Sacca a Tracolla': { type: 'backpack', rarity: 'raro', value: 50, slots: 15, desc: 'Capienza: 15 Slot', iconType: Backpack },
+  'Zaino da Escursionismo': { type: 'backpack', rarity: 'epico', value: 120, slots: 20, desc: 'Capienza: 20 Slot', iconType: Backpack },
+  'Zaino Tattico Militare': { type: 'backpack', rarity: 'leggendario', value: 250, slots: 25, desc: 'Capienza: 25 Slot', iconType: Backpack },
+  'Zaino Sopravvivenza': { type: 'backpack', rarity: 'mitico', value: 600, slots: 30, desc: 'Capienza: 30 Slot', iconType: Backpack },
 
   'Coltellino': { type: 'weapon', rarity: 'comune', value: 10, atk: 5, desc: 'Lama corta.', iconType: Crosshair },
   'Mazza da Baseball': { type: 'weapon', rarity: 'comune', value: 20, atk: 12, desc: 'Pesante.', iconType: Crosshair },
@@ -197,7 +197,15 @@ export default function App() {
   const logEndRef = useRef(null);
 
   useEffect(() => { logEndRef.current?.scrollIntoView({ behavior: 'smooth' }); }, [logs]);
-  useEffect(() => { if (hp <= 0 && !gameOver) setGameOver(true); }, [hp, gameOver]);
+
+  // CONTROLLO DI MORTE (ATTENZIONE: Questo è il blocco che mancava per mostrare il Game Over!)
+  useEffect(() => { 
+    if (hp <= 0 && !gameOver) {
+      setGameOver(true);
+      setCombatState(null);
+      setPendingLoot(null);
+    }
+  }, [hp, gameOver]);
 
   // Gestione Level Up
   useEffect(() => {
@@ -411,7 +419,7 @@ export default function App() {
     addLog(`⚠️ MINACCIA RILEVATA: ${enemyData.name}!`, 'danger');
   };
 
-  const combatAttack = () => {
+ const combatAttack = () => {
     if (!combatState || isEnemyTurn) return;
     setIsEnemyTurn(true);
 
@@ -505,8 +513,12 @@ export default function App() {
     setStash(newStash); setDay(prev => prev + 1); setEnergy(MAX_ENERGY);
 
     if (dmg > 0) {
-      setHp(prev => prev - dmg);
-      if (hp - dmg <= 0) setDeathReason("Morto di stenti.");
+      // FIX PER LA MORTE NEL RIFUGIO: calcoliamo il danno in modo sicuro
+      setHp(prev => {
+        const nextHp = prev - dmg;
+        if (nextHp <= 0) setDeathReason("Morto di stenti nel rifugio.");
+        return nextHp;
+      });
     } else {
       setHp(prev => Math.min(currentMaxHp, prev + 30));
       addLog('Riposo completato. HP recuperati.', 'info');
@@ -525,7 +537,11 @@ export default function App() {
     setGameOver(false); setGameState('playing'); setView('equipment');
   };
 
-  if (gameState === 'start') {
+  // ==========================================
+  // RENDER COMPONENTI GRAFICI
+  // ==========================================
+  
+  if (gameState === 'start' && !gameOver) {
     return (
       <div className="min-h-screen bg-[#121312] flex flex-col items-center justify-center p-6 relative overflow-hidden font-sans">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#2a1b1b] via-[#121312] to-[#0a0a0a] opacity-80 pointer-events-none"></div>
@@ -542,6 +558,27 @@ export default function App() {
               Nuova Partita
             </button>
           </div>
+        </div>
+      </div>
+    );
+  }
+
+  // --- SCHERMATA DI GAME OVER ---
+  if (gameOver) {
+    return (
+      <div className="min-h-screen bg-[#121312] flex flex-col items-center justify-center p-6 relative overflow-hidden font-sans">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#2a1b1b] via-[#121312] to-[#0a0a0a] opacity-80 pointer-events-none"></div>
+        <div className="w-full max-w-md bg-[#1e211f] border-2 border-red-900 p-8 rounded-xl text-center shadow-[0_0_50px_rgba(220,38,38,0.2)] relative z-10 animate-fadeIn">
+          <Skull className="w-24 h-24 text-red-600 mx-auto mb-4 animate-pulse drop-shadow-[0_0_15px_rgba(220,38,38,0.5)]" />
+          <h1 className="text-5xl font-black text-stone-100 mb-2 uppercase tracking-widest">Sei Morto</h1>
+          <p className="text-stone-400 mb-6 text-sm italic">"{deathReason}"</p>
+          <div className="bg-[#141615] p-4 rounded-lg mb-6 text-left space-y-2 border border-[#2d312f] text-xs font-mono">
+            <p className="flex justify-between text-stone-400"><span>GIORNI SOPRAVVISSUTI</span> <span className="text-white font-bold">{day}</span></p>
+            <p className="flex justify-between text-stone-400"><span>LIVELLO RAGGIUNTO</span> <span className="text-amber-500 font-bold">{level}</span></p>
+          </div>
+          <button onClick={restartGame} className="w-full py-4 bg-gradient-to-b from-red-800 to-red-950 border border-red-700 text-stone-200 font-black uppercase tracking-widest rounded-lg shadow-[0_4px_0_#4a0a0a] active:translate-y-1 active:shadow-none hover:brightness-110 transition-all flex items-center justify-center space-x-2">
+            <ArchiveRestore className="w-5 h-5" /> <span>Crea Nuovo Clone</span>
+          </button>
         </div>
       </div>
     );
@@ -630,6 +667,7 @@ export default function App() {
     <div className="min-h-screen text-stone-300 font-sans flex flex-col h-screen overflow-hidden selection:bg-stone-700 bg-[#121312] relative">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#232724] via-[#131514] to-[#0a0a0a] opacity-80 pointer-events-none z-0"></div>
 
+      {/* WIDGET SOTTO L'OGGETTO */}
       {selectedItem && (
         <div className="fixed inset-0 z-50" onClick={chiudiPopup}>
           <div className="fixed z-50 w-[280px] bg-gradient-to-b from-[#2a2e2b] to-[#1f221f] border border-[#4a504d] rounded-md shadow-[0_10px_30px_rgba(0,0,0,0.9)] overflow-hidden"
@@ -679,6 +717,7 @@ export default function App() {
         </div>
       )}
 
+      {/* HEADER SUPERIORE */}
       <header className="bg-[#141615]/90 backdrop-blur-sm border-b border-[#232624] p-3 shadow-[0_4px_10px_rgba(0,0,0,0.5)] z-10 flex-shrink-0 relative">
         <div className="max-w-6xl mx-auto flex flex-col gap-2">
           <div className="flex items-center space-x-3 w-full">
@@ -915,7 +954,7 @@ export default function App() {
                       {inventory.length}/{getMaxInventory()}
                     </span>
                   </div>
-                  <div className="flex-1 overflow-y-auto custom-scrollbar pr-1 relative">
+                  <div className="flex-1 overflow-y-auto custom-scrollbar pr-1 relative" onClick={chiudiPopup}>
                     <InventoryGrid items={inventory} maxSlots={getMaxInventory()} onSelect={handleItemAction} context="inventory" />
                   </div>
                 </div>
@@ -938,7 +977,7 @@ export default function App() {
                 <div className="w-full lg:w-2/3 flex flex-col gap-3">
                   <div className="bg-[#1c1e1d] rounded-md p-3 border border-[#2d312f] flex-1 flex flex-col shadow-md">
                     <h3 className="text-[10px] font-black text-stone-400 uppercase tracking-widest mb-2 border-b border-[#2d312f] pb-1">Zaino Attuale</h3>
-                    <div className="flex-1 overflow-y-auto custom-scrollbar relative">
+                    <div className="flex-1 overflow-y-auto custom-scrollbar relative" onClick={chiudiPopup}>
                       <InventoryGrid items={inventory} maxSlots={getMaxInventory()} onSelect={handleItemAction} context="inventory" />
                     </div>
                   </div>
@@ -947,7 +986,7 @@ export default function App() {
                       <h3 className="text-[10px] font-black text-stone-400 uppercase tracking-widest">Cassa Sicura</h3>
                       <span className="text-[9px] font-mono text-stone-500 bg-[#111] px-1.5 py-0.5 rounded">{stash.length}/100</span>
                     </div>
-                    <div className="flex-1 overflow-y-auto custom-scrollbar relative">
+                    <div className="flex-1 overflow-y-auto custom-scrollbar relative" onClick={chiudiPopup}>
                        <InventoryGrid items={stash} maxSlots={Math.max(20, Math.ceil(stash.length/5)*5 + 5)} onSelect={handleItemAction} context="stash" />
                     </div>
                   </div>
@@ -971,7 +1010,7 @@ export default function App() {
                 
                 <div className="w-full lg:w-2/3 bg-[#1c1e1d] rounded-md p-3 border border-[#2d312f] flex flex-col shadow-md">
                   <h3 className="text-[10px] font-black text-stone-400 uppercase tracking-widest mb-2 border-b border-[#2d312f] pb-1">Seleziona per vendere</h3>
-                  <div className="flex-1 overflow-y-auto custom-scrollbar relative">
+                  <div className="flex-1 overflow-y-auto custom-scrollbar relative" onClick={chiudiPopup}>
                      <InventoryGrid items={inventory} maxSlots={getMaxInventory()} onSelect={handleItemAction} context="inventory" />
                   </div>
                 </div>
