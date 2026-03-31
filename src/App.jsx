@@ -1,4 +1,4 @@
-
+import React, { useState, useEffect, useRef } from 'react';
 import { 
   Shield, Zap, Heart, Map, Home, Backpack, Skull, AlertTriangle, 
   Package, ArchiveRestore, Coffee, PlusSquare, Crosshair, Shirt, 
@@ -419,7 +419,7 @@ export default function App() {
     addLog(`⚠️ MINACCIA RILEVATA: ${enemyData.name}!`, 'danger');
   };
 
- const combatAttack = () => {
+  const combatAttack = () => {
     if (!combatState || isEnemyTurn) return;
     setIsEnemyTurn(true);
 
