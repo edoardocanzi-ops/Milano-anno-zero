@@ -3,7 +3,7 @@ import {
   Shield, Zap, Heart, Map, Home, Backpack, Skull, AlertTriangle, 
   Package, ArchiveRestore, Coffee, PlusSquare, Crosshair, Shirt, 
   Scissors, Coins, Store, Navigation, MapPin, User, ShoppingCart, 
-  Activity, Star, Hammer, Key
+  Activity, Star, Hammer, Key, ArrowUp, ArrowDown, ArrowLeft, ArrowRight
 } from 'lucide-react';
 
 // ==========================================
@@ -31,37 +31,34 @@ const CUSTOM_IMAGES = {
   'Zaino Tattico Militare': 'https://i.postimg.cc/D0hvj5xZ/Screenshot_20260330_142331_6.jpg',
   'Zaino Sopravvivenza': '', 
 
-  // --- SET 1: CASUAL (Comune) ---
+  // --- SET 1: CASUAL ---
   'Berretto di Lana': 'https://i.postimg.cc/3Nh8S9tj/Screenshot_20260330_132744_2.jpg',
   'Giacca Casual': 'https://i.postimg.cc/wvLxQnQT/Screenshot_20260330_141043_5.jpg',
   'Jeans Strappati': 'https://i.postimg.cc/D0c2tsNc/Screenshot_20260330_164352_2.jpg',
   'Scarpe da Ginnastica': 'https://i.postimg.cc/L5S9Cvx5/Screenshot_20260330_141126_3.jpg',
 
-  // --- SET 2: CIVILE PESANTE (Raro) ---
+  // --- SET 2: CIVILE PESANTE ---
   'Casco da Lavoro': 'https://i.postimg.cc/PJMtBZ7g/Screenshot_20260330_132744_3.jpg',
   'Giubbotto di Pelle': 'https://i.postimg.cc/2yxzPvtZ/Screenshot_20260330_141043_6.jpg',
   'Pantaloni Cargo': 'https://i.postimg.cc/tJbqSDB7/Screenshot_20260330_164352_3.jpg',
   'Scarponi da Lavoro': 'https://i.postimg.cc/MHYWHRLd/Screenshot_20260330_141126_4.jpg',
 
-  // --- SET 3: CACCIA/SOPRAVVIVENZA (Epico) ---
+  // --- SET 3: CACCIA/SOPRAVVIVENZA ---
   'Cappello Mimetico': 'https://i.postimg.cc/T1xd7Qt9/Screenshot_20260330_132744_4.jpg',
   'Giacca da Caccia': 'https://i.postimg.cc/hvnDyM2K/Screenshot_20260330_141043_7.jpg',
   'Pantaloni da Sopravvivenza': 'https://i.postimg.cc/BbCqdDzw/Screenshot_20260330_164352_4.jpg',
   'Stivali da Trekking': 'https://i.postimg.cc/3Nh8S9t8/Screenshot_20260330_141126_5.jpg',
 
-  // --- SET 4: ANTISOMMOSSA (Leggendario) ---
-  'Casco Antisommossa': 'https://i.postimg.cc/wx5Ty8BB/Screenshot_20260330_132744_5.jpg',
+  // --- SET 4: ANTISOMMOSSA ---
+  'Casco Antisommossa': 'https://i.postimg.cc/wX5Ty8BB/Screenshot_20260330_132744_5.jpg',
   'Corazza Antisommossa': 'https://i.postimg.cc/qqGk9nFw/Screenshot_20260330_141043_8.jpg',
   'Pantaloni Antisommossa': 'https://i.postimg.cc/rsTVngfD/Screenshot_20260330_164352_5.jpg',
   'Anfibi Antisommossa': 'https://i.postimg.cc/Wz72QryH/Screenshot_20260330_141126_6.jpg',
 
-  // --- SET 5: HAZMAT STANDARD (NUOVO - Epico/Leggendario) ---
-  'Cappuccio Hazmat': '',
-  'Tuta Hazmat': '',
-  'Pantaloni Hazmat': '',
-  'Stivali Hazmat': '',
+  // --- SET 5: HAZMAT STANDARD ---
+  'Cappuccio Hazmat': '', 'Tuta Hazmat': '', 'Pantaloni Hazmat': '', 'Stivali Hazmat': '',
 
-  // --- SET 6: HAZMAT POTENZIATA (Ex Forze Speciali - Mitico) ---
+  // --- SET 6: HAZMAT POTENZIATA ---
   'Casco Hazmat Potenziato': 'https://i.postimg.cc/x8Qfxg6y/Screenshot_20260330_132744_6.jpg',
   'Corazza Hazmat Potenziata': 'https://i.postimg.cc/nrxFRT3x/Screenshot_20260330_141043_4.jpg',
   'Pantaloni Hazmat Potenziati': 'https://i.postimg.cc/5ymxZvr5/Screenshot_20260330_164352_6.jpg',
@@ -79,7 +76,6 @@ const CUSTOM_ENEMIES_IMAGES = {
   'Lurker': '', 'Slasher': '', 'Rioter': '', 'Chimera': '', 'Gilbert': ''
 };
 
-// --- STILE E RARITÀ ---
 const RARITY = {
   comune: { id: 'comune', color: 'text-stone-300', border: 'border-stone-500', shadow: 'rgba(120, 113, 108, 0.4)', name: 'Comune', xp: 0 },
   raro: { id: 'raro', color: 'text-blue-300', border: 'border-blue-500', shadow: 'rgba(59, 130, 246, 0.4)', name: 'Raro', xp: 15 },
@@ -88,7 +84,6 @@ const RARITY = {
   mitico: { id: 'mitico', color: 'text-red-500', border: 'border-red-500', shadow: 'rgba(239, 68, 68, 0.6)', name: 'Mitico', xp: 250 }
 };
 
-// --- DATABASE NEMICI ---
 const ENEMIES_DB = {
   'Lurker': { name: 'Lurker', hp: 45, atk: 12, def: 2, desc: 'Mutante standard. Veloce e imprevedibile.' },
   'Slasher': { name: 'Slasher', hp: 75, atk: 28, def: 5, desc: 'Occhi rossi luminosi. Brutalità letale.' },
@@ -97,7 +92,6 @@ const ENEMIES_DB = {
   'Gilbert': { name: 'Gilbert', hp: 500, atk: 85, def: 45, desc: 'BOSS: Armato di fucile a pompa R8. Devastante.' }
 };
 
-// --- DATABASE OGGETTI ---
 const ITEMS = {
   'Acqua Purificata': { type: 'consumable', rarity: 'comune', value: 5, heal: 0, desc: 'Idratazione essenziale.', iconType: Coffee },
   'Razione K': { type: 'consumable', rarity: 'comune', value: 8, heal: 5, desc: 'Cibo liofilizzato.', iconType: Package },
@@ -111,7 +105,6 @@ const ITEMS = {
   'Disco Dati Governativo': { type: 'resource', rarity: 'mitico', value: 500, desc: 'Codici di sicurezza.', iconType: Package },
   'Chiave d\'Accesso Linate': { type: 'resource', rarity: 'mitico', value: 1000, desc: 'Tessera d\'accesso per l\'Aeroporto.', iconType: Key },
 
-  // MATERIALI COSTRUZIONE
   'Assi di Legno': { type: 'resource', rarity: 'comune', value: 3, desc: 'Materiale da costruzione base.', iconType: Hammer },
   'Chiodi': { type: 'resource', rarity: 'comune', value: 2, desc: 'Utili per fortificare.', iconType: Hammer },
   'Mattoni in Cotto': { type: 'resource', rarity: 'raro', value: 8, desc: 'Solidi e pesanti.', iconType: Hammer },
@@ -134,7 +127,6 @@ const ITEMS = {
   'Zaino Tattico Militare': { type: 'backpack', rarity: 'leggendario', value: 250, slots: 25, desc: 'Capienza: 25 Slot', iconType: Backpack },
   'Zaino Sopravvivenza': { type: 'backpack', rarity: 'mitico', value: 600, slots: 30, desc: 'Capienza: 30 Slot', iconType: Backpack },
 
-  // ARMI
   'Coltellino': { type: 'weapon', rarity: 'comune', value: 10, atk: 5, desc: 'Lama corta.', iconType: Crosshair },
   'Mazza da Baseball': { type: 'weapon', rarity: 'comune', value: 20, atk: 12, desc: 'Pesante.', iconType: Crosshair },
   'Pistola Glock': { type: 'weapon', rarity: 'raro', value: 80, atk: 25, desc: 'Affidabile 9mm.', iconType: Crosshair },
@@ -148,7 +140,6 @@ const ITEMS = {
   'Mitragliatrice M249': { type: 'weapon', rarity: 'mitico', value: 900, atk: 120, desc: 'Fuoco di soppressione.', iconType: Crosshair },
   'Minigun Vulcan': { type: 'weapon', rarity: 'mitico', value: 1500, atk: 200, desc: 'Devastazione.', iconType: Crosshair },
 
-  // ARMATURE
   'Berretto di Lana': { type: 'helmet', rarity: 'comune', value: 5, def: 1, desc: 'Protezione minima.', iconType: Shield },
   'Giacca Casual': { type: 'chest', rarity: 'comune', value: 10, def: 3, desc: 'Tessuto leggero.', iconType: Shirt },
   'Jeans Strappati': { type: 'pants', rarity: 'comune', value: 8, def: 2, desc: 'Usurati.', iconType: Scissors },
@@ -169,24 +160,22 @@ const ITEMS = {
   'Pantaloni Antisommossa': { type: 'pants', rarity: 'leggendario', value: 180, def: 22, desc: 'Snodi rinforzati.', iconType: Scissors },
   'Anfibi Antisommossa': { type: 'shoes', rarity: 'leggendario', value: 150, def: 18, desc: 'Suola rinforzata.', iconType: User },
 
-  // HAZMAT STANDARD
   'Cappuccio Hazmat': { type: 'helmet', rarity: 'leggendario', value: 200, def: 8, radProtect: 1, desc: 'Filtri aria integrati. LVL 1 RAD.', iconType: Shield },
   'Tuta Hazmat': { type: 'chest', rarity: 'leggendario', value: 300, def: 15, radProtect: 1, desc: 'Gomma isolante. LVL 1 RAD.', iconType: Shirt },
   'Pantaloni Hazmat': { type: 'pants', rarity: 'leggendario', value: 250, def: 12, desc: 'Isolamento chimico.', iconType: Scissors },
   'Stivali Hazmat': { type: 'shoes', rarity: 'leggendario', value: 180, def: 10, desc: 'Gomma spessa.', iconType: User },
 
-  // HAZMAT POTENZIATA
-  'Casco Hazmat Potenziato': { type: 'helmet', rarity: 'mitico', value: 450, def: 25, radProtect: 2, desc: 'Sensori HUD anti-radiazioni. LVL 2 RAD.', iconType: Shield },
-  'Corazza Hazmat Potenziata': { type: 'chest', rarity: 'mitico', value: 700, def: 45, radProtect: 2, desc: 'Piastre in piombo e titanio. LVL 2 RAD.', iconType: Shirt },
-  'Pantaloni Hazmat Potenziati': { type: 'pants', rarity: 'mitico', value: 500, def: 35, desc: 'Fibre isolanti sintetiche.', iconType: Scissors },
-  'Stivali Hazmat Potenziati': { type: 'shoes', rarity: 'mitico', value: 450, def: 30, desc: 'Assorbimento d\'impatto.', iconType: User },
+  'Casco Hazmat Potenziato': { type: 'helmet', rarity: 'mitico', value: 450, def: 25, radProtect: 2, desc: 'Sensori HUD. LVL 2 RAD.', iconType: Shield },
+  'Corazza Hazmat Potenziata': { type: 'chest', rarity: 'mitico', value: 700, def: 45, radProtect: 2, desc: 'Piombo e titanio. LVL 2 RAD.', iconType: Shirt },
+  'Pantaloni Hazmat Potenziati': { type: 'pants', rarity: 'mitico', value: 500, def: 35, desc: 'Fibre isolanti.', iconType: Scissors },
+  'Stivali Hazmat Potenziati': { type: 'shoes', rarity: 'mitico', value: 450, def: 30, desc: 'Assorbimento estremo.', iconType: User },
 };
 
-// --- MAPPA ---
 const LOCATIONS = [
   { id: 'duomo', name: 'Cratere del Duomo', type: 'danger', x: 50, y: 50, reqRad: 2, desc: 'Ground Zero. REQUISITO: HAZMAT POTENZIATA.', lvl: 25, cost: 40, enemies: ['Chimera'], loot: ['Disco Dati Governativo', 'Chiavetta USB Criptata', 'Minigun Vulcan', 'Corazza Hazmat Potenziata', 'Casco Hazmat Potenziato', 'Zaino Sopravvivenza'], minLoot: 4, maxLoot: 6 },
   { id: 'mercato', name: 'Mercato (Cadorna)', type: 'safe', x: 37, y: 43, desc: 'Zona neutrale. Puoi scambiare oggetti.', lvl: 1, cost: 5 },
-  { id: 'sempione', name: 'Foresta Sempione', type: 'danger', x: 33, y: 31, desc: 'Rovine invase dalla vegetazione.', lvl: 2, cost: 10, enemies: ['Lurker'], loot: ['Rottami', 'Assi di Legno', 'Acqua Purificata', 'Coltellino', 'Sacca Sportiva', 'Mazza da Baseball', 'Berretto di Lana'], minLoot: 1, maxLoot: 3 },
+  // SEMPIONE è ORA UNA MAPPA 2D RADAR. type: 'radar'
+  { id: 'sempione', name: 'Foresta Sempione', type: 'radar', x: 33, y: 31, desc: 'Esplorazione Radar Attiva.', lvl: 2, cost: 10, enemies: ['Lurker'], loot: ['Rottami', 'Assi di Legno', 'Acqua Purificata', 'Coltellino', 'Sacca Sportiva', 'Mazza da Baseball', 'Berretto di Lana'], minLoot: 1, maxLoot: 3 },
   { id: 'breda', name: 'Stadio Breda', type: 'danger', x: 20, y: 10, desc: 'Vecchio stadio in rovina.', lvl: 6, cost: 12, enemies: ['Lurker'], loot: ['Bende', 'Sacca a Tracolla', 'Assi di Legno', 'Chiodi', 'Pistola Glock', 'Casco da Lavoro'], minLoot: 1, maxLoot: 3 },
   { id: 'caserma', name: 'Caserma Firenze', type: 'danger', x: 16, y: 15, desc: 'Avamposto militare abbandonato.', lvl: 10, cost: 20, enemies: ['Rioter', 'Slasher', 'Lurker'], loot: ['Munizioni 9mm', 'Razione K', 'Chiodi', 'Tubi d\'Acciaio', 'Medikit', 'Pistola Glock', 'Giubbotto di Pelle'], minLoot: 2, maxLoot: 4 },
   { id: 'isola', name: 'Quartiere Isola', type: 'danger', x: 45, y: 20, desc: 'Vicoli stretti e grattacieli.', lvl: 11, cost: 20, enemies: ['Lurker', 'Slasher'], loot: ['Mitraglietta Uzi', 'Componenti Elettronici', 'Lingotto di Rame', 'Mattoni in Cotto', 'Zaino da Escursionismo'], minLoot: 2, maxLoot: 4 },
@@ -206,25 +195,51 @@ const MAX_ENERGY = 100;
 const BASE_ATK = 5;
 const BASE_DEF = 0;
 
-// HELPER DI SICUREZZA: Garantiscono che non ci siano crash leggendo nomi errati o stringhe "legacy" dai salvataggi
 const getItemName = (item) => typeof item === 'string' ? item : item?.name;
 const createItemObj = (nameStr) => {
   const isEquipment = ['weapon', 'helmet', 'chest', 'pants', 'shoes'].includes(ITEMS[nameStr]?.type);
-  return {
-    id: Math.random().toString(36).substr(2, 9),
-    name: nameStr,
-    dura: isEquipment ? 100 : null
-  };
+  return { id: Math.random().toString(36).substr(2, 9), name: nameStr, dura: isEquipment ? 100 : null };
+};
+
+// ==========================================
+// 📡 MOTORE MAPPE RADAR 2D
+// ==========================================
+// 0: Vuoto, 1: Albero/Muro, 2: Cassa(Loot), 3: Nemico, 4: Zona Estrazione (Uscita)
+const MAPS_2D = {
+  'sempione': {
+    grid: [
+      [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+      [1,0,0,0,1,0,0,0,0,0,1,1,1,1,1],
+      [1,0,2,0,1,0,3,0,0,0,1,2,0,1,1],
+      [1,0,0,0,1,1,1,0,0,0,1,0,0,1,1],
+      [1,1,0,1,1,0,0,0,0,0,1,0,3,1,1],
+      [1,0,0,0,0,0,1,1,1,0,1,1,0,1,1],
+      [1,0,3,0,0,0,1,2,1,0,0,0,0,0,1],
+      [1,1,1,1,0,0,1,0,1,1,1,0,1,1,1],
+      [1,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+      [1,0,1,1,1,0,0,3,0,0,1,1,1,0,1],
+      [1,0,1,2,1,0,0,0,0,0,1,2,1,0,1],
+      [1,0,1,0,1,0,1,1,1,0,1,0,1,0,1],
+      [1,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+      [1,1,1,1,1,0,0,4,0,0,1,1,1,1,1],
+      [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
+    ],
+    start: {x: 7, y: 13},
+    getZoneName: (x, y) => {
+      if (x >= 10 && x <= 14 && y >= 1 && y <= 5) return "Avamposto Militare";
+      if (x >= 1 && x <= 4 && y >= 1 && y <= 4) return "Bar Abbandonato";
+      return "Foresta Sempione";
+    }
+  }
 };
 
 export default function App() {
   const [gameState, setGameState] = useState('start');
-  const [view, setView] = useState('equipment');
+  const [view, setView] = useState('equipment'); // può essere: equipment, map, base, market, radar
   const [marketTab, setMarketTab] = useState('sell'); 
   const [level, setLevel] = useState(1);
   const [xp, setXp] = useState(0);
   
-  // STATI
   const [hp, setHp] = useState(100);
   const [energy, setEnergy] = useState(MAX_ENERGY);
   const [credits, setCredits] = useState(100);
@@ -234,18 +249,15 @@ export default function App() {
   const [shelterLevel, setShelterLevel] = useState(1);
 
   const [equipped, setEquipped] = useState({
-    helmet: createItemObj('Berretto di Lana'), 
-    chest: createItemObj('Giacca Casual'), 
-    pants: createItemObj('Jeans Strappati'), 
-    shoes: createItemObj('Scarpe da Ginnastica'), 
-    weapon: createItemObj('Pistola Glock'), 
-    backpack: createItemObj('Sacca Sportiva')
+    helmet: createItemObj('Berretto di Lana'), chest: createItemObj('Giacca Casual'), 
+    pants: createItemObj('Jeans Strappati'), shoes: createItemObj('Scarpe da Ginnastica'), 
+    weapon: createItemObj('Pistola Glock'), backpack: createItemObj('Sacca Sportiva')
   });
 
   const [inventory, setInventory] = useState([createItemObj('Acqua Purificata'), createItemObj('Razione K'), createItemObj('Bende')]); 
   const [stash, setStash] = useState([createItemObj('Acqua Purificata'), createItemObj('Razione K'), createItemObj('Rottami')]); 
   
-  const [logs, setLogs] = useState([{ text: 'Stazione operativa avviata. Fai attenzione all\'usura delle armi.', type: 'info' }]);
+  const [logs, setLogs] = useState([{ text: 'Stazione operativa avviata.', type: 'info' }]);
   const [selectedLocation, setSelectedLocation] = useState(null);
   
   const [selectedItem, setSelectedItem] = useState(null);
@@ -258,16 +270,18 @@ export default function App() {
   const [isEnemyTurn, setIsEnemyTurn] = useState(false);
   const [loadError, setLoadError] = useState('');
 
-  const logEndRef = useRef(null);
+  // --- STATI RADAR ---
+  const [radarMap, setRadarMap] = useState(null); // Contiene la griglia corrente
+  const [playerPos, setPlayerPos] = useState({x: 0, y: 0});
+  const [currentZone, setCurrentZone] = useState('');
 
+  const logEndRef = useRef(null);
   const currentMaxHp = 100 + (level - 1) * 10; 
 
   useEffect(() => { logEndRef.current?.scrollIntoView({ behavior: 'smooth' }); }, [logs]);
 
   useEffect(() => { 
-    if (hp <= 0 && !gameOver) {
-      setGameOver(true); setCombatState(null); setPendingLoot(null);
-    }
+    if (hp <= 0 && !gameOver) { setGameOver(true); setCombatState(null); setPendingLoot(null); }
   }, [hp, gameOver]);
 
   useEffect(() => {
@@ -325,7 +339,6 @@ export default function App() {
         if (calcTop < 10) calcTop = window.innerHeight / 2 - widgetHeight / 2; 
     }
     setPopupPos({ top: calcTop, left: calcLeft });
-    
     const name = getItemName(itemObj);
     setSelectedItem({ obj: itemObj, name: name, index, context, data: ITEMS[name] });
   };
@@ -337,9 +350,7 @@ export default function App() {
     const { obj, index, data } = selectedItem;
     if (data.type === 'backpack' && inventory.length - 1 > data.slots) { addLog('Svuota lo zaino prima di cambiarlo!', 'warning'); chiudiPopup(); return; }
 
-    let currentEquipped = equipped[data.type];
-    let newInventory = [...inventory];
-    newInventory.splice(index, 1);
+    let currentEquipped = equipped[data.type]; let newInventory = [...inventory]; newInventory.splice(index, 1);
     if (currentEquipped) newInventory.push(currentEquipped);
     
     setInventory(newInventory); setEquipped(prev => ({ ...prev, [data.type]: obj }));
@@ -383,21 +394,16 @@ export default function App() {
 
   const buyLootbox = (type) => {
     let cost = 0; let pool = [];
-    if (type === 'base') {
-        cost = 100; pool = Object.keys(ITEMS).filter(k => ITEMS[k].rarity === 'comune' || ITEMS[k].rarity === 'raro');
-    } else if (type === 'tattica') {
-        cost = 300; pool = Object.keys(ITEMS).filter(k => ITEMS[k].rarity === 'raro' || ITEMS[k].rarity === 'epico' || ITEMS[k].rarity === 'leggendario');
-    } else if (type === 'nera') {
-        cost = 1000; pool = Object.keys(ITEMS).filter(k => (ITEMS[k].rarity === 'leggendario' || ITEMS[k].rarity === 'mitico') && ['weapon', 'chest', 'helmet', 'pants', 'shoes'].includes(ITEMS[k].type));
-    }
+    if (type === 'base') { cost = 100; pool = Object.keys(ITEMS).filter(k => ITEMS[k].rarity === 'comune' || ITEMS[k].rarity === 'raro'); } 
+    else if (type === 'tattica') { cost = 300; pool = Object.keys(ITEMS).filter(k => ITEMS[k].rarity === 'raro' || ITEMS[k].rarity === 'epico' || ITEMS[k].rarity === 'leggendario'); } 
+    else if (type === 'nera') { cost = 1000; pool = Object.keys(ITEMS).filter(k => (ITEMS[k].rarity === 'leggendario' || ITEMS[k].rarity === 'mitico') && ['weapon', 'chest', 'helmet', 'pants', 'shoes'].includes(ITEMS[k].type)); }
 
     if (credits < cost) { addLog('❌ Crediti insufficienti.', 'danger'); return; }
     if (inventory.length >= getMaxInventory()) { addLog('❌ Lo zaino è pieno. Fai spazio.', 'warning'); return; }
 
     setCredits(prev => prev - cost);
     const wonItemStr = pool[Math.floor(Math.random() * pool.length)];
-    const wonObj = createItemObj(wonItemStr);
-    setInventory(prev => [...prev, wonObj]);
+    setInventory(prev => [...prev, createItemObj(wonItemStr)]);
     
     const itemInfo = ITEMS[wonItemStr];
     if (itemInfo) {
@@ -416,42 +422,32 @@ export default function App() {
       if (shelterLevel >= 4) { addLog('Rifugio al livello massimo!', 'warning'); return; }
       
       const reqs = costs[shelterLevel];
-      let hasAll = true;
-      let missingMsg = 'Mancano: ';
+      let hasAll = true; let missingMsg = 'Mancano: ';
       
       const allItems = [...inventory, ...stash];
       const itemsCount = {};
-      allItems.forEach(i => { 
-        const name = getItemName(i);
-        itemsCount[name] = (itemsCount[name] || 0) + 1; 
-      });
+      allItems.forEach(i => { const name = getItemName(i); itemsCount[name] = (itemsCount[name] || 0) + 1; });
 
       for (const [resName, required] of Object.entries(reqs)) {
-          if ((itemsCount[resName] || 0) < required) {
-              hasAll = false;
-              missingMsg += `${resName} (${itemsCount[resName]||0}/${required}) `;
-          }
+          if ((itemsCount[resName] || 0) < required) { hasAll = false; missingMsg += `${resName} (${itemsCount[resName]||0}/${required}) `; }
       }
 
       if (!hasAll) { addLog(missingMsg, 'danger'); return; }
 
       let remainingToRemove = { ...reqs };
-      let newStash = [...stash];
-      let newInv = [...inventory];
+      let newStash = [...stash]; let newInv = [...inventory];
 
       for (const resName of Object.keys(remainingToRemove)) {
           while (remainingToRemove[resName] > 0) {
               let stashIdx = newStash.findIndex(i => getItemName(i) === resName);
               if (stashIdx !== -1) { newStash.splice(stashIdx, 1); remainingToRemove[resName]--; continue; }
-              
               let invIdx = newInv.findIndex(i => getItemName(i) === resName);
               if (invIdx !== -1) { newInv.splice(invIdx, 1); remainingToRemove[resName]--; continue; }
-              break; // Sicurezza loop
+              break;
           }
       }
 
-      setStash(newStash); setInventory(newInv);
-      setShelterLevel(prev => prev + 1);
+      setStash(newStash); setInventory(newInv); setShelterLevel(prev => prev + 1);
       addLog(`🛠️ RIFUGIO MIGLIORATO AL LIVELLO ${shelterLevel + 1}! Cassa espansa.`, 'success');
   };
 
@@ -472,7 +468,10 @@ export default function App() {
       if (finalItemStr) found.push(createItemObj(finalItemStr)); 
     }
     if (found.length > 0) { setPendingLoot({ items: found, location: loc }); } 
-    else { addLog('Zona perquisita, non hai trovato nulla.', 'warning'); setView('map'); }
+    else { 
+      addLog('Cassa aperta, ma era vuota.', 'warning'); 
+      if(view !== 'radar') setView('map'); 
+    }
   };
 
   const takeLootItem = (e, index) => {
@@ -491,8 +490,12 @@ export default function App() {
     }
 
     const newLoot = [...pendingLoot.items]; newLoot.splice(index, 1);
-    if (newLoot.length === 0) { setPendingLoot(null); setView('map'); } 
-    else { setPendingLoot({ ...pendingLoot, items: newLoot }); }
+    if (newLoot.length === 0) { 
+        setPendingLoot(null); 
+        if(view !== 'radar') setView('map');
+    } else { 
+        setPendingLoot({ ...pendingLoot, items: newLoot }); 
+    }
   };
 
   const takeAllLoot = () => {
@@ -511,8 +514,14 @@ export default function App() {
     setInventory(prev => [...prev, ...itemsToTake]);
     if(xpGained > 0) { setXp(prev => prev + xpGained); addLog(`✨ +${xpGained} XP totali dai ritrovamenti!`, 'success'); }
 
-    if (itemsLeft.length === 0) { setPendingLoot(null); setView('map'); addLog('Hai svuotato la zona.', 'info'); } 
-    else { setPendingLoot({ ...pendingLoot, items: itemsLeft }); addLog('Zaino pieno! Alcuni oggetti sono stati lasciati.', 'warning'); }
+    if (itemsLeft.length === 0) { 
+        setPendingLoot(null); 
+        addLog('Hai svuotato la cassa.', 'info'); 
+        if(view !== 'radar') setView('map');
+    } else { 
+        setPendingLoot({ ...pendingLoot, items: itemsLeft }); 
+        addLog('Zaino pieno! Alcuni oggetti sono stati lasciati.', 'warning'); 
+    }
   };
 
   const handleTravelClick = (loc) => {
@@ -521,12 +530,10 @@ export default function App() {
     if (inventory.length >= getMaxInventory() && loc.type !== 'safe') { addLog('Inventario pieno. Svuotalo prima.', 'warning'); return; }
     
     if (loc.reqKey && !inventory.some(i => getItemName(i) === loc.reqKey) && !stash.some(i => getItemName(i) === loc.reqKey)) {
-        addLog(`🔒 ACCESSO NEGATO. Richiesta: ${loc.reqKey}`, 'danger');
-        return;
+        addLog(`🔒 ACCESSO NEGATO. Richiesta: ${loc.reqKey}`, 'danger'); return;
     }
     if (loc.reqRad && getRadProtect() < loc.reqRad) {
-        addLog(`☣️ RADIAZIONI LETALI! Ti serve una protezione RAD di livello ${loc.reqRad}. Indossa equipaggiamento Hazmat.`, 'danger');
-        return;
+        addLog(`☣️ RADIAZIONI LETALI! Ti serve protezione RAD ${loc.reqRad}.`, 'danger'); return;
     }
 
     setIsTraveling(true); setTravelTarget(loc); setSelectedLocation(null);
@@ -536,14 +543,92 @@ export default function App() {
   const executeExplore = (loc) => {
     setEnergy(prev => prev - loc.cost);
     if (loc.type === 'safe') { setView(loc.id === 'rifugio' ? 'base' : 'market'); addLog(`Sei arrivato a: ${loc.name}`, 'info'); return; }
-    if (loc.id !== 'duomo' && loc.id !== 'linate' && Math.random() > 0.5) { addLog(`Esplorazione sicura, nessun nemico in zona.`, 'success'); generateAndShowLoot(loc); return; }
+    
+    // START RADAR MODE se supportato
+    if (loc.type === 'radar' && MAPS_2D[loc.id]) {
+      const mapData = MAPS_2D[loc.id];
+      // Clone profondo per evitare di modificare l'originale
+      setRadarMap(JSON.parse(JSON.stringify(mapData.grid)));
+      setPlayerPos(mapData.start);
+      setCurrentZone(mapData.getZoneName(mapData.start.x, mapData.start.y));
+      setSelectedLocation(loc); // Salviamo la locazione in memoria per i loot
+      setView('radar');
+      addLog(`🌐 Connessione Radar stabilita.`, 'info');
+      return;
+    }
 
+    // Modalità standard legacy
+    if (loc.id !== 'duomo' && loc.id !== 'linate' && Math.random() > 0.5) { addLog(`Esplorazione sicura.`, 'success'); generateAndShowLoot(loc); return; }
     const enemyName = loc.enemies[Math.floor(Math.random() * loc.enemies.length)];
     const enemyData = ENEMIES_DB[enemyName];
     setCombatState({ enemy: enemyData, hp: enemyData.hp, maxHp: enemyData.hp, location: loc });
     addLog(`⚠️ MINACCIA RILEVATA: ${enemyData.name}!`, 'danger');
   };
 
+  // --- MOTORE DI MOVIMENTO RADAR ---
+  const moveRadar = (dx, dy) => {
+    if (combatState || pendingLoot) return; // Blocco movimento se c'è un popup
+
+    let nx = playerPos.x + dx;
+    let ny = playerPos.y + dy;
+    
+    // Fuori dai bordi
+    if (ny < 0 || ny >= radarMap.length || nx < 0 || nx >= radarMap[0].length) return;
+    
+    let cell = radarMap[ny][nx];
+    if (cell === 1) return; // Muro/Albero
+
+    setPlayerPos({x: nx, y: ny});
+    
+    const newZone = MAPS_2D[selectedLocation.id].getZoneName(nx, ny);
+    if (newZone !== currentZone) {
+      setCurrentZone(newZone);
+      addLog(`Rilevata Zona: ${newZone}`, 'info');
+    }
+
+    if (cell === 2) {
+      // Cassa! Rimuovila e apri il loot
+      let newMap = [...radarMap];
+      newMap[ny][nx] = 0;
+      setRadarMap(newMap);
+      generateAndShowLoot(selectedLocation);
+    }
+    
+    if (cell === 3) {
+      // Nemico!
+      let newMap = [...radarMap];
+      newMap[ny][nx] = 0;
+      setRadarMap(newMap);
+      const enemyName = selectedLocation.enemies[Math.floor(Math.random() * selectedLocation.enemies.length)];
+      const enemyData = ENEMIES_DB[enemyName];
+      setCombatState({ enemy: enemyData, hp: enemyData.hp, maxHp: enemyData.hp, location: selectedLocation });
+      addLog(`⚠️ CONTATTO! Un ${enemyData.name} ti ha assalito!`, 'danger');
+    }
+
+    if (cell === 4) {
+      // Uscita / Estrazione
+      setView('map');
+      setRadarMap(null);
+      setSelectedLocation(null);
+      addLog('Estrazione completata. Ritorno alla mappa globale.', 'success');
+    }
+  };
+
+  // Supporto Tastiera
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (view !== 'radar') return;
+      if (e.key === 'ArrowUp' || e.key === 'w') moveRadar(0, -1);
+      if (e.key === 'ArrowDown' || e.key === 's') moveRadar(0, 1);
+      if (e.key === 'ArrowLeft' || e.key === 'a') moveRadar(-1, 0);
+      if (e.key === 'ArrowRight' || e.key === 'd') moveRadar(1, 0);
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  });
+
+
+  // --- COMBATTIMENTO ---
   const combatAttack = () => {
     if (!combatState || isEnemyTurn) return;
     setIsEnemyTurn(true);
@@ -559,7 +644,12 @@ export default function App() {
         addLog(`🏆 Nemico eliminato!`, 'success');
         setXp(prev => prev + xpGained);
         addLog(`✨ +${xpGained} XP per l'uccisione.`, 'success');
-        setIsEnemyTurn(false); setCombatState(null); generateAndShowLoot(combatState.location); 
+        setIsEnemyTurn(false); setCombatState(null); 
+        
+        // Se NON siamo nel radar, apriamo il loot
+        if (view !== 'radar') {
+            generateAndShowLoot(combatState.location); 
+        }
     } else {
         setCombatState(prev => ({...prev, hp: newEnemyHp}));
         const enemyName = combatState.enemy.name; const enemyAtk = combatState.enemy.atk; const locName = combatState.location.name; const playerDef = getDef();
@@ -567,7 +657,7 @@ export default function App() {
             let eDmg = Math.max(1, enemyAtk + Math.floor(Math.random()*10) - playerDef);
             setHp(prevHp => {
                 const nextHp = Math.max(0, prevHp - eDmg);
-                if (nextHp <= 0) setDeathReason(`Ucciso da un ${enemyName} a ${locName}.`);
+                if (nextHp <= 0) setDeathReason(`Ucciso da un ${enemyName}.`);
                 return nextHp;
             });
             addLog(`🩸 ${enemyName} colpisce per ${eDmg} danni.`, 'danger');
@@ -577,7 +667,6 @@ export default function App() {
                 const randomSlot = armorSlots[Math.floor(Math.random() * armorSlots.length)];
                 damageEquipment(randomSlot, Math.floor(Math.random() * 8) + 2);
             }
-
             setIsEnemyTurn(false);
         }, 600); 
     }
@@ -585,10 +674,7 @@ export default function App() {
 
   const combatHeal = () => {
     if (!combatState || isEnemyTurn) return;
-    const healIndex = inventory.findIndex(i => {
-      const name = getItemName(i);
-      return ITEMS[name]?.type === 'medical' || ITEMS[name]?.type === 'consumable';
-    });
+    const healIndex = inventory.findIndex(i => { const name = getItemName(i); return ITEMS[name]?.type === 'medical' || ITEMS[name]?.type === 'consumable'; });
     if (healIndex === -1) { addLog('❌ Nessun oggetto curativo rapido nello zaino!', 'warning'); return; }
     
     setIsEnemyTurn(true);
@@ -602,7 +688,7 @@ export default function App() {
         let eDmg = Math.max(1, enemyAtk + Math.floor(Math.random()*10) - playerDef);
         setHp(prevHp => {
             const nextHp = Math.max(0, prevHp - eDmg);
-            if (nextHp <= 0) setDeathReason(`Ucciso da un ${enemyName} a ${locName}.`);
+            if (nextHp <= 0) setDeathReason(`Ucciso da un ${enemyName}.`);
             return nextHp;
         });
         addLog(`🩸 ${enemyName} colpisce per ${eDmg} danni.`, 'danger');
@@ -612,14 +698,17 @@ export default function App() {
 
   const combatFlee = () => {
       if (isEnemyTurn) return;
-      if (energy >= 15) { setEnergy(prev => prev - 15); addLog('🏃 Fuga riuscita (-15 Energia).', 'warning'); setCombatState(null); setView('map'); } 
+      if (energy >= 15) { 
+        setEnergy(prev => prev - 15); addLog('🏃 Fuga riuscita (-15 Energia).', 'warning'); 
+        setCombatState(null); 
+        if (view !== 'radar') setView('map'); 
+      } 
       else { addLog('❌ Troppo stanco per fuggire!', 'danger'); }
   };
 
   const rest = () => {
     chiudiPopup();
-    let hasFood = stash.some(i => getItemName(i) === 'Razione K'); 
-    let hasWater = stash.some(i => getItemName(i) === 'Acqua Purificata');
+    let hasFood = stash.some(i => getItemName(i) === 'Razione K'); let hasWater = stash.some(i => getItemName(i) === 'Acqua Purificata');
     let dmg = 0; let newStash = [...stash];
 
     if (hasFood) { newStash.splice(newStash.findIndex(i => getItemName(i) === 'Razione K'), 1); addLog('Razione consumata.', 'success'); } else { dmg += 20; addLog('Fame estrema (-20 HP).', 'danger'); }
@@ -627,11 +716,8 @@ export default function App() {
 
     setStash(newStash); setDay(prev => prev + 1); setEnergy(MAX_ENERGY);
 
-    if (dmg > 0) {
-      setHp(prev => { const nextHp = prev - dmg; if (nextHp <= 0) setDeathReason("Morto di stenti nel rifugio."); return nextHp; });
-    } else {
-      setHp(prev => Math.min(currentMaxHp, prev + 30)); addLog('Riposo completato. HP recuperati.', 'info');
-    }
+    if (dmg > 0) { setHp(prev => { const nextHp = prev - dmg; if (nextHp <= 0) setDeathReason("Morto di stenti nel rifugio."); return nextHp; }); } 
+    else { setHp(prev => Math.min(currentMaxHp, prev + 30)); addLog('Riposo completato. HP recuperati.', 'info'); }
     addLog(`--- GIORNO ${day + 1} ---`, 'warning');
   };
 
@@ -641,44 +727,8 @@ export default function App() {
     setStash([createItemObj('Acqua Purificata'), createItemObj('Razione K'), createItemObj('Rottami')]);
     setEquipped({ helmet: createItemObj('Berretto di Lana'), chest: createItemObj('Giacca Casual'), pants: createItemObj('Jeans Strappati'), shoes: createItemObj('Scarpe da Ginnastica'), weapon: createItemObj('Pistola Glock'), backpack: createItemObj('Sacca Sportiva') });
     setLogs([{ text: 'Nuova partita iniziata.', type: 'info' }]);
-    setCombatState(null); setPendingLoot(null); chiudiPopup();
+    setCombatState(null); setPendingLoot(null); setRadarMap(null); chiudiPopup();
     setGameOver(false); setGameState('playing'); setView('equipment');
-  };
-
-  // --- DOWNLOAD DATI / UPLOAD DATI ---
-  const downloadSave = () => {
-    const saveData = { level, xp, hp, energy, credits, day, shelterLevel, equipped, inventory, stash, logs };
-    const blob = new Blob([JSON.stringify(saveData)], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url; a.download = `MilanoAnnoZero_Day${day}.json`;
-    document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url);
-    addLog('Dati salvati su disco esterno.', 'success');
-  };
-
-  const handleFileUpload = (e) => {
-    const file = e.target.files[0];
-    if (!file) return;
-    const reader = new FileReader();
-    reader.onload = (event) => {
-      try {
-        const data = JSON.parse(event.target.result);
-        if (data.level) {
-            setLevel(data.level); setXp(data.xp); setHp(data.hp); setEnergy(data.energy);
-            setCredits(data.credits); setDay(data.day); 
-            setShelterLevel(data.shelterLevel || 1);
-            setEquipped(data.equipped); setInventory(data.inventory); setStash(data.stash); 
-            setLogs(data.logs);
-            setGameState('playing'); setView('base');
-            addLog('Salvataggio caricato con successo.', 'success');
-        } else {
-            setLoadError('File non compatibile.'); setTimeout(() => setLoadError(''), 3000);
-        }
-      } catch (err) {
-        setLoadError('Errore nella lettura del disco dati.'); setTimeout(() => setLoadError(''), 3000);
-      }
-    };
-    reader.readAsText(file);
   };
 
   // ==========================================
@@ -771,7 +821,7 @@ export default function App() {
       if (itemObj) {
         const name = getItemName(itemObj);
         const itemData = ITEMS[name];
-        if (!itemData) continue; // Salta item invalidi in modo sicuro
+        if (!itemData) continue; 
         
         const rColor = RARITY[itemData.rarity]?.color || 'text-stone-300';
         const rBorder = RARITY[itemData.rarity]?.border || 'border-stone-500';
@@ -786,7 +836,6 @@ export default function App() {
             <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-[#111] via-[#111]/80 to-transparent pt-5 pb-1 px-1 z-20">
               <span className={`text-[9px] text-center leading-tight line-clamp-1 font-bold block ${rColor}`}>{name}</span>
             </div>
-            {/* Barra Durabilità */}
             {itemObj.dura !== null && itemObj.dura !== undefined && (
               <div className="absolute top-1 left-1 right-1 h-1 bg-black/60 rounded-full overflow-hidden z-20">
                  <div className={`h-full ${itemObj.dura > 50 ? 'bg-green-500' : itemObj.dura > 25 ? 'bg-amber-500' : 'bg-red-500'}`} style={{width: `${itemObj.dura}%`}}></div>
@@ -993,7 +1042,7 @@ export default function App() {
 
             <div className="flex gap-2 mt-auto">
               <button onClick={takeAllLoot} className="flex-1 bg-gradient-to-b from-[#445b3c] to-[#2c3d26] border border-[#5c7a52] text-stone-100 text-xs py-3 rounded-lg font-black uppercase tracking-widest shadow-[0_3px_0_#1a2416] active:translate-y-1 active:shadow-none">Prendi Tutto</button>
-              <button onClick={() => {setPendingLoot(null); setView('map');}} className="flex-1 bg-gradient-to-b from-[#3a3f3c] to-[#252826] border border-[#4d5450] text-stone-300 text-xs py-3 rounded-lg font-black uppercase tracking-widest shadow-[0_3px_0_#141615] active:translate-y-1 active:shadow-none">Lascia Zona</button>
+              <button onClick={() => {setPendingLoot(null); if(view !== 'radar') setView('map');}} className="flex-1 bg-gradient-to-b from-[#3a3f3c] to-[#252826] border border-[#4d5450] text-stone-300 text-xs py-3 rounded-lg font-black uppercase tracking-widest shadow-[0_3px_0_#141615] active:translate-y-1 active:shadow-none">Continua</button>
             </div>
           </div>
         </div>
@@ -1005,9 +1054,9 @@ export default function App() {
           
           <div className="flex bg-[#161816] border-b border-[#232624] flex-shrink-0 shadow-md">
             {['equipment', 'map', 'base', 'market'].map((tab) => (
-              <button key={tab} onClick={() => {setView(tab); chiudiPopup();}} 
+              <button key={tab} onClick={() => {setView(tab); setRadarMap(null); chiudiPopup();}} 
                 className={`flex-1 py-3 border-b-2 flex flex-col items-center justify-center transition-colors ${
-                  view === tab ? 'border-amber-500 text-amber-500 bg-[#1c1e1d]' : 'border-transparent text-stone-500 hover:bg-[#1a1d1b] hover:text-stone-400'
+                  view === tab || (tab === 'map' && view === 'radar') ? 'border-amber-500 text-amber-500 bg-[#1c1e1d]' : 'border-transparent text-stone-500 hover:bg-[#1a1d1b] hover:text-stone-400'
                 }`}
               >
                 {tab === 'equipment' && <User className="w-4 h-4 mb-1" />}
@@ -1037,11 +1086,13 @@ export default function App() {
                     key={loc.id} onClick={(e) => { e.stopPropagation(); setSelectedLocation(loc); chiudiPopup(); }}
                     className={`absolute transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full flex items-center justify-center border transition-all hover:scale-110 cursor-pointer ${
                       loc.type === 'safe' ? 'bg-[#152e1c]/80 border-green-600 text-green-500 shadow-[0_0_10px_rgba(34,197,94,0.4)]' : 
+                      loc.type === 'radar' ? 'bg-[#0f380f]/80 border-[#39ff14] text-[#39ff14] shadow-[0_0_15px_rgba(57,255,20,0.5)]' :
                       loc.lvl > 15 ? 'bg-[#3d1616]/80 border-red-600 text-red-500 shadow-[0_0_10px_rgba(239,68,68,0.4)]' : 'bg-[#3b2710]/80 border-amber-600 text-amber-500 shadow-[0_0_10px_rgba(245,158,11,0.4)]'
                     }`}
                     style={{ top: `${loc.y}%`, left: `${loc.x}%` }}
                   >
-                    {loc.lvl > 15 && <div className="absolute inset-0 rounded-full border border-red-500 opacity-40 animate-ping pointer-events-none"></div>}
+                    {loc.type === 'radar' && <div className="absolute inset-0 rounded-full border border-[#39ff14] opacity-50 animate-ping pointer-events-none"></div>}
+                    {loc.lvl > 15 && loc.type !== 'radar' && <div className="absolute inset-0 rounded-full border border-red-500 opacity-40 animate-ping pointer-events-none"></div>}
                     {loc.type === 'safe' ? <Home className="w-4 h-4 relative z-10" /> : <AlertTriangle className="w-4 h-4 relative z-10" />}
                   </button>
                 ))}
@@ -1055,17 +1106,106 @@ export default function App() {
                     <p className="text-[11px] text-stone-400 mb-4 italic">"{selectedLocation.desc}"</p>
                     
                     <div className="flex justify-between items-center mb-4 text-[10px] font-mono bg-[#141615] p-2 rounded border border-[#232624] shadow-inner">
-                      <span className={selectedLocation.type === 'safe' ? 'text-green-500' : 'text-red-500'}>
-                        {selectedLocation.type === 'safe' ? 'ZONA SICURA' : `MINACCIA LVL ${selectedLocation.lvl}`}
+                      <span className={selectedLocation.type === 'safe' ? 'text-green-500' : selectedLocation.type === 'radar' ? 'text-[#39ff14]' : 'text-red-500'}>
+                        {selectedLocation.type === 'safe' ? 'ZONA SICURA' : selectedLocation.type === 'radar' ? 'ZONA TATTICA RADAR' : `MINACCIA LVL ${selectedLocation.lvl}`}
                       </span>
                       <span className="flex items-center text-amber-500"><Zap className="w-3 h-3 mr-1"/> COSTO: {selectedLocation.cost}</span>
                     </div>
 
-                    <button onClick={() => handleTravelClick(selectedLocation)} className={`w-full py-3 rounded font-black tracking-widest uppercase text-[10px] ${energy >= selectedLocation.cost ? 'bg-gradient-to-b from-[#445b3c] to-[#2c3d26] border border-[#5c7a52] text-white shadow-[0_2px_0_#1a2416] active:translate-y-0.5 active:shadow-none' : 'bg-[#232624] border border-[#2d312f] text-stone-600 cursor-not-allowed'}`}>
+                    <button onClick={() => handleTravelClick(selectedLocation)} className={`w-full py-3 rounded font-black tracking-widest uppercase text-[10px] ${energy >= selectedLocation.cost ? (selectedLocation.type === 'radar' ? 'bg-gradient-to-b from-[#0f380f] to-[#071c07] border border-[#39ff14] text-[#39ff14]' : 'bg-gradient-to-b from-[#445b3c] to-[#2c3d26] border border-[#5c7a52] text-white') + ' shadow-[0_2px_0_#1a2416] active:translate-y-0.5 active:shadow-none' : 'bg-[#232624] border border-[#2d312f] text-stone-600 cursor-not-allowed'}`}>
                       {selectedLocation.type === 'safe' ? 'Raggiungi' : 'Inizia Esplorazione'}
                     </button>
                   </div>
                 )}
+              </div>
+            )}
+
+            {/* === NUOVA SCHERMATA RADAR === */}
+            {view === 'radar' && radarMap && (
+              <div className="h-full w-full bg-[#0a140a] rounded-lg border-2 border-[#124f12] relative overflow-hidden flex flex-col items-center shadow-[inset_0_0_50px_rgba(0,0,0,0.9)]">
+                
+                {/* HUD Superiore Radar */}
+                <div className="w-full bg-[#050a05] border-b border-[#124f12] p-2 flex justify-between items-center z-10 shadow-[0_4px_10px_rgba(0,0,0,0.8)]">
+                  <div className="flex items-center">
+                    <Activity className="w-4 h-4 text-[#39ff14] mr-2 animate-pulse" />
+                    <span className="text-[#39ff14] font-mono text-[10px] font-black uppercase tracking-widest drop-shadow-[0_0_2px_#39ff14]">
+                      Zona: <span className="text-white">{currentZone}</span>
+                    </span>
+                  </div>
+                  <span className="text-[#39ff14] font-mono text-[10px] opacity-70">RADAR // M.A.Z.</span>
+                </div>
+
+                {/* Griglia della Mappa */}
+                <div className="flex-1 w-full flex items-center justify-center p-2 relative">
+                  {/* Effetto Scanline Old School */}
+                  <div className="absolute inset-0 bg-[linear-gradient(rgba(57,255,20,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(57,255,20,0.03)_1px,transparent_1px)] bg-[size:20px_20px] pointer-events-none z-10"></div>
+                  
+                  <div 
+                    className="grid bg-[#050a05] border border-[#124f12] shadow-[0_0_20px_rgba(57,255,20,0.1)] relative" 
+                    style={{ gridTemplateColumns: `repeat(${radarMap[0].length}, 1fr)`, width: '100%', maxWidth: '400px', aspectRatio: '1/1' }}
+                  >
+                    {radarMap.map((row, y) => (
+                      row.map((cell, x) => {
+                        const isPlayer = playerPos.x === x && playerPos.y === y;
+                        let cellContent = null;
+                        let cellClass = "w-full h-full border border-[#0f380f]/30 flex items-center justify-center ";
+
+                        if (isPlayer) {
+                          cellContent = <div className="w-2/3 h-2/3 bg-white rounded-sm animate-pulse shadow-[0_0_8px_#fff]"></div>;
+                        } else if (cell === 1) {
+                          // Muri/Alberi
+                          cellClass += "bg-[#0f2e0f]";
+                        } else if (cell === 2) {
+                          // Cassa
+                          cellContent = <div className="w-1/2 h-1/2 border border-[#39ff14] flex items-center justify-center"><Package className="w-full h-full text-[#39ff14]" strokeWidth={1} /></div>;
+                        } else if (cell === 3) {
+                          // Nemico
+                          cellContent = <div className="w-1/2 h-1/2 bg-red-600 rounded-full animate-ping opacity-70"></div>;
+                        } else if (cell === 4) {
+                          // Estrazione
+                          cellClass += "bg-blue-900/30 border-blue-500/50";
+                          cellContent = <div className="text-[6px] text-blue-400 font-bold uppercase">EXIT</div>;
+                        }
+
+                        return (
+                          <div key={`${x}-${y}`} className={cellClass}>
+                            {cellContent}
+                          </div>
+                        );
+                      })
+                    ))}
+                  </div>
+                </div>
+
+                {/* Joystick On-Screen per Mobile */}
+                <div className="w-full p-4 flex justify-center pb-8 z-10">
+                  <div className="grid grid-cols-3 gap-2 w-48">
+                    <div className="col-start-2">
+                      <button onClick={() => moveRadar(0, -1)} className="w-full aspect-square bg-[#0a1a0a] border border-[#124f12] rounded flex items-center justify-center text-[#39ff14] hover:bg-[#124f12] active:bg-[#39ff14] active:text-black transition-colors">
+                        <ArrowUp className="w-6 h-6" />
+                      </button>
+                    </div>
+                    <div className="col-start-1 row-start-2">
+                      <button onClick={() => moveRadar(-1, 0)} className="w-full aspect-square bg-[#0a1a0a] border border-[#124f12] rounded flex items-center justify-center text-[#39ff14] hover:bg-[#124f12] active:bg-[#39ff14] active:text-black transition-colors">
+                        <ArrowLeft className="w-6 h-6" />
+                      </button>
+                    </div>
+                    <div className="col-start-2 row-start-2 flex items-center justify-center">
+                      <div className="w-4 h-4 rounded-full bg-[#124f12]"></div>
+                    </div>
+                    <div className="col-start-3 row-start-2">
+                      <button onClick={() => moveRadar(1, 0)} className="w-full aspect-square bg-[#0a1a0a] border border-[#124f12] rounded flex items-center justify-center text-[#39ff14] hover:bg-[#124f12] active:bg-[#39ff14] active:text-black transition-colors">
+                        <ArrowRight className="w-6 h-6" />
+                      </button>
+                    </div>
+                    <div className="col-start-2 row-start-3">
+                      <button onClick={() => moveRadar(0, 1)} className="w-full aspect-square bg-[#0a1a0a] border border-[#124f12] rounded flex items-center justify-center text-[#39ff14] hover:bg-[#124f12] active:bg-[#39ff14] active:text-black transition-colors">
+                        <ArrowDown className="w-6 h-6" />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
               </div>
             )}
 
@@ -1211,7 +1351,7 @@ export default function App() {
                       </button>
                     </div>
 
-                    <div className="bg-[url('https://www.transparenttextures.com/patterns/dark-matter.png')] bg-[#111] rounded-md p-4 border border-red-900 shadow-[0_0_15px_rgba(220,38,38,0.1)] flex justify-between items-center relative overflow-hidden">
+                    <div className="bg-[#111] rounded-md p-4 border border-red-900 shadow-[0_0_15px_rgba(220,38,38,0.1)] flex justify-between items-center relative overflow-hidden">
                       <div className="absolute inset-0 bg-gradient-to-r from-red-900/20 to-transparent pointer-events-none"></div>
                       <div className="relative z-10">
                          <h4 className="text-red-500 font-black uppercase tracking-widest text-sm drop-shadow-[0_0_5px_rgba(220,38,38,0.5)]">Cassa Militare Nera</h4>
@@ -1270,7 +1410,7 @@ export default function App() {
     if (itemObj) {
       const name = getItemName(itemObj);
       const data = ITEMS[name];
-      if (!data) return null; // Safety check
+      if (!data) return null; 
       const rColor = RARITY[data.rarity]?.color || 'text-stone-300';
       const rBorder = RARITY[data.rarity]?.border || 'border-stone-500';
       return (
@@ -1283,7 +1423,6 @@ export default function App() {
               <CustomImageRenderer itemData={data} itemName={name} />
             </div>
             
-            {/* Barra Durabilità */}
             {itemObj.dura !== null && itemObj.dura !== undefined && (
               <div className="absolute top-1 left-1 right-1 h-1 bg-black/60 rounded-full overflow-hidden z-20">
                  <div className={`h-full ${itemObj.dura > 50 ? 'bg-green-500' : itemObj.dura > 25 ? 'bg-amber-500' : 'bg-red-500'}`} style={{width: `${itemObj.dura}%`}}></div>
