@@ -65,9 +65,9 @@ const CUSTOM_IMAGES = {
   'Stivali Hazmat Potenziati': 'https://i.postimg.cc/VvwfG4K0/Screenshot_20260330_141126_7.jpg',
 
   // --- RISORSE E COSTRUZIONE ---
-  'Nastro Adesivo': '', 'Zucchero Grezzo': '', 'Caffè in Grani': '', 'Lingotto di Rame': '',
-  'Batteria al Litio': '', 'Orologio d\'Epoca': '', 'Disinfettante': '', 'Carburante Sintetico': '',
-  'Scheda Madre Intatta': '', 'Chiavetta USB Criptata': '',
+  'Nastro Adesivo': 'https://i.postimg.cc/ZqLhByvg/1775062687389_10.jpg', 'Zucchero Grezzo': 'https://i.postimg.cc/SKGp2zYv/1775062687389_11.jpg', 'Caffè in Grani': 'https://i.postimg.cc/TPcXLW59/1775062687389_12.jpg', 'Lingotto di Rame': 'https://i.postimg.cc/5tmMYFQZ/1775062687389_13.jpg',
+  'Batteria al Litio': 'https://i.postimg.cc/jjhrwJnp/1775062687389_14.jpg', 'Orologio d\'Epoca': 'https://i.postimg.cc/vmysZvTS/1775062687389_5.jpg', 'Disinfettante': 'https://i.postimg.cc/nL1tjQ9T/1775062687389_6.jpg', 'Carburante Sintetico': 'https://i.postimg.cc/zfNrGkv2/1775062687389_7.jpg',
+  'Scheda Madre Intatta': 'https://i.postimg.cc/MGY8Mjjk/1775062687389_8.jpg', 'Chiavetta USB Criptata': 'https://i.postimg.cc/CK4VBfn6/1775062687389_9.jpg',
   'Assi di Legno': '', 'Chiodi': '', 'Mattoni in Cotto': '', 'Tubi d\'Acciaio': '',
   'Chiave d\'Accesso Linate': ''
 };
