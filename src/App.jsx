@@ -3,14 +3,13 @@ import {
   Shield, Zap, Heart, Map, Home, Backpack, Skull, AlertTriangle, 
   Package, ArchiveRestore, Coffee, PlusSquare, Crosshair, Shirt, 
   Scissors, Coins, Store, Navigation, MapPin, User, ShoppingCart, 
-  Activity, Star, Hammer, Key, ArrowUp, ArrowDown, ArrowLeft, ArrowRight
+  Activity, Star, Hammer, Key
 } from 'lucide-react';
 
 // ==========================================
-// 🎨 SISTEMA IMMAGINI PERSONALIZZATE
+// 🎨 DATABASE IMMAGINI
 // ==========================================
 const CUSTOM_IMAGES = {
-  // --- ARMI ---
   'Pistola Glock': 'https://i.postimg.cc/Hntpf5KC/Screenshot_20260330_143029_4.jpg',
   'Fucile M16': 'https://i.postimg.cc/MHw6Pt9c/Screenshot_20260330_143029_5.jpg',
   'Fucile AK-47': 'https://i.postimg.cc/yxK1QnLB/Screenshot_20260330_143029_12.jpg',
@@ -23,67 +22,60 @@ const CUSTOM_IMAGES = {
   'Minigun Vulcan': 'https://i.postimg.cc/vBf8tCtZ/Screenshot_20260330_143029_8.jpg',
   'Coltellino': '', 
   'Mazza da Baseball': '', 
-
-  // --- ZAINI ---
   'Sacca Sportiva': 'https://i.postimg.cc/cCws9TFJ/Screenshot_20260330_142331_2.jpg',
   'Sacca a Tracolla': 'https://i.postimg.cc/cCcSVYjq/Screenshot_20260330_142331_3.jpg',
   'Zaino da Escursionismo': 'https://i.postimg.cc/T1xd7QtW/Screenshot_20260330_142331_4.jpg',
   'Zaino Tattico Militare': 'https://i.postimg.cc/D0hvj5xZ/Screenshot_20260330_142331_6.jpg',
   'Zaino Sopravvivenza': '', 
-
-  // --- SET 1: CASUAL ---
+  
+  // SET 1
   'Berretto di Lana': 'https://i.postimg.cc/3Nh8S9tj/Screenshot_20260330_132744_2.jpg',
   'Giacca Casual': 'https://i.postimg.cc/wvLxQnQT/Screenshot_20260330_141043_5.jpg',
   'Jeans Strappati': 'https://i.postimg.cc/D0c2tsNc/Screenshot_20260330_164352_2.jpg',
   'Scarpe da Ginnastica': 'https://i.postimg.cc/L5S9Cvx5/Screenshot_20260330_141126_3.jpg',
-
-  // --- SET 2: CIVILE PESANTE ---
+  // SET 2
   'Casco da Lavoro': 'https://i.postimg.cc/PJMtBZ7g/Screenshot_20260330_132744_3.jpg',
   'Giubbotto di Pelle': 'https://i.postimg.cc/2yxzPvtZ/Screenshot_20260330_141043_6.jpg',
   'Pantaloni Cargo': 'https://i.postimg.cc/tJbqSDB7/Screenshot_20260330_164352_3.jpg',
   'Scarponi da Lavoro': 'https://i.postimg.cc/MHYWHRLd/Screenshot_20260330_141126_4.jpg',
-
-  // --- SET 3: CACCIA/SOPRAVVIVENZA ---
+  // SET 3
   'Cappello Mimetico': 'https://i.postimg.cc/T1xd7Qt9/Screenshot_20260330_132744_4.jpg',
   'Giacca da Caccia': 'https://i.postimg.cc/hvnDyM2K/Screenshot_20260330_141043_7.jpg',
   'Pantaloni da Sopravvivenza': 'https://i.postimg.cc/BbCqdDzw/Screenshot_20260330_164352_4.jpg',
   'Stivali da Trekking': 'https://i.postimg.cc/3Nh8S9t8/Screenshot_20260330_141126_5.jpg',
-
-  // --- SET 4: ANTISOMMOSSA ---
+  // SET 4
   'Casco Antisommossa': 'https://i.postimg.cc/wX5Ty8BB/Screenshot_20260330_132744_5.jpg',
   'Corazza Antisommossa': 'https://i.postimg.cc/qqGk9nFw/Screenshot_20260330_141043_8.jpg',
   'Pantaloni Antisommossa': 'https://i.postimg.cc/rsTVngfD/Screenshot_20260330_164352_5.jpg',
   'Anfibi Antisommossa': 'https://i.postimg.cc/Wz72QryH/Screenshot_20260330_141126_6.jpg',
-
-  // --- SET 5: HAZMAT STANDARD ---
-  'Cappuccio Hazmat': '', 'Tuta Hazmat': '', 'Pantaloni Hazmat': '', 'Stivali Hazmat': '',
-
-  // --- SET 6: HAZMAT POTENZIATA ---
+  // SET HAZMAT POTENZIATA
   'Casco Hazmat Potenziato': 'https://i.postimg.cc/x8Qfxg6y/Screenshot_20260330_132744_6.jpg',
   'Corazza Hazmat Potenziata': 'https://i.postimg.cc/nrxFRT3x/Screenshot_20260330_141043_4.jpg',
   'Pantaloni Hazmat Potenziati': 'https://i.postimg.cc/5ymxZvr5/Screenshot_20260330_164352_6.jpg',
   'Stivali Hazmat Potenziati': 'https://i.postimg.cc/VvwfG4K0/Screenshot_20260330_141126_7.jpg',
 
-  // --- RISORSE E COSTRUZIONE ---
-  'Nastro Adesivo': '', 'Zucchero Grezzo': '', 'Caffè in Grani': '', 'Lingotto di Rame': '',
-  'Batteria al Litio': '', 'Orologio d\'Epoca': '', 'Disinfettante': '', 'Carburante Sintetico': '',
-  'Scheda Madre Intatta': '', 'Chiavetta USB Criptata': '',
-  'Assi di Legno': '', 'Chiodi': '', 'Mattoni in Cotto': '', 'Tubi d\'Acciaio': '',
-  'Chiave d\'Accesso Linate': ''
+  // --- NUOVI SET AGGIUNTI ---
+  'Casco da Pompiere': '', 'Giacca da Pompiere': '', 'Pantaloni da Pompiere': '', 'Stivali da Pompiere': '',
+  'Berretto Sportivo': '', 'Felpa con Cappuccio': '', 'Pantaloni Sportivi': '', 'Scarpe da Corsa': '',
+  'Cappuccio CBRN': '', 'Tuta CBRN': '', 'Pantaloni CBRN': '', 'Stivali CBRN': '',
+  'Casco Forze Speciali': '', 'Corazza Forze Speciali': '', 'Pantaloni Forze Speciali': '', 'Anfibi Forze Speciali': '',
+  'Casco Juggernaut': '', 'Corazza Juggernaut': '', 'Pantaloni Juggernaut': '', 'Stivali Juggernaut': ''
 };
 
 const CUSTOM_ENEMIES_IMAGES = {
   'Lurker': '', 'Slasher': '', 'Rioter': '', 'Chimera': '', 'Gilbert': ''
 };
 
+// --- STILE E RARITÀ ---
 const RARITY = {
-  comune: { id: 'comune', color: 'text-stone-300', border: 'border-stone-500', shadow: 'rgba(120, 113, 108, 0.4)', name: 'Comune', xp: 0 },
-  raro: { id: 'raro', color: 'text-blue-300', border: 'border-blue-500', shadow: 'rgba(59, 130, 246, 0.4)', name: 'Raro', xp: 15 },
-  epico: { id: 'epico', color: 'text-purple-400', border: 'border-purple-500', shadow: 'rgba(168, 85, 247, 0.4)', name: 'Epico', xp: 40 },
-  leggendario: { id: 'leggendario', color: 'text-amber-500', border: 'border-amber-500', shadow: 'rgba(245, 158, 11, 0.4)', name: 'Leggenda', xp: 100 },
-  mitico: { id: 'mitico', color: 'text-red-500', border: 'border-red-500', shadow: 'rgba(239, 68, 68, 0.6)', name: 'Mitico', xp: 250 }
+  comune: { color: 'text-stone-300', border: 'border-stone-500', shadow: 'rgba(120, 113, 108, 0.4)', name: 'Comune', xp: 0 },
+  raro: { color: 'text-blue-300', border: 'border-blue-500', shadow: 'rgba(59, 130, 246, 0.4)', name: 'Raro', xp: 15 },
+  epico: { color: 'text-purple-400', border: 'border-purple-500', shadow: 'rgba(168, 85, 247, 0.4)', name: 'Epico', xp: 40 },
+  leggendario: { color: 'text-amber-500', border: 'border-amber-500', shadow: 'rgba(245, 158, 11, 0.4)', name: 'Leggenda', xp: 100 },
+  mitico: { color: 'text-red-500', border: 'border-red-500', shadow: 'rgba(239, 68, 68, 0.6)', name: 'Mitico', xp: 250 }
 };
 
+// --- DATABASE NEMICI ---
 const ENEMIES_DB = {
   'Lurker': { name: 'Lurker', hp: 45, atk: 12, def: 2, desc: 'Mutante standard. Veloce e imprevedibile.' },
   'Slasher': { name: 'Slasher', hp: 75, atk: 28, def: 5, desc: 'Occhi rossi luminosi. Brutalità letale.' },
@@ -92,6 +84,7 @@ const ENEMIES_DB = {
   'Gilbert': { name: 'Gilbert', hp: 500, atk: 85, def: 45, desc: 'BOSS: Armato di fucile a pompa R8. Devastante.' }
 };
 
+// --- DATABASE OGGETTI ---
 const ITEMS = {
   'Acqua Purificata': { type: 'consumable', rarity: 'comune', value: 5, heal: 0, desc: 'Idratazione essenziale.', iconType: Coffee },
   'Razione K': { type: 'consumable', rarity: 'comune', value: 8, heal: 5, desc: 'Cibo liofilizzato.', iconType: Package },
@@ -104,12 +97,10 @@ const ITEMS = {
   'Cimelio d\'Oro': { type: 'resource', rarity: 'leggendario', value: 150, desc: 'Oro puro.', iconType: Coins },
   'Disco Dati Governativo': { type: 'resource', rarity: 'mitico', value: 500, desc: 'Codici di sicurezza.', iconType: Package },
   'Chiave d\'Accesso Linate': { type: 'resource', rarity: 'mitico', value: 1000, desc: 'Tessera d\'accesso per l\'Aeroporto.', iconType: Key },
-
   'Assi di Legno': { type: 'resource', rarity: 'comune', value: 3, desc: 'Materiale da costruzione base.', iconType: Hammer },
   'Chiodi': { type: 'resource', rarity: 'comune', value: 2, desc: 'Utili per fortificare.', iconType: Hammer },
   'Mattoni in Cotto': { type: 'resource', rarity: 'raro', value: 8, desc: 'Solidi e pesanti.', iconType: Hammer },
   'Tubi d\'Acciaio': { type: 'resource', rarity: 'epico', value: 15, desc: 'Strutture portanti.', iconType: Hammer },
-
   'Nastro Adesivo': { type: 'resource', rarity: 'comune', value: 5, desc: 'Riparazioni rapide.', iconType: Package },
   'Zucchero Grezzo': { type: 'consumable', rarity: 'comune', value: 15, heal: 5, desc: 'Picco di energia.', iconType: Coffee },
   'Caffè in Grani': { type: 'resource', rarity: 'raro', value: 35, desc: 'Lusso del vecchio mondo.', iconType: Coffee },
@@ -169,78 +160,75 @@ const ITEMS = {
   'Corazza Hazmat Potenziata': { type: 'chest', rarity: 'mitico', value: 700, def: 45, radProtect: 2, desc: 'Piombo e titanio. LVL 2 RAD.', iconType: Shirt },
   'Pantaloni Hazmat Potenziati': { type: 'pants', rarity: 'mitico', value: 500, def: 35, desc: 'Fibre isolanti.', iconType: Scissors },
   'Stivali Hazmat Potenziati': { type: 'shoes', rarity: 'mitico', value: 450, def: 30, desc: 'Assorbimento estremo.', iconType: User },
+
+  // --- NUOVI SET ARMADURE ---
+  'Casco da Pompiere': { type: 'helmet', rarity: 'raro', value: 25, def: 5, desc: 'Isolante termico avanzato.', iconType: Shield },
+  'Giacca da Pompiere': { type: 'chest', rarity: 'raro', value: 40, def: 10, desc: 'Tessuto ignifugo resistente.', iconType: Shirt },
+  'Pantaloni da Pompiere': { type: 'pants', rarity: 'raro', value: 30, def: 6, desc: 'Bande riflettenti.', iconType: Scissors },
+  'Stivali da Pompiere': { type: 'shoes', rarity: 'raro', value: 25, def: 5, desc: 'Suola rinforzata anti-perforazione.', iconType: User },
+
+  'Berretto Sportivo': { type: 'helmet', rarity: 'raro', value: 15, def: 2, desc: 'Tessuto traspirante.', iconType: Shield },
+  'Felpa con Cappuccio': { type: 'chest', rarity: 'raro', value: 25, def: 5, desc: 'Comoda per muoversi velocemente.', iconType: Shirt },
+  'Pantaloni Sportivi': { type: 'pants', rarity: 'raro', value: 20, def: 3, desc: 'Non intralciano la corsa.', iconType: Scissors },
+  'Scarpe da Corsa': { type: 'shoes', rarity: 'raro', value: 25, def: 3, desc: 'Ottime per fuggire.', iconType: User },
+
+  'Cappuccio CBRN': { type: 'helmet', rarity: 'epico', value: 60, def: 6, radProtect: 1, desc: 'Maschera antigas tattica.', iconType: Shield },
+  'Tuta CBRN': { type: 'chest', rarity: 'epico', value: 100, def: 12, radProtect: 1, desc: 'Isolamento totale da agenti chimici.', iconType: Shirt },
+  'Pantaloni CBRN': { type: 'pants', rarity: 'epico', value: 80, def: 10, desc: 'Gomma sintetica spessa.', iconType: Scissors },
+  'Stivali CBRN': { type: 'shoes', rarity: 'epico', value: 70, def: 8, desc: 'Stivali da decontaminazione.', iconType: User },
+
+  'Casco Forze Speciali': { type: 'helmet', rarity: 'leggendario', value: 160, def: 18, desc: 'Kevlar leggero con radio integrata.', iconType: Shield },
+  'Corazza Forze Speciali': { type: 'chest', rarity: 'leggendario', value: 250, def: 30, desc: 'Piastre tattiche in ceramica.', iconType: Shirt },
+  'Pantaloni Forze Speciali': { type: 'pants', rarity: 'leggendario', value: 200, def: 25, desc: 'Multitasche tattico.', iconType: Scissors },
+  'Anfibi Forze Speciali': { type: 'shoes', rarity: 'leggendario', value: 180, def: 20, desc: 'Silenziosi e letali in combattimento.', iconType: User },
+
+  'Casco Juggernaut': { type: 'helmet', rarity: 'mitico', value: 500, def: 35, desc: 'Un bunker per la testa.', iconType: Shield },
+  'Corazza Juggernaut': { type: 'chest', rarity: 'mitico', value: 900, def: 60, desc: 'Trasforma un uomo in un carro armato.', iconType: Shirt },
+  'Pantaloni Juggernaut': { type: 'pants', rarity: 'mitico', value: 700, def: 45, desc: 'Placche corazzate pesantissime.', iconType: Scissors },
+  'Stivali Juggernaut': { type: 'shoes', rarity: 'mitico', value: 600, def: 40, desc: 'Inarrestabili.', iconType: User },
 };
 
 const LOCATIONS = [
-  { id: 'duomo', name: 'Cratere del Duomo', type: 'danger', x: 50, y: 50, reqRad: 2, desc: 'Ground Zero. REQUISITO: HAZMAT POTENZIATA.', lvl: 25, cost: 40, enemies: ['Chimera'], loot: ['Disco Dati Governativo', 'Chiavetta USB Criptata', 'Minigun Vulcan', 'Corazza Hazmat Potenziata', 'Casco Hazmat Potenziato', 'Zaino Sopravvivenza'], minLoot: 4, maxLoot: 6 },
+  { id: 'duomo', name: 'Cratere del Duomo', type: 'danger', x: 50, y: 50, reqRad: 2, desc: 'Ground Zero. REQUISITO: HAZMAT POTENZIATA.', lvl: 25, cost: 40, enemies: ['Chimera'], loot: ['Disco Dati Governativo', 'Chiavetta USB Criptata', 'Minigun Vulcan', 'Corazza Juggernaut', 'Casco Juggernaut', 'Zaino Sopravvivenza'], minLoot: 4, maxLoot: 6 },
   { id: 'mercato', name: 'Mercato (Cadorna)', type: 'safe', x: 37, y: 43, desc: 'Zona neutrale. Puoi scambiare oggetti.', lvl: 1, cost: 5 },
-  // SEMPIONE è ORA UNA MAPPA 2D RADAR. type: 'radar'
-  { id: 'sempione', name: 'Foresta Sempione', type: 'radar', x: 33, y: 31, desc: 'Esplorazione Radar Attiva.', lvl: 2, cost: 10, enemies: ['Lurker'], loot: ['Rottami', 'Assi di Legno', 'Acqua Purificata', 'Coltellino', 'Sacca Sportiva', 'Mazza da Baseball', 'Berretto di Lana'], minLoot: 1, maxLoot: 3 },
-  { id: 'breda', name: 'Stadio Breda', type: 'danger', x: 20, y: 10, desc: 'Vecchio stadio in rovina.', lvl: 6, cost: 12, enemies: ['Lurker'], loot: ['Bende', 'Sacca a Tracolla', 'Assi di Legno', 'Chiodi', 'Pistola Glock', 'Casco da Lavoro'], minLoot: 1, maxLoot: 3 },
+  { id: 'sempione', name: 'Foresta Sempione', type: 'danger', x: 33, y: 31, desc: 'Rovine invase dalla vegetazione.', lvl: 2, cost: 10, enemies: ['Lurker'], loot: ['Rottami', 'Assi di Legno', 'Felpa con Cappuccio', 'Scarpe da Corsa', 'Sacca Sportiva', 'Mazza da Baseball', 'Berretto di Lana'], minLoot: 1, maxLoot: 3 },
+  { id: 'breda', name: 'Stadio Breda', type: 'danger', x: 20, y: 10, desc: 'Vecchio stadio in rovina.', lvl: 6, cost: 12, enemies: ['Lurker'], loot: ['Bende', 'Sacca a Tracolla', 'Assi di Legno', 'Casco da Pompiere', 'Pistola Glock', 'Casco da Lavoro'], minLoot: 1, maxLoot: 3 },
   { id: 'caserma', name: 'Caserma Firenze', type: 'danger', x: 16, y: 15, desc: 'Avamposto militare abbandonato.', lvl: 10, cost: 20, enemies: ['Rioter', 'Slasher', 'Lurker'], loot: ['Munizioni 9mm', 'Razione K', 'Chiodi', 'Tubi d\'Acciaio', 'Medikit', 'Pistola Glock', 'Giubbotto di Pelle'], minLoot: 2, maxLoot: 4 },
-  { id: 'isola', name: 'Quartiere Isola', type: 'danger', x: 45, y: 20, desc: 'Vicoli stretti e grattacieli.', lvl: 11, cost: 20, enemies: ['Lurker', 'Slasher'], loot: ['Mitraglietta Uzi', 'Componenti Elettronici', 'Lingotto di Rame', 'Mattoni in Cotto', 'Zaino da Escursionismo'], minLoot: 2, maxLoot: 4 },
-  { id: 'ospedale', name: 'Policlinico', type: 'danger', x: 54, y: 60, desc: 'Forniture mediche.', lvl: 12, cost: 25, enemies: ['Rioter', 'Slasher', 'Lurker'], loot: ['Medikit', 'Disinfettante', 'Componenti Elettronici', 'Zaino da Escursionismo', 'Pantaloni Cargo', 'MP5 Silenziato'], minLoot: 3, maxLoot: 5 },
-  { id: 'm5', name: 'Metro M5 (Lilla)', type: 'danger', x: 30, y: 40, desc: 'Tunnel sotterranei bui.', lvl: 15, cost: 25, enemies: ['Rioter', 'Lurker'], loot: ['MP5 Silenziato', 'Munizioni 5.56', 'Orologio d\'Epoca', 'Pantaloni Cargo', 'Zaino Tattico Militare'], minLoot: 2, maxLoot: 4 },
-  { id: 'monumentale', name: 'Cimitero Monumentale', type: 'danger', x: 35, y: 25, desc: 'Silenzio di tomba.', lvl: 16, cost: 25, enemies: ['Slasher', 'Lurker'], loot: ['Medikit', 'Batteria al Litio', 'Fucile M16', 'Pantaloni Antisommossa'], minLoot: 2, maxLoot: 4 },
-  { id: 'centrale', name: 'Stazione Centrale', type: 'danger', x: 61, y: 15, desc: 'Covo dei Predoni.', lvl: 18, cost: 30, enemies: ['Rioter', 'Slasher'], loot: ['Munizioni 5.56', 'Fucile AK-47', 'Chiave d\'Accesso Linate', 'Zaino Tattico Militare', 'Cimelio d\'Oro', 'Casco Antisommossa'], minLoot: 3, maxLoot: 5 },
-  { id: 'fiera', name: 'Fiera Milano', type: 'danger', x: 10, y: 25, desc: 'Enorme polo espositivo.', lvl: 20, cost: 30, enemies: ['Rioter', 'Slasher'], loot: ['Fucile AK-47', 'Zaino da Escursionismo', 'Tubi d\'Acciaio', 'Carburante Sintetico'], minLoot: 3, maxLoot: 5 },
-  { id: 'castello', name: 'Castello Sforzesco', type: 'danger', x: 40, y: 35, desc: 'Fortezza espugnata.', lvl: 22, cost: 35, enemies: ['Rioter', 'Chimera'], loot: ['Mitragliatrice M249', 'Scheda Madre Intatta', 'Corazza Antisommossa', 'Zaino Tattico Militare'], minLoot: 3, maxLoot: 5 },
+  { id: 'isola', name: 'Quartiere Isola', type: 'danger', x: 45, y: 20, desc: 'Vicoli stretti e grattacieli.', lvl: 11, cost: 20, enemies: ['Lurker', 'Slasher'], loot: ['Mitraglietta Uzi', 'Componenti Elettronici', 'Lingotto di Rame', 'Giacca da Pompiere', 'Zaino da Escursionismo'], minLoot: 2, maxLoot: 4 },
+  { id: 'ospedale', name: 'Policlinico', type: 'danger', x: 54, y: 60, desc: 'Forniture mediche.', lvl: 12, cost: 25, enemies: ['Rioter', 'Slasher', 'Lurker'], loot: ['Medikit', 'Disinfettante', 'Tuta CBRN', 'Zaino da Escursionismo', 'Pantaloni Cargo', 'MP5 Silenziato'], minLoot: 3, maxLoot: 5 },
+  { id: 'm5', name: 'Metro M5 (Lilla)', type: 'danger', x: 30, y: 40, desc: 'Tunnel sotterranei bui.', lvl: 15, cost: 25, enemies: ['Rioter', 'Lurker'], loot: ['MP5 Silenziato', 'Munizioni 5.56', 'Orologio d\'Epoca', 'Cappuccio CBRN', 'Zaino Tattico Militare'], minLoot: 2, maxLoot: 4 },
+  { id: 'monumentale', name: 'Cimitero Monumentale', type: 'danger', x: 35, y: 25, desc: 'Silenzio di tomba.', lvl: 16, cost: 25, enemies: ['Slasher', 'Lurker'], loot: ['Medikit', 'Batteria al Litio', 'Fucile M16', 'Pantaloni CBRN'], minLoot: 2, maxLoot: 4 },
+  { id: 'centrale', name: 'Stazione Centrale', type: 'danger', x: 61, y: 15, desc: 'Covo dei Predoni.', lvl: 18, cost: 30, enemies: ['Rioter', 'Slasher'], loot: ['Munizioni 5.56', 'Fucile AK-47', 'Casco Forze Speciali', 'Zaino Tattico Militare', 'Cimelio d\'Oro', 'Casco Antisommossa'], minLoot: 3, maxLoot: 5 },
+  { id: 'fiera', name: 'Fiera Milano', type: 'danger', x: 10, y: 25, desc: 'Enorme polo espositivo.', lvl: 20, cost: 30, enemies: ['Rioter', 'Slasher'], loot: ['Fucile AK-47', 'Zaino da Escursionismo', 'Corazza Forze Speciali', 'Carburante Sintetico'], minLoot: 3, maxLoot: 5 },
+  { id: 'castello', name: 'Castello Sforzesco', type: 'danger', x: 40, y: 35, desc: 'Fortezza espugnata.', lvl: 22, cost: 35, enemies: ['Rioter', 'Chimera'], loot: ['Mitragliatrice M249', 'Scheda Madre Intatta', 'Corazza Juggernaut', 'Anfibi Forze Speciali'], minLoot: 3, maxLoot: 5 },
   { id: 'rifugio', name: 'Il Tuo Rifugio', type: 'safe', x: 79, y: 26, desc: 'La tua base operativa.', lvl: 1, cost: 0 },
-  { id: 'navigli', name: 'Paludi Darsena', type: 'danger', x: 37, y: 70, desc: 'Fanghi tossici.', lvl: 5, cost: 15, enemies: ['Lurker', 'Slasher'], loot: ['Rottami', 'Assi di Legno', 'Bende', 'Mazza da Baseball', 'Scarpe da Ginnastica', 'Giacca Casual'], minLoot: 2, maxLoot: 4 },
-  { id: 'idroscalo', name: 'Idroscalo Tossico', type: 'danger', x: 92, y: 65, reqRad: 1, desc: 'Gas venefici. REQUISITO: TUTA HAZMAT.', lvl: 20, cost: 35, enemies: ['Rioter', 'Slasher'], loot: ['AK-47 Tamburo', 'Pistola Tamburo', 'Munizioni 5.56', 'Corazza Antisommossa', 'Tuta Hazmat'], minLoot: 3, maxLoot: 5 },
-  { id: 'linate', name: 'Linate (Aeroporto)', type: 'danger', x: 88, y: 80, reqKey: 'Chiave d\'Accesso Linate', desc: 'Area blindata. REQUISITO: CHIAVE LINATE.', lvl: 28, cost: 45, enemies: ['Gilbert'], loot: ['Mitragliatrice M249', 'Corazza Hazmat Potenziata', 'Pantaloni Hazmat Potenziati', 'Stivali Hazmat Potenziati'], minLoot: 4, maxLoot: 6 }
+  { id: 'navigli', name: 'Paludi Darsena', type: 'danger', x: 37, y: 70, desc: 'Fanghi tossici.', lvl: 5, cost: 15, enemies: ['Lurker', 'Slasher'], loot: ['Rottami', 'Assi di Legno', 'Bende', 'Pantaloni Sportivi', 'Berretto Sportivo', 'Giacca Casual'], minLoot: 2, maxLoot: 4 },
+  { id: 'idroscalo', name: 'Idroscalo Tossico', type: 'danger', x: 92, y: 65, reqRad: 1, desc: 'Gas venefici. REQUISITO: TUTA HAZMAT.', lvl: 20, cost: 35, enemies: ['Rioter', 'Slasher'], loot: ['AK-47 Tamburo', 'Pistola Tamburo', 'Munizioni 5.56', 'Pantaloni Juggernaut', 'Tuta Hazmat'], minLoot: 3, maxLoot: 5 },
+  { id: 'linate', name: 'Linate (Aeroporto)', type: 'danger', x: 88, y: 80, reqKey: 'Chiave d\'Accesso Linate', desc: 'Area blindata. REQUISITO: CHIAVE LINATE.', lvl: 28, cost: 45, enemies: ['Gilbert'], loot: ['Mitragliatrice M249', 'Stivali Juggernaut', 'Pantaloni Hazmat Potenziati', 'Stivali Hazmat Potenziati'], minLoot: 4, maxLoot: 6 }
 ];
 
 const MAX_ENERGY = 100;
 const BASE_ATK = 5;
 const BASE_DEF = 0;
 
-const getItemName = (item) => typeof item === 'string' ? item : item?.name;
+// --- FUNZIONI DI SICUREZZA PER GLI OGGETTI (Anti-Crash) ---
+const safeName = (item) => typeof item === 'string' ? item : (item?.name || '');
+const safeItem = (name) => ITEMS[name] || { type: 'resource', rarity: 'comune', value: 0, desc: 'Oggetto Sconosciuto' };
+
 const createItemObj = (nameStr) => {
   const isEquipment = ['weapon', 'helmet', 'chest', 'pants', 'shoes'].includes(ITEMS[nameStr]?.type);
   return { id: Math.random().toString(36).substr(2, 9), name: nameStr, dura: isEquipment ? 100 : null };
 };
 
-// ==========================================
-// 📡 MOTORE MAPPE RADAR 2D
-// ==========================================
-// 0: Vuoto, 1: Albero/Muro, 2: Cassa(Loot), 3: Nemico, 4: Zona Estrazione (Uscita)
-const MAPS_2D = {
-  'sempione': {
-    grid: [
-      [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
-      [1,0,0,0,1,0,0,0,0,0,1,1,1,1,1],
-      [1,0,2,0,1,0,3,0,0,0,1,2,0,1,1],
-      [1,0,0,0,1,1,1,0,0,0,1,0,0,1,1],
-      [1,1,0,1,1,0,0,0,0,0,1,0,3,1,1],
-      [1,0,0,0,0,0,1,1,1,0,1,1,0,1,1],
-      [1,0,3,0,0,0,1,2,1,0,0,0,0,0,1],
-      [1,1,1,1,0,0,1,0,1,1,1,0,1,1,1],
-      [1,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-      [1,0,1,1,1,0,0,3,0,0,1,1,1,0,1],
-      [1,0,1,2,1,0,0,0,0,0,1,2,1,0,1],
-      [1,0,1,0,1,0,1,1,1,0,1,0,1,0,1],
-      [1,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-      [1,1,1,1,1,0,0,4,0,0,1,1,1,1,1],
-      [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
-    ],
-    start: {x: 7, y: 13},
-    getZoneName: (x, y) => {
-      if (x >= 10 && x <= 14 && y >= 1 && y <= 5) return "Avamposto Militare";
-      if (x >= 1 && x <= 4 && y >= 1 && y <= 4) return "Bar Abbandonato";
-      return "Foresta Sempione";
-    }
-  }
-};
-
 export default function App() {
   const [gameState, setGameState] = useState('start');
-  const [view, setView] = useState('equipment'); // può essere: equipment, map, base, market, radar
+  const [view, setView] = useState('equipment');
   const [marketTab, setMarketTab] = useState('sell'); 
   const [level, setLevel] = useState(1);
   const [xp, setXp] = useState(0);
   
-  const [hp, setHp] = useState(100);
+  const currentMaxHp = 100 + (level - 1) * 10; 
+  const [hp, setHp] = useState(currentMaxHp);
   const [energy, setEnergy] = useState(MAX_ENERGY);
   const [credits, setCredits] = useState(100);
   const [day, setDay] = useState(1);
@@ -249,15 +237,18 @@ export default function App() {
   const [shelterLevel, setShelterLevel] = useState(1);
 
   const [equipped, setEquipped] = useState({
-    helmet: createItemObj('Berretto di Lana'), chest: createItemObj('Giacca Casual'), 
-    pants: createItemObj('Jeans Strappati'), shoes: createItemObj('Scarpe da Ginnastica'), 
-    weapon: createItemObj('Pistola Glock'), backpack: createItemObj('Sacca Sportiva')
+    helmet: createItemObj('Berretto di Lana'), 
+    chest: createItemObj('Giacca Casual'), 
+    pants: createItemObj('Jeans Strappati'), 
+    shoes: createItemObj('Scarpe da Ginnastica'), 
+    weapon: createItemObj('Pistola Glock'), 
+    backpack: createItemObj('Sacca Sportiva')
   });
 
   const [inventory, setInventory] = useState([createItemObj('Acqua Purificata'), createItemObj('Razione K'), createItemObj('Bende')]); 
   const [stash, setStash] = useState([createItemObj('Acqua Purificata'), createItemObj('Razione K'), createItemObj('Rottami')]); 
   
-  const [logs, setLogs] = useState([{ text: 'Stazione operativa avviata.', type: 'info' }]);
+  const [logs, setLogs] = useState([{ text: 'Stazione operativa avviata. Sistema anti-crash attivo.', type: 'info' }]);
   const [selectedLocation, setSelectedLocation] = useState(null);
   
   const [selectedItem, setSelectedItem] = useState(null);
@@ -270,20 +261,18 @@ export default function App() {
   const [isEnemyTurn, setIsEnemyTurn] = useState(false);
   const [loadError, setLoadError] = useState('');
 
-  // --- STATI RADAR ---
-  const [radarMap, setRadarMap] = useState(null); // Contiene la griglia corrente
-  const [playerPos, setPlayerPos] = useState({x: 0, y: 0});
-  const [currentZone, setCurrentZone] = useState('');
-
   const logEndRef = useRef(null);
-  const currentMaxHp = 100 + (level - 1) * 10; 
 
   useEffect(() => { logEndRef.current?.scrollIntoView({ behavior: 'smooth' }); }, [logs]);
 
+  // Game Over Sicuro
   useEffect(() => { 
-    if (hp <= 0 && !gameOver) { setGameOver(true); setCombatState(null); setPendingLoot(null); }
+    if (hp <= 0 && !gameOver) {
+      setGameOver(true); setCombatState(null); setPendingLoot(null);
+    }
   }, [hp, gameOver]);
 
+  // Gestione Level Up
   useEffect(() => {
     const requiredXp = level * 100;
     if (xp >= requiredXp) {
@@ -293,37 +282,38 @@ export default function App() {
     }
   }, [xp, level]);
 
-  const getMaxInventory = () => equipped.backpack ? (ITEMS[getItemName(equipped.backpack)]?.slots || 5) : 5;
+  const getMaxInventory = () => equipped.backpack ? (safeItem(safeName(equipped.backpack))?.slots || 5) : 5;
   const getMaxStash = () => 20 + (shelterLevel - 1) * 30;
 
-  const getAtk = () => BASE_ATK + (equipped.weapon ? (ITEMS[getItemName(equipped.weapon)]?.atk || 0) : 0);
+  const getAtk = () => BASE_ATK + (equipped.weapon ? (safeItem(safeName(equipped.weapon))?.atk || 0) : 0);
   const getDef = () => BASE_DEF + 
-    (equipped.helmet ? (ITEMS[getItemName(equipped.helmet)]?.def || 0) : 0) +
-    (equipped.chest ? (ITEMS[getItemName(equipped.chest)]?.def || 0) : 0) +
-    (equipped.pants ? (ITEMS[getItemName(equipped.pants)]?.def || 0) : 0) +
-    (equipped.shoes ? (ITEMS[getItemName(equipped.shoes)]?.def || 0) : 0);
+    (equipped.helmet ? (safeItem(safeName(equipped.helmet))?.def || 0) : 0) +
+    (equipped.chest ? (safeItem(safeName(equipped.chest))?.def || 0) : 0) +
+    (equipped.pants ? (safeItem(safeName(equipped.pants))?.def || 0) : 0) +
+    (equipped.shoes ? (safeItem(safeName(equipped.shoes))?.def || 0) : 0);
 
   const getRadProtect = () => {
     let rads = 0;
-    if (equipped.helmet && ITEMS[getItemName(equipped.helmet)]?.radProtect) rads += ITEMS[getItemName(equipped.helmet)].radProtect;
-    if (equipped.chest && ITEMS[getItemName(equipped.chest)]?.radProtect) rads += ITEMS[getItemName(equipped.chest)].radProtect;
+    if (equipped.helmet) rads += safeItem(safeName(equipped.helmet))?.radProtect || 0;
+    if (equipped.chest) rads += safeItem(safeName(equipped.chest))?.radProtect || 0;
     return rads;
   };
 
-  const addLog = (text, type = 'info') => setLogs(prev => [...prev, { text, type }]);
+  const addLog = (text, type = 'info') => setLogs(prev => [...prev.slice(-15), { text, type }]);
 
   const damageEquipment = (type, amount) => {
     setEquipped(prev => {
-        if (!prev[type] || prev[type].dura === null) return prev;
+        if (!prev[type] || prev[type].dura === null || prev[type].dura === undefined) return prev;
         const newDura = prev[type].dura - amount;
         if (newDura <= 0) {
-            addLog(`💥 IL TUO ${getItemName(prev[type]).toUpperCase()} SI È DISTRUTTO!`, 'danger');
+            addLog(`💥 IL TUO ${safeName(prev[type]).toUpperCase()} SI È DISTRUTTO!`, 'danger');
             return { ...prev, [type]: null };
         }
         return { ...prev, [type]: { ...prev[type], dura: newDura } };
     });
   };
 
+  // --- AZIONI OGGETTI ---
   const handleItemAction = (e, itemObj, index, context) => {
     e.stopPropagation();
     if (!itemObj) return;
@@ -339,8 +329,9 @@ export default function App() {
         if (calcTop < 10) calcTop = window.innerHeight / 2 - widgetHeight / 2; 
     }
     setPopupPos({ top: calcTop, left: calcLeft });
-    const name = getItemName(itemObj);
-    setSelectedItem({ obj: itemObj, name: name, index, context, data: ITEMS[name] });
+    
+    const name = safeName(itemObj);
+    setSelectedItem({ obj: itemObj, name: name, index, context, data: safeItem(name) });
   };
 
   const chiudiPopup = () => setSelectedItem(null);
@@ -350,11 +341,13 @@ export default function App() {
     const { obj, index, data } = selectedItem;
     if (data.type === 'backpack' && inventory.length - 1 > data.slots) { addLog('Svuota lo zaino prima di cambiarlo!', 'warning'); chiudiPopup(); return; }
 
-    let currentEquipped = equipped[data.type]; let newInventory = [...inventory]; newInventory.splice(index, 1);
+    let currentEquipped = equipped[data.type];
+    let newInventory = [...inventory];
+    newInventory.splice(index, 1);
     if (currentEquipped) newInventory.push(currentEquipped);
     
     setInventory(newInventory); setEquipped(prev => ({ ...prev, [data.type]: obj }));
-    addLog(`Equipaggiato: ${getItemName(obj)}`, 'success'); chiudiPopup();
+    addLog(`Equipaggiato: ${safeName(obj)}`, 'success'); chiudiPopup();
   };
 
   const unequipItem = (type) => {
@@ -364,7 +357,7 @@ export default function App() {
     if (inventory.length >= getMaxInventory()) { addLog('Inventario pieno.', 'warning'); chiudiPopup(); return; }
 
     setEquipped(prev => ({ ...prev, [type]: null })); setInventory(prev => [...prev, itemObj]);
-    addLog(`Rimosso: ${getItemName(itemObj)}`, 'info'); chiudiPopup();
+    addLog(`Rimosso: ${safeName(itemObj)}`, 'info'); chiudiPopup();
   };
 
   const useItem = () => {
@@ -387,30 +380,32 @@ export default function App() {
   const sellItem = () => {
     if (!selectedItem) return;
     const { name, index, data } = selectedItem;
-    setCredits(prev => prev + data.value);
+    setCredits(prev => prev + (data.value || 0));
     let newInv = [...inventory]; newInv.splice(index, 1); setInventory(newInv);
-    addLog(`Venduto ${name} (+${data.value} ¢)`, 'success'); chiudiPopup();
+    addLog(`Venduto ${name}`, 'success'); chiudiPopup();
   };
 
   const buyLootbox = (type) => {
     let cost = 0; let pool = [];
-    if (type === 'base') { cost = 100; pool = Object.keys(ITEMS).filter(k => ITEMS[k].rarity === 'comune' || ITEMS[k].rarity === 'raro'); } 
-    else if (type === 'tattica') { cost = 300; pool = Object.keys(ITEMS).filter(k => ITEMS[k].rarity === 'raro' || ITEMS[k].rarity === 'epico' || ITEMS[k].rarity === 'leggendario'); } 
-    else if (type === 'nera') { cost = 1000; pool = Object.keys(ITEMS).filter(k => (ITEMS[k].rarity === 'leggendario' || ITEMS[k].rarity === 'mitico') && ['weapon', 'chest', 'helmet', 'pants', 'shoes'].includes(ITEMS[k].type)); }
+    if (type === 'base') {
+        cost = 100; pool = Object.keys(ITEMS).filter(k => ITEMS[k].rarity === 'comune' || ITEMS[k].rarity === 'raro');
+    } else if (type === 'tattica') {
+        cost = 300; pool = Object.keys(ITEMS).filter(k => ITEMS[k].rarity === 'raro' || ITEMS[k].rarity === 'epico' || ITEMS[k].rarity === 'leggendario');
+    } else if (type === 'nera') {
+        cost = 1000; pool = Object.keys(ITEMS).filter(k => (ITEMS[k].rarity === 'leggendario' || ITEMS[k].rarity === 'mitico') && ['weapon', 'chest', 'helmet', 'pants', 'shoes'].includes(ITEMS[k].type));
+    }
 
     if (credits < cost) { addLog('❌ Crediti insufficienti.', 'danger'); return; }
-    if (inventory.length >= getMaxInventory()) { addLog('❌ Lo zaino è pieno. Fai spazio.', 'warning'); return; }
+    if (inventory.length >= getMaxInventory()) { addLog('❌ Lo zaino è pieno.', 'warning'); return; }
 
     setCredits(prev => prev - cost);
     const wonItemStr = pool[Math.floor(Math.random() * pool.length)];
     setInventory(prev => [...prev, createItemObj(wonItemStr)]);
     
-    const itemInfo = ITEMS[wonItemStr];
-    if (itemInfo) {
-      const xpGained = RARITY[itemInfo.rarity]?.xp || 0;
-      if(xpGained > 0) setXp(prev => prev + xpGained);
-      addLog(`🎁 Cassa aperta! Trovato: ${wonItemStr} ${xpGained > 0 ? `(+${xpGained} XP)` : ''}`, 'success');
-    }
+    const itemInfo = safeItem(wonItemStr);
+    const xpGained = RARITY[itemInfo.rarity]?.xp || 0;
+    if(xpGained > 0) setXp(prev => prev + xpGained);
+    addLog(`🎁 Trovato: ${wonItemStr}`, 'success');
   };
 
   const upgradeShelter = () => {
@@ -426,10 +421,13 @@ export default function App() {
       
       const allItems = [...inventory, ...stash];
       const itemsCount = {};
-      allItems.forEach(i => { const name = getItemName(i); itemsCount[name] = (itemsCount[name] || 0) + 1; });
+      allItems.forEach(i => { const name = safeName(i); itemsCount[name] = (itemsCount[name] || 0) + 1; });
 
       for (const [resName, required] of Object.entries(reqs)) {
-          if ((itemsCount[resName] || 0) < required) { hasAll = false; missingMsg += `${resName} (${itemsCount[resName]||0}/${required}) `; }
+          if ((itemsCount[resName] || 0) < required) {
+              hasAll = false;
+              missingMsg += `${resName} (${itemsCount[resName]||0}/${required}) `;
+          }
       }
 
       if (!hasAll) { addLog(missingMsg, 'danger'); return; }
@@ -439,11 +437,12 @@ export default function App() {
 
       for (const resName of Object.keys(remainingToRemove)) {
           while (remainingToRemove[resName] > 0) {
-              let stashIdx = newStash.findIndex(i => getItemName(i) === resName);
+              let stashIdx = newStash.findIndex(i => safeName(i) === resName);
               if (stashIdx !== -1) { newStash.splice(stashIdx, 1); remainingToRemove[resName]--; continue; }
-              let invIdx = newInv.findIndex(i => getItemName(i) === resName);
+              
+              let invIdx = newInv.findIndex(i => safeName(i) === resName);
               if (invIdx !== -1) { newInv.splice(invIdx, 1); remainingToRemove[resName]--; continue; }
-              break;
+              break; 
           }
       }
 
@@ -458,9 +457,9 @@ export default function App() {
       let attempts = 0; let finalItemStr = null;
       while (attempts < 15) {
         let candidate = loc.loot[Math.floor(Math.random() * loc.loot.length)];
-        let candidateType = ITEMS[candidate]?.type;
+        let candidateType = safeItem(candidate)?.type;
         if (!['weapon', 'helmet', 'chest', 'pants', 'shoes', 'backpack'].includes(candidateType)) { finalItemStr = candidate; break; }
-        if (!found.some(f => getItemName(f) === candidate) && !uniqueEquipmentFound.has(candidate)) {
+        if (!found.some(f => safeName(f) === candidate) && !uniqueEquipmentFound.has(candidate)) {
           finalItemStr = candidate; uniqueEquipmentFound.add(candidate); break;
         }
         attempts++;
@@ -468,10 +467,7 @@ export default function App() {
       if (finalItemStr) found.push(createItemObj(finalItemStr)); 
     }
     if (found.length > 0) { setPendingLoot({ items: found, location: loc }); } 
-    else { 
-      addLog('Cassa aperta, ma era vuota.', 'warning'); 
-      if(view !== 'radar') setView('map'); 
-    }
+    else { addLog('Zona perquisita, non hai trovato nulla.', 'warning'); setView('map'); }
   };
 
   const takeLootItem = (e, index) => {
@@ -479,23 +475,16 @@ export default function App() {
     if (inventory.length >= getMaxInventory()) { addLog('Lo zaino è pieno!', 'danger'); return; }
     
     const itemObj = pendingLoot.items[index];
-    const name = getItemName(itemObj);
+    const name = safeName(itemObj);
     setInventory(prev => [...prev, itemObj]);
 
-    const itemInfo = ITEMS[name];
-    if (itemInfo) {
-      const xpGained = RARITY[itemInfo.rarity]?.xp || 0;
-      if(xpGained > 0) { setXp(prev => prev + xpGained); addLog(`✨ +${xpGained} XP (${name})`, 'success'); } 
-      else { addLog(`Preso: ${name}`, 'info'); }
-    }
+    const itemInfo = safeItem(name);
+    const xpGained = RARITY[itemInfo.rarity]?.xp || 0;
+    if(xpGained > 0) { setXp(prev => prev + xpGained); addLog(`✨ +${xpGained} XP`, 'success'); } 
 
     const newLoot = [...pendingLoot.items]; newLoot.splice(index, 1);
-    if (newLoot.length === 0) { 
-        setPendingLoot(null); 
-        if(view !== 'radar') setView('map');
-    } else { 
-        setPendingLoot({ ...pendingLoot, items: newLoot }); 
-    }
+    if (newLoot.length === 0) { setPendingLoot(null); setView('map'); } 
+    else { setPendingLoot({ ...pendingLoot, items: newLoot }); }
   };
 
   const takeAllLoot = () => {
@@ -507,29 +496,23 @@ export default function App() {
     let xpGained = 0;
     
     itemsToTake.forEach(itemObj => { 
-      const itemInfo = ITEMS[getItemName(itemObj)];
-      if(itemInfo) xpGained += RARITY[itemInfo.rarity]?.xp || 0; 
+      const itemInfo = safeItem(safeName(itemObj));
+      xpGained += RARITY[itemInfo.rarity]?.xp || 0; 
     });
 
     setInventory(prev => [...prev, ...itemsToTake]);
-    if(xpGained > 0) { setXp(prev => prev + xpGained); addLog(`✨ +${xpGained} XP totali dai ritrovamenti!`, 'success'); }
+    if(xpGained > 0) { setXp(prev => prev + xpGained); addLog(`✨ +${xpGained} XP totali`, 'success'); }
 
-    if (itemsLeft.length === 0) { 
-        setPendingLoot(null); 
-        addLog('Hai svuotato la cassa.', 'info'); 
-        if(view !== 'radar') setView('map');
-    } else { 
-        setPendingLoot({ ...pendingLoot, items: itemsLeft }); 
-        addLog('Zaino pieno! Alcuni oggetti sono stati lasciati.', 'warning'); 
-    }
+    if (itemsLeft.length === 0) { setPendingLoot(null); setView('map'); addLog('Hai svuotato la zona.', 'info'); } 
+    else { setPendingLoot({ ...pendingLoot, items: itemsLeft }); addLog('Zaino pieno!', 'warning'); }
   };
 
   const handleTravelClick = (loc) => {
     chiudiPopup();
     if (energy < loc.cost) { addLog(`Energia insufficiente.`, 'warning'); return; }
-    if (inventory.length >= getMaxInventory() && loc.type !== 'safe') { addLog('Inventario pieno. Svuotalo prima.', 'warning'); return; }
+    if (inventory.length >= getMaxInventory() && loc.type !== 'safe') { addLog('Inventario pieno.', 'warning'); return; }
     
-    if (loc.reqKey && !inventory.some(i => getItemName(i) === loc.reqKey) && !stash.some(i => getItemName(i) === loc.reqKey)) {
+    if (loc.reqKey && !inventory.some(i => safeName(i) === loc.reqKey) && !stash.some(i => safeName(i) === loc.reqKey)) {
         addLog(`🔒 ACCESSO NEGATO. Richiesta: ${loc.reqKey}`, 'danger'); return;
     }
     if (loc.reqRad && getRadProtect() < loc.reqRad) {
@@ -543,118 +526,34 @@ export default function App() {
   const executeExplore = (loc) => {
     setEnergy(prev => prev - loc.cost);
     if (loc.type === 'safe') { setView(loc.id === 'rifugio' ? 'base' : 'market'); addLog(`Sei arrivato a: ${loc.name}`, 'info'); return; }
-    
-    // START RADAR MODE se supportato
-    if (loc.type === 'radar' && MAPS_2D[loc.id]) {
-      const mapData = MAPS_2D[loc.id];
-      // Clone profondo per evitare di modificare l'originale
-      setRadarMap(JSON.parse(JSON.stringify(mapData.grid)));
-      setPlayerPos(mapData.start);
-      setCurrentZone(mapData.getZoneName(mapData.start.x, mapData.start.y));
-      setSelectedLocation(loc); // Salviamo la locazione in memoria per i loot
-      setView('radar');
-      addLog(`🌐 Connessione Radar stabilita.`, 'info');
-      return;
-    }
+    if (loc.id !== 'duomo' && loc.id !== 'linate' && Math.random() > 0.5) { addLog(`Zona sicura.`, 'success'); generateAndShowLoot(loc); return; }
 
-    // Modalità standard legacy
-    if (loc.id !== 'duomo' && loc.id !== 'linate' && Math.random() > 0.5) { addLog(`Esplorazione sicura.`, 'success'); generateAndShowLoot(loc); return; }
     const enemyName = loc.enemies[Math.floor(Math.random() * loc.enemies.length)];
-    const enemyData = ENEMIES_DB[enemyName];
+    const enemyData = ENEMIES_DB[enemyName] || { name: 'Mutante Sconosciuto', hp: 50, atk: 10, def: 0, desc: 'Errore Dati.' };
     setCombatState({ enemy: enemyData, hp: enemyData.hp, maxHp: enemyData.hp, location: loc });
-    addLog(`⚠️ MINACCIA RILEVATA: ${enemyData.name}!`, 'danger');
+    addLog(`⚠️ MINACCIA: ${enemyData.name}!`, 'danger');
   };
 
-  // --- MOTORE DI MOVIMENTO RADAR ---
-  const moveRadar = (dx, dy) => {
-    if (combatState || pendingLoot) return; // Blocco movimento se c'è un popup
-
-    let nx = playerPos.x + dx;
-    let ny = playerPos.y + dy;
-    
-    // Fuori dai bordi
-    if (ny < 0 || ny >= radarMap.length || nx < 0 || nx >= radarMap[0].length) return;
-    
-    let cell = radarMap[ny][nx];
-    if (cell === 1) return; // Muro/Albero
-
-    setPlayerPos({x: nx, y: ny});
-    
-    const newZone = MAPS_2D[selectedLocation.id].getZoneName(nx, ny);
-    if (newZone !== currentZone) {
-      setCurrentZone(newZone);
-      addLog(`Rilevata Zona: ${newZone}`, 'info');
-    }
-
-    if (cell === 2) {
-      // Cassa! Rimuovila e apri il loot
-      let newMap = [...radarMap];
-      newMap[ny][nx] = 0;
-      setRadarMap(newMap);
-      generateAndShowLoot(selectedLocation);
-    }
-    
-    if (cell === 3) {
-      // Nemico!
-      let newMap = [...radarMap];
-      newMap[ny][nx] = 0;
-      setRadarMap(newMap);
-      const enemyName = selectedLocation.enemies[Math.floor(Math.random() * selectedLocation.enemies.length)];
-      const enemyData = ENEMIES_DB[enemyName];
-      setCombatState({ enemy: enemyData, hp: enemyData.hp, maxHp: enemyData.hp, location: selectedLocation });
-      addLog(`⚠️ CONTATTO! Un ${enemyData.name} ti ha assalito!`, 'danger');
-    }
-
-    if (cell === 4) {
-      // Uscita / Estrazione
-      setView('map');
-      setRadarMap(null);
-      setSelectedLocation(null);
-      addLog('Estrazione completata. Ritorno alla mappa globale.', 'success');
-    }
-  };
-
-  // Supporto Tastiera
-  useEffect(() => {
-    const handleKeyDown = (e) => {
-      if (view !== 'radar') return;
-      if (e.key === 'ArrowUp' || e.key === 'w') moveRadar(0, -1);
-      if (e.key === 'ArrowDown' || e.key === 's') moveRadar(0, 1);
-      if (e.key === 'ArrowLeft' || e.key === 'a') moveRadar(-1, 0);
-      if (e.key === 'ArrowRight' || e.key === 'd') moveRadar(1, 0);
-    };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  });
-
-
-  // --- COMBATTIMENTO ---
   const combatAttack = () => {
     if (!combatState || isEnemyTurn) return;
     setIsEnemyTurn(true);
 
-    let pDmg = Math.max(1, getAtk() + Math.floor(Math.random()*10) - combatState.enemy.def);
+    let pDmg = Math.max(1, getAtk() + Math.floor(Math.random()*10) - (combatState.enemy.def || 0));
     let newEnemyHp = combatState.hp - pDmg;
     addLog(`💥 Danno inflitto: ${pDmg}!`, 'info');
     
     if (equipped.weapon) damageEquipment('weapon', Math.floor(Math.random() * 5) + 1);
 
     if (newEnemyHp <= 0) {
-        const xpGained = Math.floor(combatState.maxHp / 2);
+        const xpGained = Math.floor((combatState.maxHp || 10) / 2);
         addLog(`🏆 Nemico eliminato!`, 'success');
         setXp(prev => prev + xpGained);
-        addLog(`✨ +${xpGained} XP per l'uccisione.`, 'success');
-        setIsEnemyTurn(false); setCombatState(null); 
-        
-        // Se NON siamo nel radar, apriamo il loot
-        if (view !== 'radar') {
-            generateAndShowLoot(combatState.location); 
-        }
+        setIsEnemyTurn(false); setCombatState(null); generateAndShowLoot(combatState.location); 
     } else {
         setCombatState(prev => ({...prev, hp: newEnemyHp}));
-        const enemyName = combatState.enemy.name; const enemyAtk = combatState.enemy.atk; const locName = combatState.location.name; const playerDef = getDef();
+        const enemyName = combatState.enemy.name; const enemyAtk = combatState.enemy.atk || 10;
         setTimeout(() => {
-            let eDmg = Math.max(1, enemyAtk + Math.floor(Math.random()*10) - playerDef);
+            let eDmg = Math.max(1, enemyAtk + Math.floor(Math.random()*10) - getDef());
             setHp(prevHp => {
                 const nextHp = Math.max(0, prevHp - eDmg);
                 if (nextHp <= 0) setDeathReason(`Ucciso da un ${enemyName}.`);
@@ -674,18 +573,21 @@ export default function App() {
 
   const combatHeal = () => {
     if (!combatState || isEnemyTurn) return;
-    const healIndex = inventory.findIndex(i => { const name = getItemName(i); return ITEMS[name]?.type === 'medical' || ITEMS[name]?.type === 'consumable'; });
-    if (healIndex === -1) { addLog('❌ Nessun oggetto curativo rapido nello zaino!', 'warning'); return; }
+    const healIndex = inventory.findIndex(i => {
+      const name = safeName(i);
+      return safeItem(name).type === 'medical' || safeItem(name).type === 'consumable';
+    });
+    if (healIndex === -1) { addLog('❌ Nessun oggetto curativo rapido!', 'warning'); return; }
     
     setIsEnemyTurn(true);
-    const itemInfo = ITEMS[getItemName(inventory[healIndex])];
-    setHp(prev => Math.min(currentMaxHp, prev + itemInfo.heal));
+    const itemInfo = safeItem(safeName(inventory[healIndex]));
+    setHp(prev => Math.min(currentMaxHp, prev + (itemInfo.heal || 0)));
     let newInv = [...inventory]; newInv.splice(healIndex, 1); setInventory(newInv);
-    addLog(`🩹 Curato ${itemInfo.heal} HP.`, 'success');
+    addLog(`🩹 Curato ${itemInfo.heal || 0} HP.`, 'success');
     
-    const enemyName = combatState.enemy.name; const enemyAtk = combatState.enemy.atk; const locName = combatState.location.name; const playerDef = getDef();
+    const enemyName = combatState.enemy.name; const enemyAtk = combatState.enemy.atk || 10;
     setTimeout(() => {
-        let eDmg = Math.max(1, enemyAtk + Math.floor(Math.random()*10) - playerDef);
+        let eDmg = Math.max(1, enemyAtk + Math.floor(Math.random()*10) - getDef());
         setHp(prevHp => {
             const nextHp = Math.max(0, prevHp - eDmg);
             if (nextHp <= 0) setDeathReason(`Ucciso da un ${enemyName}.`);
@@ -698,26 +600,26 @@ export default function App() {
 
   const combatFlee = () => {
       if (isEnemyTurn) return;
-      if (energy >= 15) { 
-        setEnergy(prev => prev - 15); addLog('🏃 Fuga riuscita (-15 Energia).', 'warning'); 
-        setCombatState(null); 
-        if (view !== 'radar') setView('map'); 
-      } 
+      if (energy >= 15) { setEnergy(prev => prev - 15); addLog('🏃 Fuga riuscita.', 'warning'); setCombatState(null); setView('map'); } 
       else { addLog('❌ Troppo stanco per fuggire!', 'danger'); }
   };
 
   const rest = () => {
     chiudiPopup();
-    let hasFood = stash.some(i => getItemName(i) === 'Razione K'); let hasWater = stash.some(i => getItemName(i) === 'Acqua Purificata');
+    let hasFood = stash.some(i => safeName(i) === 'Razione K'); 
+    let hasWater = stash.some(i => safeName(i) === 'Acqua Purificata');
     let dmg = 0; let newStash = [...stash];
 
-    if (hasFood) { newStash.splice(newStash.findIndex(i => getItemName(i) === 'Razione K'), 1); addLog('Razione consumata.', 'success'); } else { dmg += 20; addLog('Fame estrema (-20 HP).', 'danger'); }
-    if (hasWater) { newStash.splice(newStash.findIndex(i => getItemName(i) === 'Acqua Purificata'), 1); addLog('Acqua consumata.', 'success'); } else { dmg += 20; addLog('Sete estrema (-20 HP).', 'danger'); }
+    if (hasFood) { newStash.splice(newStash.findIndex(i => safeName(i) === 'Razione K'), 1); addLog('Razione consumata.', 'success'); } else { dmg += 20; addLog('Fame estrema (-20 HP).', 'danger'); }
+    if (hasWater) { newStash.splice(newStash.findIndex(i => safeName(i) === 'Acqua Purificata'), 1); addLog('Acqua consumata.', 'success'); } else { dmg += 20; addLog('Sete estrema (-20 HP).', 'danger'); }
 
     setStash(newStash); setDay(prev => prev + 1); setEnergy(MAX_ENERGY);
 
-    if (dmg > 0) { setHp(prev => { const nextHp = prev - dmg; if (nextHp <= 0) setDeathReason("Morto di stenti nel rifugio."); return nextHp; }); } 
-    else { setHp(prev => Math.min(currentMaxHp, prev + 30)); addLog('Riposo completato. HP recuperati.', 'info'); }
+    if (dmg > 0) {
+      setHp(prev => { const nextHp = prev - dmg; if (nextHp <= 0) setDeathReason("Morto di stenti nel rifugio."); return nextHp; });
+    } else {
+      setHp(prev => Math.min(currentMaxHp, prev + 30)); addLog('Riposo completato. HP recuperati.', 'info');
+    }
     addLog(`--- GIORNO ${day + 1} ---`, 'warning');
   };
 
@@ -727,12 +629,42 @@ export default function App() {
     setStash([createItemObj('Acqua Purificata'), createItemObj('Razione K'), createItemObj('Rottami')]);
     setEquipped({ helmet: createItemObj('Berretto di Lana'), chest: createItemObj('Giacca Casual'), pants: createItemObj('Jeans Strappati'), shoes: createItemObj('Scarpe da Ginnastica'), weapon: createItemObj('Pistola Glock'), backpack: createItemObj('Sacca Sportiva') });
     setLogs([{ text: 'Nuova partita iniziata.', type: 'info' }]);
-    setCombatState(null); setPendingLoot(null); setRadarMap(null); chiudiPopup();
+    setCombatState(null); setPendingLoot(null); chiudiPopup();
     setGameOver(false); setGameState('playing'); setView('equipment');
   };
 
+  // --- DOWNLOAD / UPLOAD DATI ---
+  const downloadSave = () => {
+    const saveData = { level, xp, hp, energy, credits, day, shelterLevel, equipped, inventory, stash, logs };
+    const blob = new Blob([JSON.stringify(saveData)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = `MilanoAnnoZero_Day${day}.json`;
+    document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url);
+    addLog('Dati salvati su disco.', 'success');
+  };
+
+  const handleFileUpload = (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      try {
+        const data = JSON.parse(event.target.result);
+        if (data.level) {
+            setLevel(data.level); setXp(data.xp); setHp(data.hp); setEnergy(data.energy);
+            setCredits(data.credits); setDay(data.day); setShelterLevel(data.shelterLevel || 1);
+            setEquipped(data.equipped); setInventory(data.inventory); setStash(data.stash); 
+            setLogs(data.logs); setGameState('playing'); setView('base');
+            addLog('Salvataggio caricato.', 'success');
+        } else { setLoadError('File non compatibile.'); setTimeout(() => setLoadError(''), 3000); }
+      } catch (err) { setLoadError('Errore di lettura.'); setTimeout(() => setLoadError(''), 3000); }
+    };
+    reader.readAsText(file);
+  };
+
   // ==========================================
-  // RENDER COMPONENTI GRAFICI
+  // RENDER GRAFICO
   // ==========================================
   if (gameState === 'start' && !gameOver) {
     return (
@@ -787,7 +719,6 @@ export default function App() {
           <div className="w-full h-2 bg-[#1a1d1b] rounded-full overflow-hidden border border-[#2d312f] shadow-inner">
              <div className="h-full bg-green-600 animate-[loadingBar_3s_ease-in-out_forwards]"></div>
           </div>
-          <p className="text-stone-600 font-mono text-[9px] uppercase tracking-widest mt-4">Analisi del perimetro in corso...</p>
         </div>
         <style dangerouslySetInnerHTML={{__html: `@keyframes loadingBar { 0% { width: 0%; } 100% { width: 100%; } }`}} />
       </div>
@@ -796,7 +727,7 @@ export default function App() {
 
   const CustomImageRenderer = ({ itemData, itemName, isEnemy = false }) => {
     const [imgError, setImgError] = useState(false);
-    if (!itemData) return null;
+    if (!itemData && !isEnemy) return null;
     const customUrl = isEnemy ? CUSTOM_ENEMIES_IMAGES[itemName] : CUSTOM_IMAGES[itemName];
     const IconComponent = isEnemy ? Skull : (itemData?.iconType || Package);
 
@@ -819,18 +750,16 @@ export default function App() {
     for (let i = 0; i < maxSlots; i++) {
       const itemObj = items[i];
       if (itemObj) {
-        const name = getItemName(itemObj);
-        const itemData = ITEMS[name];
-        if (!itemData) continue; 
-        
-        const rColor = RARITY[itemData.rarity]?.color || 'text-stone-300';
-        const rBorder = RARITY[itemData.rarity]?.border || 'border-stone-500';
+        const name = safeName(itemObj);
+        const itemData = safeItem(name);
+        const rColor = RARITY[itemData?.rarity]?.color || 'text-stone-300';
+        const rBorder = RARITY[itemData?.rarity]?.border || 'border-stone-500';
         const isSelected = selectedItem?.index === i && selectedItem?.context === context;
 
         gridItems.push(
           <div key={`${context}-${itemObj.id || i}`} onClick={(e) => { e.stopPropagation(); if (onSelect) onSelect(e, itemObj, i, context); }}
             className={`aspect-square rounded-md flex flex-col items-center justify-center cursor-pointer transition-all border relative overflow-hidden group ${isSelected ? `border-white z-10 bg-[#3a3f3b]` : `${rBorder} bg-gradient-to-br from-[#2a2e2b] to-[#1f221f] hover:brightness-125`}`}
-            style={{ boxShadow: isSelected ? `inset 0 0 15px ${RARITY[itemData.rarity]?.shadow}` : `inset 0 4px 6px rgba(0,0,0,0.6)` }}
+            style={{ boxShadow: isSelected ? `inset 0 0 15px ${RARITY[itemData?.rarity]?.shadow || 'transparent'}` : `inset 0 4px 6px rgba(0,0,0,0.6)` }}
           >
             <CustomImageRenderer itemData={itemData} itemName={name} />
             <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-[#111] via-[#111]/80 to-transparent pt-5 pb-1 px-1 z-20">
@@ -869,7 +798,7 @@ export default function App() {
             <div className="p-3 border-b border-[#141615] bg-[#232624] flex justify-between items-center">
                <div className="flex-1">
                  <h4 className="font-black text-sm text-stone-100 uppercase tracking-widest leading-tight">{selectedItem.name}</h4>
-                 <p className={`text-[10px] font-bold uppercase tracking-widest mt-1 ${RARITY[selectedItem.data.rarity]?.color}`}>{RARITY[selectedItem.data.rarity]?.name}</p>
+                 <p className={`text-[10px] font-bold uppercase tracking-widest mt-1 ${RARITY[selectedItem.data?.rarity]?.color}`}>{RARITY[selectedItem.data?.rarity]?.name}</p>
                </div>
                <div className="w-12 h-12 bg-[#1b1d1b] rounded border border-[#141615] shadow-[inset_0_2px_4px_rgba(0,0,0,0.6)] relative overflow-hidden flex-shrink-0 ml-2">
                  <CustomImageRenderer itemData={selectedItem.data} itemName={selectedItem.name} />
@@ -877,28 +806,28 @@ export default function App() {
             </div>
             
             <div className="p-2 bg-[#1b1d1b]">
-               <p className="text-[11px] text-stone-400 italic mb-2 leading-tight">"{selectedItem.data.desc}"</p>
-               {selectedItem.obj.dura !== null && selectedItem.obj.dura !== undefined && (
+               <p className="text-[11px] text-stone-400 italic mb-2 leading-tight">"{selectedItem.data?.desc}"</p>
+               {selectedItem.obj?.dura !== null && selectedItem.obj?.dura !== undefined && (
                  <div className="mb-2">
                     <span className="text-[9px] text-stone-500 uppercase tracking-widest block mb-1">Durabilità: {selectedItem.obj.dura}%</span>
                     <div className="w-full h-1.5 bg-black rounded-full overflow-hidden"><div className={`h-full ${selectedItem.obj.dura > 50 ? 'bg-green-500' : selectedItem.obj.dura > 25 ? 'bg-amber-500' : 'bg-red-500'}`} style={{width: `${selectedItem.obj.dura}%`}}></div></div>
                  </div>
                )}
                <div className="flex flex-wrap gap-1.5 text-[10px] font-bold font-mono mt-2">
-                  <span className="bg-[#111] px-2 py-1 rounded text-amber-500 border border-[#222] flex items-center"><Coins className="w-3 h-3 mr-1"/>{selectedItem.data.value}</span>
-                  {selectedItem.data.atk && <span className="bg-[#111] px-2 py-1 rounded text-red-500 border border-[#222] flex items-center"><Crosshair className="w-3 h-3 mr-1"/>+{selectedItem.data.atk}</span>}
-                  {selectedItem.data.def && <span className="bg-[#111] px-2 py-1 rounded text-blue-500 border border-[#222] flex items-center"><Shield className="w-3 h-3 mr-1"/>+{selectedItem.data.def}</span>}
-                  {selectedItem.data.radProtect && <span className="bg-[#111] px-2 py-1 rounded text-green-400 border border-[#222] flex items-center"><AlertTriangle className="w-3 h-3 mr-1"/>RAD +{selectedItem.data.radProtect}</span>}
-                  {selectedItem.data.heal && <span className="bg-[#111] px-2 py-1 rounded text-green-500 border border-[#222] flex items-center"><PlusSquare className="w-3 h-3 mr-1"/>+{selectedItem.data.heal}</span>}
-                  {selectedItem.data.slots && <span className="bg-[#111] px-2 py-1 rounded text-stone-300 border border-[#222] flex items-center"><Backpack className="w-3 h-3 mr-1"/>{selectedItem.data.slots} Slt</span>}
+                  <span className="bg-[#111] px-2 py-1 rounded text-amber-500 border border-[#222] flex items-center"><Coins className="w-3 h-3 mr-1"/>{selectedItem.data?.value || 0}</span>
+                  {selectedItem.data?.atk && <span className="bg-[#111] px-2 py-1 rounded text-red-500 border border-[#222] flex items-center"><Crosshair className="w-3 h-3 mr-1"/>+{selectedItem.data.atk}</span>}
+                  {selectedItem.data?.def && <span className="bg-[#111] px-2 py-1 rounded text-blue-500 border border-[#222] flex items-center"><Shield className="w-3 h-3 mr-1"/>+{selectedItem.data.def}</span>}
+                  {selectedItem.data?.radProtect && <span className="bg-[#111] px-2 py-1 rounded text-green-400 border border-[#222] flex items-center"><AlertTriangle className="w-3 h-3 mr-1"/>RAD +{selectedItem.data.radProtect}</span>}
+                  {selectedItem.data?.heal && <span className="bg-[#111] px-2 py-1 rounded text-green-500 border border-[#222] flex items-center"><PlusSquare className="w-3 h-3 mr-1"/>+{selectedItem.data.heal}</span>}
+                  {selectedItem.data?.slots && <span className="bg-[#111] px-2 py-1 rounded text-stone-300 border border-[#222] flex items-center"><Backpack className="w-3 h-3 mr-1"/>{selectedItem.data.slots} Slt</span>}
                </div>
             </div>
 
             <div className="flex bg-[#141615] p-1.5 gap-1.5">
-              {selectedItem.context === 'inventory' && view === 'equipment' && ['weapon', 'helmet', 'chest', 'pants', 'shoes', 'backpack'].includes(selectedItem.data.type) && (
+              {selectedItem.context === 'inventory' && view === 'equipment' && ['weapon', 'helmet', 'chest', 'pants', 'shoes', 'backpack'].includes(selectedItem.data?.type) && (
                 <button onClick={equipItem} className="flex-1 bg-gradient-to-b from-[#445b3c] to-[#2c3d26] border border-[#5c7a52] text-stone-100 text-[10px] py-2.5 rounded font-black uppercase tracking-widest shadow-[0_2px_0_#1a2416] active:translate-y-0.5 active:shadow-none">Equipaggia</button>
               )}
-              {selectedItem.context === 'inventory' && ['medical', 'consumable'].includes(selectedItem.data.type) && (
+              {selectedItem.context === 'inventory' && ['medical', 'consumable'].includes(selectedItem.data?.type) && (
                 <button onClick={useItem} className="flex-1 bg-gradient-to-b from-[#2c405a] to-[#1c2b3d] border border-[#3e5a7d] text-stone-100 text-[10px] py-2.5 rounded font-black uppercase tracking-widest shadow-[0_2px_0_#111a26] active:translate-y-0.5 active:shadow-none">Usa Oggetto</button>
               )}
               {selectedItem.context === 'inventory' && view === 'base' && (
@@ -969,21 +898,21 @@ export default function App() {
       {combatState && (
         <div className="absolute inset-0 z-40 bg-black/80 backdrop-blur-sm flex flex-col items-center justify-center p-4 sm:p-8 animate-fadeIn">
           <div className="w-full max-w-sm bg-gradient-to-b from-[#2a1b1b] to-[#160d0d] border-2 border-red-900/50 rounded-lg p-5 shadow-[0_0_40px_rgba(220,38,38,0.2)] flex flex-col items-center">
-            <h2 className="text-2xl font-black text-red-500 uppercase tracking-widest mb-1 drop-shadow-md">{combatState.enemy.name}</h2>
-            <p className="text-xs text-stone-400 italic mb-5 text-center">"{combatState.enemy.desc}"</p>
+            <h2 className="text-2xl font-black text-red-500 uppercase tracking-widest mb-1 drop-shadow-md">{combatState.enemy?.name || 'Nemico'}</h2>
+            <p className="text-xs text-stone-400 italic mb-5 text-center">"{combatState.enemy?.desc}"</p>
 
             <div className="w-32 h-32 bg-[#111] border border-red-900/50 rounded-md mb-5 relative overflow-hidden shadow-[inset_0_4px_10px_rgba(0,0,0,0.8)] flex items-center justify-center">
-              <CustomImageRenderer itemData={combatState.enemy} itemName={combatState.enemy.name} isEnemy={true} />
+              <CustomImageRenderer itemData={combatState.enemy} itemName={combatState.enemy?.name} isEnemy={true} />
             </div>
 
             <div className="w-full space-y-4 mb-6 bg-[#0a0a0a] p-4 rounded-lg border border-[#1a1111] shadow-inner">
               <div>
                  <div className="flex justify-between text-[10px] font-black uppercase tracking-wider text-stone-500 mb-1">
-                    <span>{combatState.enemy.name}</span>
+                    <span>{combatState.enemy?.name}</span>
                     <span className="text-red-500">{combatState.hp} / {combatState.maxHp}</span>
                  </div>
                  <div className="w-full h-2.5 bg-[#111] rounded-full overflow-hidden shadow-inner">
-                    <div className="h-full bg-gradient-to-r from-red-800 to-red-500 transition-all duration-300" style={{ width: `${(combatState.hp / combatState.maxHp) * 100}%` }}></div>
+                    <div className="h-full bg-gradient-to-r from-red-800 to-red-500 transition-all duration-300" style={{ width: `${(combatState.hp / (combatState.maxHp || 1)) * 100}%` }}></div>
                  </div>
               </div>
               <div>
@@ -1022,14 +951,14 @@ export default function App() {
 
             <div className="grid grid-cols-4 sm:grid-cols-5 gap-2 mb-4 bg-[#141615] p-3 rounded-lg border border-[#2d312f] shadow-inner max-h-[40vh] overflow-y-auto custom-scrollbar">
               {pendingLoot.items.map((itemObj, idx) => {
-                const name = getItemName(itemObj);
-                const itemData = ITEMS[name];
+                const name = safeName(itemObj);
+                const itemData = safeItem(name);
                 const rColor = RARITY[itemData?.rarity]?.color || 'text-stone-300';
                 const rBorder = RARITY[itemData?.rarity]?.border || 'border-stone-500';
                 return (
                   <div key={idx} onClick={(e) => takeLootItem(e, idx)}
                     className={`aspect-square rounded-md flex flex-col items-center justify-center cursor-pointer transition-all border relative overflow-hidden group ${rBorder} bg-gradient-to-br from-[#2a2e2b] to-[#1f221f] hover:brightness-125 hover:scale-105`}
-                    style={{ boxShadow: `inset 0 0 10px ${RARITY[itemData?.rarity]?.shadow}` }}
+                    style={{ boxShadow: `inset 0 0 10px ${RARITY[itemData?.rarity]?.shadow || 'transparent'}` }}
                   >
                     <CustomImageRenderer itemData={itemData} itemName={name} />
                     <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-[#111] via-[#111]/80 to-transparent pt-4 pb-1 px-1 z-20">
@@ -1042,7 +971,7 @@ export default function App() {
 
             <div className="flex gap-2 mt-auto">
               <button onClick={takeAllLoot} className="flex-1 bg-gradient-to-b from-[#445b3c] to-[#2c3d26] border border-[#5c7a52] text-stone-100 text-xs py-3 rounded-lg font-black uppercase tracking-widest shadow-[0_3px_0_#1a2416] active:translate-y-1 active:shadow-none">Prendi Tutto</button>
-              <button onClick={() => {setPendingLoot(null); if(view !== 'radar') setView('map');}} className="flex-1 bg-gradient-to-b from-[#3a3f3c] to-[#252826] border border-[#4d5450] text-stone-300 text-xs py-3 rounded-lg font-black uppercase tracking-widest shadow-[0_3px_0_#141615] active:translate-y-1 active:shadow-none">Continua</button>
+              <button onClick={() => {setPendingLoot(null); setView('map');}} className="flex-1 bg-gradient-to-b from-[#3a3f3c] to-[#252826] border border-[#4d5450] text-stone-300 text-xs py-3 rounded-lg font-black uppercase tracking-widest shadow-[0_3px_0_#141615] active:translate-y-1 active:shadow-none">Lascia Zona</button>
             </div>
           </div>
         </div>
@@ -1054,9 +983,9 @@ export default function App() {
           
           <div className="flex bg-[#161816] border-b border-[#232624] flex-shrink-0 shadow-md">
             {['equipment', 'map', 'base', 'market'].map((tab) => (
-              <button key={tab} onClick={() => {setView(tab); setRadarMap(null); chiudiPopup();}} 
+              <button key={tab} onClick={() => {setView(tab); chiudiPopup();}} 
                 className={`flex-1 py-3 border-b-2 flex flex-col items-center justify-center transition-colors ${
-                  view === tab || (tab === 'map' && view === 'radar') ? 'border-amber-500 text-amber-500 bg-[#1c1e1d]' : 'border-transparent text-stone-500 hover:bg-[#1a1d1b] hover:text-stone-400'
+                  view === tab ? 'border-amber-500 text-amber-500 bg-[#1c1e1d]' : 'border-transparent text-stone-500 hover:bg-[#1a1d1b] hover:text-stone-400'
                 }`}
               >
                 {tab === 'equipment' && <User className="w-4 h-4 mb-1" />}
@@ -1086,13 +1015,11 @@ export default function App() {
                     key={loc.id} onClick={(e) => { e.stopPropagation(); setSelectedLocation(loc); chiudiPopup(); }}
                     className={`absolute transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full flex items-center justify-center border transition-all hover:scale-110 cursor-pointer ${
                       loc.type === 'safe' ? 'bg-[#152e1c]/80 border-green-600 text-green-500 shadow-[0_0_10px_rgba(34,197,94,0.4)]' : 
-                      loc.type === 'radar' ? 'bg-[#0f380f]/80 border-[#39ff14] text-[#39ff14] shadow-[0_0_15px_rgba(57,255,20,0.5)]' :
                       loc.lvl > 15 ? 'bg-[#3d1616]/80 border-red-600 text-red-500 shadow-[0_0_10px_rgba(239,68,68,0.4)]' : 'bg-[#3b2710]/80 border-amber-600 text-amber-500 shadow-[0_0_10px_rgba(245,158,11,0.4)]'
                     }`}
                     style={{ top: `${loc.y}%`, left: `${loc.x}%` }}
                   >
-                    {loc.type === 'radar' && <div className="absolute inset-0 rounded-full border border-[#39ff14] opacity-50 animate-ping pointer-events-none"></div>}
-                    {loc.lvl > 15 && loc.type !== 'radar' && <div className="absolute inset-0 rounded-full border border-red-500 opacity-40 animate-ping pointer-events-none"></div>}
+                    {loc.lvl > 15 && <div className="absolute inset-0 rounded-full border border-red-500 opacity-40 animate-ping pointer-events-none"></div>}
                     {loc.type === 'safe' ? <Home className="w-4 h-4 relative z-10" /> : <AlertTriangle className="w-4 h-4 relative z-10" />}
                   </button>
                 ))}
@@ -1106,106 +1033,17 @@ export default function App() {
                     <p className="text-[11px] text-stone-400 mb-4 italic">"{selectedLocation.desc}"</p>
                     
                     <div className="flex justify-between items-center mb-4 text-[10px] font-mono bg-[#141615] p-2 rounded border border-[#232624] shadow-inner">
-                      <span className={selectedLocation.type === 'safe' ? 'text-green-500' : selectedLocation.type === 'radar' ? 'text-[#39ff14]' : 'text-red-500'}>
-                        {selectedLocation.type === 'safe' ? 'ZONA SICURA' : selectedLocation.type === 'radar' ? 'ZONA TATTICA RADAR' : `MINACCIA LVL ${selectedLocation.lvl}`}
+                      <span className={selectedLocation.type === 'safe' ? 'text-green-500' : 'text-red-500'}>
+                        {selectedLocation.type === 'safe' ? 'ZONA SICURA' : `MINACCIA LVL ${selectedLocation.lvl}`}
                       </span>
                       <span className="flex items-center text-amber-500"><Zap className="w-3 h-3 mr-1"/> COSTO: {selectedLocation.cost}</span>
                     </div>
 
-                    <button onClick={() => handleTravelClick(selectedLocation)} className={`w-full py-3 rounded font-black tracking-widest uppercase text-[10px] ${energy >= selectedLocation.cost ? (selectedLocation.type === 'radar' ? 'bg-gradient-to-b from-[#0f380f] to-[#071c07] border border-[#39ff14] text-[#39ff14]' : 'bg-gradient-to-b from-[#445b3c] to-[#2c3d26] border border-[#5c7a52] text-white') + ' shadow-[0_2px_0_#1a2416] active:translate-y-0.5 active:shadow-none' : 'bg-[#232624] border border-[#2d312f] text-stone-600 cursor-not-allowed'}`}>
+                    <button onClick={() => handleTravelClick(selectedLocation)} className={`w-full py-3 rounded font-black tracking-widest uppercase text-[10px] ${energy >= selectedLocation.cost ? 'bg-gradient-to-b from-[#445b3c] to-[#2c3d26] border border-[#5c7a52] text-white shadow-[0_2px_0_#1a2416] active:translate-y-0.5 active:shadow-none' : 'bg-[#232624] border border-[#2d312f] text-stone-600 cursor-not-allowed'}`}>
                       {selectedLocation.type === 'safe' ? 'Raggiungi' : 'Inizia Esplorazione'}
                     </button>
                   </div>
                 )}
-              </div>
-            )}
-
-            {/* === NUOVA SCHERMATA RADAR === */}
-            {view === 'radar' && radarMap && (
-              <div className="h-full w-full bg-[#0a140a] rounded-lg border-2 border-[#124f12] relative overflow-hidden flex flex-col items-center shadow-[inset_0_0_50px_rgba(0,0,0,0.9)]">
-                
-                {/* HUD Superiore Radar */}
-                <div className="w-full bg-[#050a05] border-b border-[#124f12] p-2 flex justify-between items-center z-10 shadow-[0_4px_10px_rgba(0,0,0,0.8)]">
-                  <div className="flex items-center">
-                    <Activity className="w-4 h-4 text-[#39ff14] mr-2 animate-pulse" />
-                    <span className="text-[#39ff14] font-mono text-[10px] font-black uppercase tracking-widest drop-shadow-[0_0_2px_#39ff14]">
-                      Zona: <span className="text-white">{currentZone}</span>
-                    </span>
-                  </div>
-                  <span className="text-[#39ff14] font-mono text-[10px] opacity-70">RADAR // M.A.Z.</span>
-                </div>
-
-                {/* Griglia della Mappa */}
-                <div className="flex-1 w-full flex items-center justify-center p-2 relative">
-                  {/* Effetto Scanline Old School */}
-                  <div className="absolute inset-0 bg-[linear-gradient(rgba(57,255,20,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(57,255,20,0.03)_1px,transparent_1px)] bg-[size:20px_20px] pointer-events-none z-10"></div>
-                  
-                  <div 
-                    className="grid bg-[#050a05] border border-[#124f12] shadow-[0_0_20px_rgba(57,255,20,0.1)] relative" 
-                    style={{ gridTemplateColumns: `repeat(${radarMap[0].length}, 1fr)`, width: '100%', maxWidth: '400px', aspectRatio: '1/1' }}
-                  >
-                    {radarMap.map((row, y) => (
-                      row.map((cell, x) => {
-                        const isPlayer = playerPos.x === x && playerPos.y === y;
-                        let cellContent = null;
-                        let cellClass = "w-full h-full border border-[#0f380f]/30 flex items-center justify-center ";
-
-                        if (isPlayer) {
-                          cellContent = <div className="w-2/3 h-2/3 bg-white rounded-sm animate-pulse shadow-[0_0_8px_#fff]"></div>;
-                        } else if (cell === 1) {
-                          // Muri/Alberi
-                          cellClass += "bg-[#0f2e0f]";
-                        } else if (cell === 2) {
-                          // Cassa
-                          cellContent = <div className="w-1/2 h-1/2 border border-[#39ff14] flex items-center justify-center"><Package className="w-full h-full text-[#39ff14]" strokeWidth={1} /></div>;
-                        } else if (cell === 3) {
-                          // Nemico
-                          cellContent = <div className="w-1/2 h-1/2 bg-red-600 rounded-full animate-ping opacity-70"></div>;
-                        } else if (cell === 4) {
-                          // Estrazione
-                          cellClass += "bg-blue-900/30 border-blue-500/50";
-                          cellContent = <div className="text-[6px] text-blue-400 font-bold uppercase">EXIT</div>;
-                        }
-
-                        return (
-                          <div key={`${x}-${y}`} className={cellClass}>
-                            {cellContent}
-                          </div>
-                        );
-                      })
-                    ))}
-                  </div>
-                </div>
-
-                {/* Joystick On-Screen per Mobile */}
-                <div className="w-full p-4 flex justify-center pb-8 z-10">
-                  <div className="grid grid-cols-3 gap-2 w-48">
-                    <div className="col-start-2">
-                      <button onClick={() => moveRadar(0, -1)} className="w-full aspect-square bg-[#0a1a0a] border border-[#124f12] rounded flex items-center justify-center text-[#39ff14] hover:bg-[#124f12] active:bg-[#39ff14] active:text-black transition-colors">
-                        <ArrowUp className="w-6 h-6" />
-                      </button>
-                    </div>
-                    <div className="col-start-1 row-start-2">
-                      <button onClick={() => moveRadar(-1, 0)} className="w-full aspect-square bg-[#0a1a0a] border border-[#124f12] rounded flex items-center justify-center text-[#39ff14] hover:bg-[#124f12] active:bg-[#39ff14] active:text-black transition-colors">
-                        <ArrowLeft className="w-6 h-6" />
-                      </button>
-                    </div>
-                    <div className="col-start-2 row-start-2 flex items-center justify-center">
-                      <div className="w-4 h-4 rounded-full bg-[#124f12]"></div>
-                    </div>
-                    <div className="col-start-3 row-start-2">
-                      <button onClick={() => moveRadar(1, 0)} className="w-full aspect-square bg-[#0a1a0a] border border-[#124f12] rounded flex items-center justify-center text-[#39ff14] hover:bg-[#124f12] active:bg-[#39ff14] active:text-black transition-colors">
-                        <ArrowRight className="w-6 h-6" />
-                      </button>
-                    </div>
-                    <div className="col-start-2 row-start-3">
-                      <button onClick={() => moveRadar(0, 1)} className="w-full aspect-square bg-[#0a1a0a] border border-[#124f12] rounded flex items-center justify-center text-[#39ff14] hover:bg-[#124f12] active:bg-[#39ff14] active:text-black transition-colors">
-                        <ArrowDown className="w-6 h-6" />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-
               </div>
             )}
 
@@ -1280,7 +1118,7 @@ export default function App() {
                       {shelterLevel >= 4 && <p className="text-[9px] text-green-500 font-bold mb-2">Rifugio al Massimo!</p>}
                       
                       <button onClick={upgradeShelter} disabled={shelterLevel >= 4} className={`w-full py-2 rounded font-black uppercase tracking-widest text-[9px] flex items-center justify-center ${shelterLevel >= 4 ? 'bg-[#111] text-stone-600 border border-[#232624] cursor-not-allowed' : 'bg-gradient-to-b from-amber-700 to-amber-900 border border-amber-600 text-stone-100 shadow-[0_2px_0_#4a2a0a] active:translate-y-0.5 active:shadow-none'}`}>
-                        <Hammer className="w-3 h-3 mr-2" /> Up: Cassa {getMaxStash() + 30} Slot
+                        <Hammer className="w-3 h-3 mr-2" /> Up: Cassa {getMaxStash()} Slot
                       </button>
                     </div>
                   </div>
@@ -1299,7 +1137,7 @@ export default function App() {
                       <span className="text-[9px] font-mono text-stone-500 bg-[#111] px-1.5 py-0.5 rounded">{stash.length}/{getMaxStash()}</span>
                     </div>
                     <div className="flex-1 overflow-y-auto custom-scrollbar relative">
-                       <InventoryGrid items={stash} maxSlots={getMaxStash()} onSelect={handleItemAction} context="stash" />
+                       <InventoryGrid items={stash} maxSlots={Math.max(20, Math.ceil(stash.length/5)*5 + 5)} onSelect={handleItemAction} context="stash" />
                     </div>
                   </div>
                 </div>
@@ -1408,16 +1246,17 @@ export default function App() {
 
   function EquipSlot({ type, itemObj, onUnequip, label }) {
     if (itemObj) {
-      const name = getItemName(itemObj);
-      const data = ITEMS[name];
-      if (!data) return null; 
+      const name = safeName(itemObj);
+      const data = safeItem(name);
+      if (!data || data.type === 'resource') return null; 
+      
       const rColor = RARITY[data.rarity]?.color || 'text-stone-300';
       const rBorder = RARITY[data.rarity]?.border || 'border-stone-500';
       return (
         <div className="flex flex-col items-center">
           <div onClick={onUnequip} 
                className={`w-14 h-14 sm:w-16 sm:h-16 bg-[#2a2e2b] border ${rBorder} rounded-md flex items-center justify-center cursor-pointer hover:brightness-110 transition-all relative group overflow-hidden shadow-[0_4px_10px_rgba(0,0,0,0.5)]`}
-               style={{ boxShadow: `inset 0 0 15px ${RARITY[data.rarity]?.shadow}` }}>
+               style={{ boxShadow: `inset 0 0 15px ${RARITY[data.rarity]?.shadow || 'transparent'}` }}>
             
             <div className="absolute inset-0 flex items-center justify-center">
               <CustomImageRenderer itemData={data} itemName={name} />
