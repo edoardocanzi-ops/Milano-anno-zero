@@ -22,48 +22,46 @@ const CUSTOM_IMAGES = {
   'Minigun Vulcan': 'https://i.postimg.cc/vBf8tCtZ/Screenshot_20260330_143029_8.jpg',
   'Coltellino': '', 
   'Mazza da Baseball': '', 
-  'Sacca Sportiva': 'https://i.postimg.cc/cCws9TFJ/Screenshot_20260330_142331_2.jpg',
-  'Sacca a Tracolla': 'https://i.postimg.cc/cCcSVYjq/Screenshot_20260330_142331_3.jpg',
+  'Sacca Sportiva': 'https://i.postimg.cc/cCWx9TFJ/Screenshot_20260330_142331_2.jpg',
+  'Sacca a Tracolla': 'https://i.postimg.cc/cCcsVYjq/Screenshot_20260330_142331_3.jpg',
   'Zaino da Escursionismo': 'https://i.postimg.cc/T1xd7QtW/Screenshot_20260330_142331_4.jpg',
-  'Zaino Tattico Militare': 'https://i.postimg.cc/D0hvj5xZ/Screenshot_20260330_142331_6.jpg',
-  'Zaino Sopravvivenza': '', 
-  
-  // SET 1
+  'Zaino Tattico Militare': 'https://i.postimg.cc/h48PzWGP/Screenshot_20260330_142331_5.jpg',
+  'Zaino Sopravvivenza': 'https://i.postimg.cc/D0hvj5xZ/Screenshot_20260330_142331_6.jpg', 
   'Berretto di Lana': 'https://i.postimg.cc/3Nh8S9tj/Screenshot_20260330_132744_2.jpg',
   'Giacca Casual': 'https://i.postimg.cc/wvLxQnQT/Screenshot_20260330_141043_5.jpg',
   'Jeans Strappati': 'https://i.postimg.cc/D0c2tsNc/Screenshot_20260330_164352_2.jpg',
   'Scarpe da Ginnastica': 'https://i.postimg.cc/L5S9Cvx5/Screenshot_20260330_141126_3.jpg',
-  // SET 2
   'Casco da Lavoro': 'https://i.postimg.cc/PJMtBZ7g/Screenshot_20260330_132744_3.jpg',
   'Giubbotto di Pelle': 'https://i.postimg.cc/2yxzPvtZ/Screenshot_20260330_141043_6.jpg',
   'Pantaloni Cargo': 'https://i.postimg.cc/tJbqSDB7/Screenshot_20260330_164352_3.jpg',
   'Scarponi da Lavoro': 'https://i.postimg.cc/MHYWHRLd/Screenshot_20260330_141126_4.jpg',
-  // SET 3
   'Cappello Mimetico': 'https://i.postimg.cc/T1xd7Qt9/Screenshot_20260330_132744_4.jpg',
   'Giacca da Caccia': 'https://i.postimg.cc/hvnDyM2K/Screenshot_20260330_141043_7.jpg',
   'Pantaloni da Sopravvivenza': 'https://i.postimg.cc/BbCqdDzw/Screenshot_20260330_164352_4.jpg',
   'Stivali da Trekking': 'https://i.postimg.cc/3Nh8S9t8/Screenshot_20260330_141126_5.jpg',
-  // SET 4
   'Casco Antisommossa': 'https://i.postimg.cc/wX5Ty8BB/Screenshot_20260330_132744_5.jpg',
   'Corazza Antisommossa': 'https://i.postimg.cc/qqGk9nFw/Screenshot_20260330_141043_8.jpg',
   'Pantaloni Antisommossa': 'https://i.postimg.cc/rsTVngfD/Screenshot_20260330_164352_5.jpg',
   'Anfibi Antisommossa': 'https://i.postimg.cc/Wz72QryH/Screenshot_20260330_141126_6.jpg',
-  // SET HAZMAT POTENZIATA
   'Casco Hazmat Potenziato': 'https://i.postimg.cc/x8Qfxg6y/Screenshot_20260330_132744_6.jpg',
   'Corazza Hazmat Potenziata': 'https://i.postimg.cc/nrxFRT3x/Screenshot_20260330_141043_4.jpg',
   'Pantaloni Hazmat Potenziati': 'https://i.postimg.cc/5ymxZvr5/Screenshot_20260330_164352_6.jpg',
   'Stivali Hazmat Potenziati': 'https://i.postimg.cc/VvwfG4K0/Screenshot_20260330_141126_7.jpg',
-
-  // --- NUOVI SET AGGIUNTI ---
   'Casco da Pompiere': '', 'Giacca da Pompiere': '', 'Pantaloni da Pompiere': '', 'Stivali da Pompiere': '',
   'Berretto Sportivo': '', 'Felpa con Cappuccio': '', 'Pantaloni Sportivi': '', 'Scarpe da Corsa': '',
   'Cappuccio CBRN': '', 'Tuta CBRN': '', 'Pantaloni CBRN': '', 'Stivali CBRN': '',
   'Casco Forze Speciali': '', 'Corazza Forze Speciali': '', 'Pantaloni Forze Speciali': '', 'Anfibi Forze Speciali': '',
-  'Casco Juggernaut': '', 'Corazza Juggernaut': '', 'Pantaloni Juggernaut': '', 'Stivali Juggernaut': ''
+  'Casco Juggernaut': '', 'Corazza Juggernaut': '', 'Pantaloni Juggernaut': '', 'Stivali Juggernaut': '',
+  'Nastro Adesivo': '', 'Zucchero Grezzo': '', 'Caffè in Grani': '', 'Lingotto di Rame': '',
+  'Batteria al Litio': '', 'Orologio d\'Epoca': '', 'Disinfettante': '', 'Carburante Sintetico': '',
+  'Scheda Madre Intatta': '', 'Chiavetta USB Criptata': '',
+  'Assi di Legno': '', 'Chiodi': '', 'Mattoni in Cotto': '', 'Tubi d\'Acciaio': '',
+  'Chiave d\'Accesso Linate': ''
 };
 
 const CUSTOM_ENEMIES_IMAGES = {
-  'Lurker': '', 'Slasher': '', 'Rioter': '', 'Chimera': '', 'Gilbert': ''
+  'Lurker': '', 'Slasher': '', 'Rioter': '', 'Chimera': '', 'Gilbert': '',
+  'Ratto Mutante': '', 'Randagio': '', 'Sputa-Acido': '', 'Cacciatore Cieco': '', 'Golia': ''
 };
 
 // --- STILE E RARITÀ ---
@@ -77,47 +75,57 @@ const RARITY = {
 
 // --- DATABASE NEMICI ---
 const ENEMIES_DB = {
-  'Lurker': { name: 'Lurker', hp: 45, atk: 12, def: 2, desc: 'Mutante standard. Veloce e imprevedibile.' },
-  'Slasher': { name: 'Slasher', hp: 75, atk: 28, def: 5, desc: 'Occhi rossi luminosi. Brutalità letale.' },
-  'Rioter': { name: 'Rioter', hp: 130, atk: 22, def: 18, desc: 'Armatura antiproiettile fusa con la pelle.' },
-  'Chimera': { name: 'Chimera', hp: 400, atk: 65, def: 35, desc: 'BOSS: Abominio genetico. Estremamente veloce.' },
-  'Gilbert': { name: 'Gilbert', hp: 500, atk: 85, def: 45, desc: 'BOSS: Armato di fucile a pompa R8. Devastante.' }
+  'Ratto Mutante': { name: 'Ratto Mutante', hp: 20, atk: 6, def: 0, desc: 'Un topo gigantesco, debole ma aggressivo.' },
+  'Randagio': { name: 'Randagio', hp: 35, atk: 12, def: 1, desc: 'Cane infetto, veloce e letale in branco.' },
+  'Lurker': { name: 'Lurker', hp: 50, atk: 18, def: 2, desc: 'Mutante standard. Imprevedibile.' },
+  'Sputa-Acido': { name: 'Sputa-Acido', hp: 60, atk: 35, def: 2, desc: 'Spara muchi corrosivi dalla distanza.' },
+  'Slasher': { name: 'Slasher', hp: 85, atk: 30, def: 5, desc: 'Occhi rossi luminosi. Usa armi da taglio.' },
+  'Cacciatore Cieco': { name: 'Cacciatore Cieco', hp: 110, atk: 45, def: 10, desc: 'Sente ogni tuo respiro. Danni devastanti.' },
+  'Rioter': { name: 'Rioter', hp: 160, atk: 25, def: 25, desc: 'Armatura antiproiettile fusa con la pelle.' },
+  'Golia': { name: 'Golia', hp: 300, atk: 30, def: 40, desc: 'Un colosso lentissimo ma quasi invulnerabile.' },
+  'Chimera': { name: 'Chimera', hp: 500, atk: 70, def: 45, desc: 'BOSS: Abominio genetico. Estremamente veloce.' },
+  'Gilbert': { name: 'Gilbert', hp: 650, atk: 95, def: 55, desc: 'BOSS: Armato di fucile a pompa R8. Devastante.' }
 };
 
 // --- DATABASE OGGETTI ---
 const ITEMS = {
+  // Consumabili & Cure
   'Acqua Purificata': { type: 'consumable', rarity: 'comune', value: 5, heal: 0, desc: 'Idratazione essenziale.', iconType: Coffee },
   'Razione K': { type: 'consumable', rarity: 'comune', value: 8, heal: 5, desc: 'Cibo liofilizzato.', iconType: Package },
+  'Zucchero Grezzo': { type: 'consumable', rarity: 'comune', value: 15, heal: 5, desc: 'Picco di energia.', iconType: Coffee },
   'Bende': { type: 'medical', rarity: 'comune', value: 12, heal: 20, desc: 'Ferma le emorragie.', iconType: PlusSquare },
   'Medikit': { type: 'medical', rarity: 'raro', value: 40, heal: 60, desc: 'Kit tattico medico.', iconType: PlusSquare },
+  'Disinfettante': { type: 'medical', rarity: 'epico', value: 70, heal: 40, desc: 'Previene infezioni.', iconType: PlusSquare },
+  
+  // Risorse & Costruzione
   'Rottami': { type: 'resource', rarity: 'comune', value: 2, desc: 'Metallo arrugginito.', iconType: Package },
-  'Componenti Elettronici': { type: 'resource', rarity: 'raro', value: 15, desc: 'Chip e circuiti.', iconType: Zap },
-  'Munizioni 9mm': { type: 'resource', rarity: 'comune', value: 10, desc: 'Proiettili leggeri.', iconType: Crosshair },
-  'Munizioni 5.56': { type: 'resource', rarity: 'epico', value: 25, desc: 'Proiettili perforanti.', iconType: Crosshair },
-  'Cimelio d\'Oro': { type: 'resource', rarity: 'leggendario', value: 150, desc: 'Oro puro.', iconType: Coins },
-  'Disco Dati Governativo': { type: 'resource', rarity: 'mitico', value: 500, desc: 'Codici di sicurezza.', iconType: Package },
-  'Chiave d\'Accesso Linate': { type: 'resource', rarity: 'mitico', value: 1000, desc: 'Tessera d\'accesso per l\'Aeroporto.', iconType: Key },
+  'Nastro Adesivo': { type: 'resource', rarity: 'comune', value: 5, desc: 'Riparazioni rapide.', iconType: Package },
   'Assi di Legno': { type: 'resource', rarity: 'comune', value: 3, desc: 'Materiale da costruzione base.', iconType: Hammer },
   'Chiodi': { type: 'resource', rarity: 'comune', value: 2, desc: 'Utili per fortificare.', iconType: Hammer },
-  'Mattoni in Cotto': { type: 'resource', rarity: 'raro', value: 8, desc: 'Solidi e pesanti.', iconType: Hammer },
-  'Tubi d\'Acciaio': { type: 'resource', rarity: 'epico', value: 15, desc: 'Strutture portanti.', iconType: Hammer },
-  'Nastro Adesivo': { type: 'resource', rarity: 'comune', value: 5, desc: 'Riparazioni rapide.', iconType: Package },
-  'Zucchero Grezzo': { type: 'consumable', rarity: 'comune', value: 15, heal: 5, desc: 'Picco di energia.', iconType: Coffee },
+  'Componenti Elettronici': { type: 'resource', rarity: 'raro', value: 15, desc: 'Chip e circuiti.', iconType: Zap },
+  'Munizioni 9mm': { type: 'resource', rarity: 'comune', value: 10, desc: 'Proiettili leggeri.', iconType: Crosshair },
   'Caffè in Grani': { type: 'resource', rarity: 'raro', value: 35, desc: 'Lusso del vecchio mondo.', iconType: Coffee },
   'Lingotto di Rame': { type: 'resource', rarity: 'raro', value: 50, desc: 'Conduttore.', iconType: Zap },
+  'Mattoni in Cotto': { type: 'resource', rarity: 'raro', value: 8, desc: 'Solidi e pesanti.', iconType: Hammer },
+  'Munizioni 5.56': { type: 'resource', rarity: 'epico', value: 25, desc: 'Proiettili perforanti.', iconType: Crosshair },
   'Batteria al Litio': { type: 'resource', rarity: 'epico', value: 60, desc: 'Parzialmente carica.', iconType: Zap },
   'Orologio d\'Epoca': { type: 'resource', rarity: 'epico', value: 80, desc: 'Meccanismo intatto.', iconType: Coins },
-  'Disinfettante': { type: 'medical', rarity: 'epico', value: 70, heal: 40, desc: 'Previene infezioni.', iconType: PlusSquare },
+  'Tubi d\'Acciaio': { type: 'resource', rarity: 'epico', value: 15, desc: 'Strutture portanti.', iconType: Hammer },
+  'Cimelio d\'Oro': { type: 'resource', rarity: 'leggendario', value: 150, desc: 'Oro puro.', iconType: Coins },
   'Carburante Sintetico': { type: 'resource', rarity: 'leggendario', value: 120, desc: 'Altamente infiammabile.', iconType: Zap },
   'Scheda Madre Intatta': { type: 'resource', rarity: 'leggendario', value: 150, desc: 'Elettronica militare.', iconType: Zap },
+  'Disco Dati Governativo': { type: 'resource', rarity: 'mitico', value: 500, desc: 'Codici di sicurezza.', iconType: Package },
   'Chiavetta USB Criptata': { type: 'resource', rarity: 'mitico', value: 300, desc: 'Progetti top-secret.', iconType: Package },
+  'Chiave d\'Accesso Linate': { type: 'resource', rarity: 'mitico', value: 1000, desc: 'Tessera d\'accesso Aeroporto.', iconType: Key },
 
-  'Sacca Sportiva': { type: 'backpack', rarity: 'comune', value: 20, slots: 10, desc: 'Capienza: 10 Slot', iconType: Backpack },
-  'Sacca a Tracolla': { type: 'backpack', rarity: 'raro', value: 50, slots: 15, desc: 'Capienza: 15 Slot', iconType: Backpack },
-  'Zaino da Escursionismo': { type: 'backpack', rarity: 'epico', value: 120, slots: 20, desc: 'Capienza: 20 Slot', iconType: Backpack },
-  'Zaino Tattico Militare': { type: 'backpack', rarity: 'leggendario', value: 250, slots: 25, desc: 'Capienza: 25 Slot', iconType: Backpack },
-  'Zaino Sopravvivenza': { type: 'backpack', rarity: 'mitico', value: 600, slots: 30, desc: 'Capienza: 30 Slot', iconType: Backpack },
+  // Zaini
+  'Sacca Sportiva': { type: 'backpack', rarity: 'comune', value: 20, slots: 10, desc: '10 Slot', iconType: Backpack },
+  'Sacca a Tracolla': { type: 'backpack', rarity: 'raro', value: 50, slots: 15, desc: '15 Slot', iconType: Backpack },
+  'Zaino da Escursionismo': { type: 'backpack', rarity: 'epico', value: 120, slots: 20, desc: '20 Slot', iconType: Backpack },
+  'Zaino Tattico Militare': { type: 'backpack', rarity: 'leggendario', value: 250, slots: 25, desc: '25 Slot', iconType: Backpack },
+  'Zaino Sopravvivenza': { type: 'backpack', rarity: 'mitico', value: 600, slots: 30, desc: '30 Slot', iconType: Backpack },
 
+  // Armi
   'Coltellino': { type: 'weapon', rarity: 'comune', value: 10, atk: 5, desc: 'Lama corta.', iconType: Crosshair },
   'Mazza da Baseball': { type: 'weapon', rarity: 'comune', value: 20, atk: 12, desc: 'Pesante.', iconType: Crosshair },
   'Pistola Glock': { type: 'weapon', rarity: 'raro', value: 80, atk: 25, desc: 'Affidabile 9mm.', iconType: Crosshair },
@@ -131,27 +139,49 @@ const ITEMS = {
   'Mitragliatrice M249': { type: 'weapon', rarity: 'mitico', value: 900, atk: 120, desc: 'Fuoco di soppressione.', iconType: Crosshair },
   'Minigun Vulcan': { type: 'weapon', rarity: 'mitico', value: 1500, atk: 200, desc: 'Devastazione.', iconType: Crosshair },
 
+  // Armature Base
   'Berretto di Lana': { type: 'helmet', rarity: 'comune', value: 5, def: 1, desc: 'Protezione minima.', iconType: Shield },
   'Giacca Casual': { type: 'chest', rarity: 'comune', value: 10, def: 3, desc: 'Tessuto leggero.', iconType: Shirt },
   'Jeans Strappati': { type: 'pants', rarity: 'comune', value: 8, def: 2, desc: 'Usurati.', iconType: Scissors },
   'Scarpe da Ginnastica': { type: 'shoes', rarity: 'comune', value: 8, def: 1, desc: 'Comode.', iconType: User },
+
+  // Set Armature Misti
+  'Berretto Sportivo': { type: 'helmet', rarity: 'raro', value: 15, def: 2, desc: 'Traspirante.', iconType: Shield },
+  'Felpa con Cappuccio': { type: 'chest', rarity: 'raro', value: 25, def: 5, desc: 'Comoda per muoversi.', iconType: Shirt },
+  'Pantaloni Sportivi': { type: 'pants', rarity: 'raro', value: 20, def: 3, desc: 'Agili.', iconType: Scissors },
+  'Scarpe da Corsa': { type: 'shoes', rarity: 'raro', value: 25, def: 3, desc: 'Ottime per fuggire.', iconType: User },
 
   'Casco da Lavoro': { type: 'helmet', rarity: 'raro', value: 20, def: 4, desc: 'Plastica rigida.', iconType: Shield },
   'Giubbotto di Pelle': { type: 'chest', rarity: 'raro', value: 35, def: 8, desc: 'Evita i morsi.', iconType: Shirt },
   'Pantaloni Cargo': { type: 'pants', rarity: 'raro', value: 25, def: 5, desc: 'Resistente.', iconType: Scissors },
   'Scarponi da Lavoro': { type: 'shoes', rarity: 'raro', value: 20, def: 4, desc: 'Punta rinforzata.', iconType: User },
 
+  'Casco da Pompiere': { type: 'helmet', rarity: 'raro', value: 25, def: 5, desc: 'Isolante termico.', iconType: Shield },
+  'Giacca da Pompiere': { type: 'chest', rarity: 'raro', value: 40, def: 10, desc: 'Tessuto ignifugo.', iconType: Shirt },
+  'Pantaloni da Pompiere': { type: 'pants', rarity: 'raro', value: 30, def: 6, desc: 'Bande riflettenti.', iconType: Scissors },
+  'Stivali da Pompiere': { type: 'shoes', rarity: 'raro', value: 25, def: 5, desc: 'Suola anti-perforazione.', iconType: User },
+
   'Cappello Mimetico': { type: 'helmet', rarity: 'epico', value: 45, def: 7, desc: 'Materiale tecnico.', iconType: Shield },
   'Giacca da Caccia': { type: 'chest', rarity: 'epico', value: 80, def: 14, desc: 'Isolante termico.', iconType: Shirt },
   'Pantaloni da Sopravvivenza': { type: 'pants', rarity: 'epico', value: 65, def: 11, desc: 'Kevlar.', iconType: Scissors },
   'Stivali da Trekking': { type: 'shoes', rarity: 'epico', value: 55, def: 9, desc: 'Ottima aderenza.', iconType: User },
+
+  'Cappuccio CBRN': { type: 'helmet', rarity: 'epico', value: 60, def: 6, radProtect: 1, desc: 'Maschera antigas tattica.', iconType: Shield },
+  'Tuta CBRN': { type: 'chest', rarity: 'epico', value: 100, def: 12, radProtect: 1, desc: 'Isolamento agenti chimici.', iconType: Shirt },
+  'Pantaloni CBRN': { type: 'pants', rarity: 'epico', value: 80, def: 10, desc: 'Gomma sintetica.', iconType: Scissors },
+  'Stivali CBRN': { type: 'shoes', rarity: 'epico', value: 70, def: 8, desc: 'Stivali decontaminazione.', iconType: User },
 
   'Casco Antisommossa': { type: 'helmet', rarity: 'leggendario', value: 140, def: 16, desc: 'Visiera balistica.', iconType: Shield },
   'Corazza Antisommossa': { type: 'chest', rarity: 'leggendario', value: 220, def: 28, desc: 'Placche anti-urto.', iconType: Shirt },
   'Pantaloni Antisommossa': { type: 'pants', rarity: 'leggendario', value: 180, def: 22, desc: 'Snodi rinforzati.', iconType: Scissors },
   'Anfibi Antisommossa': { type: 'shoes', rarity: 'leggendario', value: 150, def: 18, desc: 'Suola rinforzata.', iconType: User },
 
-  'Cappuccio Hazmat': { type: 'helmet', rarity: 'leggendario', value: 200, def: 8, radProtect: 1, desc: 'Filtri aria integrati. LVL 1 RAD.', iconType: Shield },
+  'Casco Forze Speciali': { type: 'helmet', rarity: 'leggendario', value: 160, def: 18, desc: 'Kevlar leggero con radio.', iconType: Shield },
+  'Corazza Forze Speciali': { type: 'chest', rarity: 'leggendario', value: 250, def: 30, desc: 'Piastre in ceramica.', iconType: Shirt },
+  'Pantaloni Forze Speciali': { type: 'pants', rarity: 'leggendario', value: 200, def: 25, desc: 'Multitasche tattico.', iconType: Scissors },
+  'Anfibi Forze Speciali': { type: 'shoes', rarity: 'leggendario', value: 180, def: 20, desc: 'Silenziosi e letali.', iconType: User },
+
+  'Cappuccio Hazmat': { type: 'helmet', rarity: 'leggendario', value: 200, def: 8, radProtect: 1, desc: 'Filtri aria. LVL 1 RAD.', iconType: Shield },
   'Tuta Hazmat': { type: 'chest', rarity: 'leggendario', value: 300, def: 15, radProtect: 1, desc: 'Gomma isolante. LVL 1 RAD.', iconType: Shirt },
   'Pantaloni Hazmat': { type: 'pants', rarity: 'leggendario', value: 250, def: 12, desc: 'Isolamento chimico.', iconType: Scissors },
   'Stivali Hazmat': { type: 'shoes', rarity: 'leggendario', value: 180, def: 10, desc: 'Gomma spessa.', iconType: User },
@@ -161,57 +191,37 @@ const ITEMS = {
   'Pantaloni Hazmat Potenziati': { type: 'pants', rarity: 'mitico', value: 500, def: 35, desc: 'Fibre isolanti.', iconType: Scissors },
   'Stivali Hazmat Potenziati': { type: 'shoes', rarity: 'mitico', value: 450, def: 30, desc: 'Assorbimento estremo.', iconType: User },
 
-  // --- NUOVI SET ARMADURE ---
-  'Casco da Pompiere': { type: 'helmet', rarity: 'raro', value: 25, def: 5, desc: 'Isolante termico avanzato.', iconType: Shield },
-  'Giacca da Pompiere': { type: 'chest', rarity: 'raro', value: 40, def: 10, desc: 'Tessuto ignifugo resistente.', iconType: Shirt },
-  'Pantaloni da Pompiere': { type: 'pants', rarity: 'raro', value: 30, def: 6, desc: 'Bande riflettenti.', iconType: Scissors },
-  'Stivali da Pompiere': { type: 'shoes', rarity: 'raro', value: 25, def: 5, desc: 'Suola rinforzata anti-perforazione.', iconType: User },
-
-  'Berretto Sportivo': { type: 'helmet', rarity: 'raro', value: 15, def: 2, desc: 'Tessuto traspirante.', iconType: Shield },
-  'Felpa con Cappuccio': { type: 'chest', rarity: 'raro', value: 25, def: 5, desc: 'Comoda per muoversi velocemente.', iconType: Shirt },
-  'Pantaloni Sportivi': { type: 'pants', rarity: 'raro', value: 20, def: 3, desc: 'Non intralciano la corsa.', iconType: Scissors },
-  'Scarpe da Corsa': { type: 'shoes', rarity: 'raro', value: 25, def: 3, desc: 'Ottime per fuggire.', iconType: User },
-
-  'Cappuccio CBRN': { type: 'helmet', rarity: 'epico', value: 60, def: 6, radProtect: 1, desc: 'Maschera antigas tattica.', iconType: Shield },
-  'Tuta CBRN': { type: 'chest', rarity: 'epico', value: 100, def: 12, radProtect: 1, desc: 'Isolamento totale da agenti chimici.', iconType: Shirt },
-  'Pantaloni CBRN': { type: 'pants', rarity: 'epico', value: 80, def: 10, desc: 'Gomma sintetica spessa.', iconType: Scissors },
-  'Stivali CBRN': { type: 'shoes', rarity: 'epico', value: 70, def: 8, desc: 'Stivali da decontaminazione.', iconType: User },
-
-  'Casco Forze Speciali': { type: 'helmet', rarity: 'leggendario', value: 160, def: 18, desc: 'Kevlar leggero con radio integrata.', iconType: Shield },
-  'Corazza Forze Speciali': { type: 'chest', rarity: 'leggendario', value: 250, def: 30, desc: 'Piastre tattiche in ceramica.', iconType: Shirt },
-  'Pantaloni Forze Speciali': { type: 'pants', rarity: 'leggendario', value: 200, def: 25, desc: 'Multitasche tattico.', iconType: Scissors },
-  'Anfibi Forze Speciali': { type: 'shoes', rarity: 'leggendario', value: 180, def: 20, desc: 'Silenziosi e letali in combattimento.', iconType: User },
-
   'Casco Juggernaut': { type: 'helmet', rarity: 'mitico', value: 500, def: 35, desc: 'Un bunker per la testa.', iconType: Shield },
-  'Corazza Juggernaut': { type: 'chest', rarity: 'mitico', value: 900, def: 60, desc: 'Trasforma un uomo in un carro armato.', iconType: Shirt },
-  'Pantaloni Juggernaut': { type: 'pants', rarity: 'mitico', value: 700, def: 45, desc: 'Placche corazzate pesantissime.', iconType: Scissors },
+  'Corazza Juggernaut': { type: 'chest', rarity: 'mitico', value: 900, def: 60, desc: 'Carro armato umano.', iconType: Shirt },
+  'Pantaloni Juggernaut': { type: 'pants', rarity: 'mitico', value: 700, def: 45, desc: 'Placche pesantissime.', iconType: Scissors },
   'Stivali Juggernaut': { type: 'shoes', rarity: 'mitico', value: 600, def: 40, desc: 'Inarrestabili.', iconType: User },
 };
 
+// Modificati loot tables per "inquinare" le zone ad alto livello con spazzatura e limitare farming
 const LOCATIONS = [
-  { id: 'duomo', name: 'Cratere del Duomo', type: 'danger', x: 50, y: 50, reqRad: 2, desc: 'Ground Zero. REQUISITO: HAZMAT POTENZIATA.', lvl: 25, cost: 40, enemies: ['Chimera'], loot: ['Disco Dati Governativo', 'Chiavetta USB Criptata', 'Minigun Vulcan', 'Corazza Juggernaut', 'Casco Juggernaut', 'Zaino Sopravvivenza'], minLoot: 4, maxLoot: 6 },
+  { id: 'duomo', name: 'Cratere del Duomo', type: 'danger', x: 50, y: 50, reqRad: 2, desc: 'Ground Zero. REQ: HAZMAT POTENZIATA.', lvl: 25, cost: 40, enemies: ['Chimera'], loot: ['Disco Dati Governativo', 'Chiavetta USB Criptata', 'Minigun Vulcan', 'Corazza Juggernaut', 'Casco Juggernaut', 'Zaino Sopravvivenza', 'Rottami', 'Bende', 'Acqua Purificata'], minLoot: 4, maxLoot: 6 },
   { id: 'mercato', name: 'Mercato (Cadorna)', type: 'safe', x: 37, y: 43, desc: 'Zona neutrale. Puoi scambiare oggetti.', lvl: 1, cost: 5 },
-  { id: 'sempione', name: 'Foresta Sempione', type: 'danger', x: 33, y: 31, desc: 'Rovine invase dalla vegetazione.', lvl: 2, cost: 10, enemies: ['Lurker'], loot: ['Rottami', 'Assi di Legno', 'Felpa con Cappuccio', 'Scarpe da Corsa', 'Sacca Sportiva', 'Mazza da Baseball', 'Berretto di Lana'], minLoot: 1, maxLoot: 3 },
-  { id: 'breda', name: 'Stadio Breda', type: 'danger', x: 20, y: 10, desc: 'Vecchio stadio in rovina.', lvl: 6, cost: 12, enemies: ['Lurker'], loot: ['Bende', 'Sacca a Tracolla', 'Assi di Legno', 'Casco da Pompiere', 'Pistola Glock', 'Casco da Lavoro'], minLoot: 1, maxLoot: 3 },
-  { id: 'caserma', name: 'Caserma Firenze', type: 'danger', x: 16, y: 15, desc: 'Avamposto militare abbandonato.', lvl: 10, cost: 20, enemies: ['Rioter', 'Slasher', 'Lurker'], loot: ['Munizioni 9mm', 'Razione K', 'Chiodi', 'Tubi d\'Acciaio', 'Medikit', 'Pistola Glock', 'Giubbotto di Pelle'], minLoot: 2, maxLoot: 4 },
-  { id: 'isola', name: 'Quartiere Isola', type: 'danger', x: 45, y: 20, desc: 'Vicoli stretti e grattacieli.', lvl: 11, cost: 20, enemies: ['Lurker', 'Slasher'], loot: ['Mitraglietta Uzi', 'Componenti Elettronici', 'Lingotto di Rame', 'Giacca da Pompiere', 'Zaino da Escursionismo'], minLoot: 2, maxLoot: 4 },
-  { id: 'ospedale', name: 'Policlinico', type: 'danger', x: 54, y: 60, desc: 'Forniture mediche.', lvl: 12, cost: 25, enemies: ['Rioter', 'Slasher', 'Lurker'], loot: ['Medikit', 'Disinfettante', 'Tuta CBRN', 'Zaino da Escursionismo', 'Pantaloni Cargo', 'MP5 Silenziato'], minLoot: 3, maxLoot: 5 },
-  { id: 'm5', name: 'Metro M5 (Lilla)', type: 'danger', x: 30, y: 40, desc: 'Tunnel sotterranei bui.', lvl: 15, cost: 25, enemies: ['Rioter', 'Lurker'], loot: ['MP5 Silenziato', 'Munizioni 5.56', 'Orologio d\'Epoca', 'Cappuccio CBRN', 'Zaino Tattico Militare'], minLoot: 2, maxLoot: 4 },
-  { id: 'monumentale', name: 'Cimitero Monumentale', type: 'danger', x: 35, y: 25, desc: 'Silenzio di tomba.', lvl: 16, cost: 25, enemies: ['Slasher', 'Lurker'], loot: ['Medikit', 'Batteria al Litio', 'Fucile M16', 'Pantaloni CBRN'], minLoot: 2, maxLoot: 4 },
-  { id: 'centrale', name: 'Stazione Centrale', type: 'danger', x: 61, y: 15, desc: 'Covo dei Predoni.', lvl: 18, cost: 30, enemies: ['Rioter', 'Slasher'], loot: ['Munizioni 5.56', 'Fucile AK-47', 'Casco Forze Speciali', 'Zaino Tattico Militare', 'Cimelio d\'Oro', 'Casco Antisommossa'], minLoot: 3, maxLoot: 5 },
-  { id: 'fiera', name: 'Fiera Milano', type: 'danger', x: 10, y: 25, desc: 'Enorme polo espositivo.', lvl: 20, cost: 30, enemies: ['Rioter', 'Slasher'], loot: ['Fucile AK-47', 'Zaino da Escursionismo', 'Corazza Forze Speciali', 'Carburante Sintetico'], minLoot: 3, maxLoot: 5 },
-  { id: 'castello', name: 'Castello Sforzesco', type: 'danger', x: 40, y: 35, desc: 'Fortezza espugnata.', lvl: 22, cost: 35, enemies: ['Rioter', 'Chimera'], loot: ['Mitragliatrice M249', 'Scheda Madre Intatta', 'Corazza Juggernaut', 'Anfibi Forze Speciali'], minLoot: 3, maxLoot: 5 },
+  { id: 'sempione', name: 'Foresta Sempione', type: 'danger', x: 33, y: 31, desc: 'Vegetazione fitta.', lvl: 2, cost: 10, enemies: ['Ratto Mutante', 'Randagio'], loot: ['Rottami', 'Assi di Legno', 'Felpa con Cappuccio', 'Scarpe da Corsa', 'Sacca Sportiva', 'Mazza da Baseball', 'Berretto di Lana'], minLoot: 1, maxLoot: 3 },
+  { id: 'breda', name: 'Stadio Breda', type: 'danger', x: 20, y: 10, desc: 'Vecchio stadio in rovina.', lvl: 6, cost: 12, enemies: ['Randagio', 'Lurker'], loot: ['Bende', 'Sacca a Tracolla', 'Assi di Legno', 'Casco da Pompiere', 'Pistola Glock', 'Casco da Lavoro'], minLoot: 1, maxLoot: 3 },
+  { id: 'caserma', name: 'Caserma Firenze', type: 'danger', x: 16, y: 15, desc: 'Avamposto abbandonato.', lvl: 10, cost: 20, enemies: ['Lurker', 'Slasher'], loot: ['Munizioni 9mm', 'Razione K', 'Chiodi', 'Tubi d\'Acciaio', 'Medikit', 'Pistola Glock', 'Giubbotto di Pelle'], minLoot: 2, maxLoot: 4 },
+  { id: 'isola', name: 'Quartiere Isola', type: 'danger', x: 45, y: 20, desc: 'Vicoli stretti e grattacieli.', lvl: 11, cost: 20, enemies: ['Slasher', 'Sputa-Acido'], loot: ['Mitraglietta Uzi', 'Componenti Elettronici', 'Lingotto di Rame', 'Giacca da Pompiere', 'Zaino da Escursionismo'], minLoot: 2, maxLoot: 4 },
+  { id: 'ospedale', name: 'Policlinico', type: 'danger', x: 54, y: 60, desc: 'Forniture mediche.', lvl: 12, cost: 25, enemies: ['Rioter', 'Sputa-Acido'], loot: ['Medikit', 'Disinfettante', 'Tuta CBRN', 'Zaino da Escursionismo', 'Pantaloni Cargo', 'MP5 Silenziato', 'Rottami'], minLoot: 3, maxLoot: 5 },
+  { id: 'm5', name: 'Metro M5 (Lilla)', type: 'danger', x: 30, y: 40, desc: 'Tunnel sotterranei bui.', lvl: 15, cost: 25, enemies: ['Rioter', 'Cacciatore Cieco'], loot: ['MP5 Silenziato', 'Munizioni 5.56', 'Orologio d\'Epoca', 'Cappuccio CBRN', 'Zaino Tattico Militare', 'Bende'], minLoot: 2, maxLoot: 4 },
+  { id: 'monumentale', name: 'Cimitero Monumentale', type: 'danger', x: 35, y: 25, desc: 'Silenzio di tomba.', lvl: 16, cost: 25, enemies: ['Cacciatore Cieco', 'Sputa-Acido'], loot: ['Medikit', 'Batteria al Litio', 'Fucile M16', 'Pantaloni CBRN', 'Acqua Purificata'], minLoot: 2, maxLoot: 4 },
+  { id: 'centrale', name: 'Stazione Centrale', type: 'danger', x: 61, y: 15, desc: 'Covo dei Predoni.', lvl: 18, cost: 30, enemies: ['Golia', 'Rioter', 'Slasher'], loot: ['Munizioni 5.56', 'Fucile AK-47', 'Casco Forze Speciali', 'Zaino Tattico Militare', 'Cimelio d\'Oro', 'Casco Antisommossa', 'Rottami'], minLoot: 3, maxLoot: 5 },
+  { id: 'fiera', name: 'Fiera Milano', type: 'danger', x: 10, y: 25, desc: 'Enorme polo espositivo.', lvl: 20, cost: 30, enemies: ['Golia', 'Sputa-Acido'], loot: ['Fucile AK-47', 'Zaino da Escursionismo', 'Corazza Forze Speciali', 'Carburante Sintetico', 'Chiodi', 'Acqua Purificata'], minLoot: 3, maxLoot: 5 },
+  { id: 'castello', name: 'Castello Sforzesco', type: 'danger', x: 40, y: 35, desc: 'Fortezza espugnata.', lvl: 22, cost: 35, enemies: ['Golia', 'Chimera'], loot: ['Mitragliatrice M249', 'Scheda Madre Intatta', 'Corazza Juggernaut', 'Anfibi Forze Speciali', 'Razione K', 'Rottami'], minLoot: 3, maxLoot: 5 },
   { id: 'rifugio', name: 'Il Tuo Rifugio', type: 'safe', x: 79, y: 26, desc: 'La tua base operativa.', lvl: 1, cost: 0 },
-  { id: 'navigli', name: 'Paludi Darsena', type: 'danger', x: 37, y: 70, desc: 'Fanghi tossici.', lvl: 5, cost: 15, enemies: ['Lurker', 'Slasher'], loot: ['Rottami', 'Assi di Legno', 'Bende', 'Pantaloni Sportivi', 'Berretto Sportivo', 'Giacca Casual'], minLoot: 2, maxLoot: 4 },
-  { id: 'idroscalo', name: 'Idroscalo Tossico', type: 'danger', x: 92, y: 65, reqRad: 1, desc: 'Gas venefici. REQUISITO: TUTA HAZMAT.', lvl: 20, cost: 35, enemies: ['Rioter', 'Slasher'], loot: ['AK-47 Tamburo', 'Pistola Tamburo', 'Munizioni 5.56', 'Pantaloni Juggernaut', 'Tuta Hazmat'], minLoot: 3, maxLoot: 5 },
-  { id: 'linate', name: 'Linate (Aeroporto)', type: 'danger', x: 88, y: 80, reqKey: 'Chiave d\'Accesso Linate', desc: 'Area blindata. REQUISITO: CHIAVE LINATE.', lvl: 28, cost: 45, enemies: ['Gilbert'], loot: ['Mitragliatrice M249', 'Stivali Juggernaut', 'Pantaloni Hazmat Potenziati', 'Stivali Hazmat Potenziati'], minLoot: 4, maxLoot: 6 }
+  { id: 'navigli', name: 'Paludi Darsena', type: 'danger', x: 37, y: 70, desc: 'Fanghi tossici.', lvl: 5, cost: 15, enemies: ['Lurker', 'Ratto Mutante'], loot: ['Rottami', 'Assi di Legno', 'Bende', 'Pantaloni Sportivi', 'Berretto Sportivo', 'Giacca Casual'], minLoot: 2, maxLoot: 4 },
+  { id: 'idroscalo', name: 'Idroscalo Tossico', type: 'danger', x: 92, y: 65, reqRad: 1, desc: 'Gas venefici. REQ: TUTA HAZMAT.', lvl: 20, cost: 35, enemies: ['Sputa-Acido', 'Golia'], loot: ['AK-47 Tamburo', 'Pistola Tamburo', 'Munizioni 5.56', 'Pantaloni Juggernaut', 'Tuta Hazmat', 'Bende', 'Rottami'], minLoot: 3, maxLoot: 5 },
+  { id: 'linate', name: 'Linate (Aeroporto)', type: 'danger', x: 88, y: 80, reqKey: 'Chiave d\'Accesso Linate', desc: 'Area blindata. REQ: CHIAVE LINATE.', lvl: 28, cost: 45, enemies: ['Gilbert'], loot: ['Mitragliatrice M249', 'Stivali Juggernaut', 'Pantaloni Hazmat Potenziati', 'Stivali Hazmat Potenziati', 'Acqua Purificata', 'Nastro Adesivo'], minLoot: 4, maxLoot: 6 }
 ];
 
 const MAX_ENERGY = 100;
 const BASE_ATK = 5;
 const BASE_DEF = 0;
 
-// --- FUNZIONI DI SICUREZZA PER GLI OGGETTI (Anti-Crash) ---
+// --- HELPER SICUREZZA ---
 const safeName = (item) => typeof item === 'string' ? item : (item?.name || '');
 const safeItem = (name) => ITEMS[name] || { type: 'resource', rarity: 'comune', value: 0, desc: 'Oggetto Sconosciuto' };
 
@@ -227,7 +237,7 @@ export default function App() {
   const [level, setLevel] = useState(1);
   const [xp, setXp] = useState(0);
   
-  const currentMaxHp = 100 + (level - 1) * 10; 
+  const currentMaxHp = 100; // HP bloccati a 100
   const [hp, setHp] = useState(currentMaxHp);
   const [energy, setEnergy] = useState(MAX_ENERGY);
   const [credits, setCredits] = useState(100);
@@ -241,14 +251,14 @@ export default function App() {
     chest: createItemObj('Giacca Casual'), 
     pants: createItemObj('Jeans Strappati'), 
     shoes: createItemObj('Scarpe da Ginnastica'), 
-    weapon: createItemObj('Pistola Glock'), 
+    weapon: createItemObj('Coltellino'), // Inizia poverissimo
     backpack: createItemObj('Sacca Sportiva')
   });
 
   const [inventory, setInventory] = useState([createItemObj('Acqua Purificata'), createItemObj('Razione K'), createItemObj('Bende')]); 
   const [stash, setStash] = useState([createItemObj('Acqua Purificata'), createItemObj('Razione K'), createItemObj('Rottami')]); 
   
-  const [logs, setLogs] = useState([{ text: 'Stazione operativa avviata. Sistema anti-crash attivo.', type: 'info' }]);
+  const [logs, setLogs] = useState([{ text: 'Stazione operativa avviata.', type: 'info' }]);
   const [selectedLocation, setSelectedLocation] = useState(null);
   
   const [selectedItem, setSelectedItem] = useState(null);
@@ -265,20 +275,19 @@ export default function App() {
 
   useEffect(() => { logEndRef.current?.scrollIntoView({ behavior: 'smooth' }); }, [logs]);
 
-  // Game Over Sicuro
+  // Game Over
   useEffect(() => { 
     if (hp <= 0 && !gameOver) {
       setGameOver(true); setCombatState(null); setPendingLoot(null);
     }
   }, [hp, gameOver]);
 
-  // Gestione Level Up
+  // Level Up: No HP/Energy restore anymore
   useEffect(() => {
     const requiredXp = level * 100;
     if (xp >= requiredXp) {
       setLevel(prev => prev + 1); setXp(prev => prev - requiredXp);
-      setHp(100 + (level) * 10); setEnergy(MAX_ENERGY);
-      addLog(`⬆️ LIVELLO ${level + 1}! HP Massimi aumentati.`, 'success');
+      addLog(`⬆️ LIVELLO ${level + 1} RAGGIUNTO!`, 'success');
     }
   }, [xp, level]);
 
@@ -313,7 +322,6 @@ export default function App() {
     });
   };
 
-  // --- AZIONI OGGETTI ---
   const handleItemAction = (e, itemObj, index, context) => {
     e.stopPropagation();
     if (!itemObj) return;
@@ -450,22 +458,44 @@ export default function App() {
       addLog(`🛠️ RIFUGIO MIGLIORATO AL LIVELLO ${shelterLevel + 1}! Cassa espansa.`, 'success');
   };
 
+  // LIMITI DI BOTTINO PUNITIVI
   const generateAndShowLoot = (loc) => {
     const numItems = Math.floor(Math.random() * (loc.maxLoot - loc.minLoot + 1)) + loc.minLoot;
-    let found = []; let uniqueEquipmentFound = new Set(); 
+    let found = []; 
+    let uniqueEquipmentFound = new Set(); 
+    let mythicCount = 0;
+    let legendaryCount = 0;
+
     for (let i = 0; i < numItems; i++) {
       let attempts = 0; let finalItemStr = null;
       while (attempts < 15) {
         let candidate = loc.loot[Math.floor(Math.random() * loc.loot.length)];
-        let candidateType = safeItem(candidate)?.type;
-        if (!['weapon', 'helmet', 'chest', 'pants', 'shoes', 'backpack'].includes(candidateType)) { finalItemStr = candidate; break; }
+        let itemData = safeItem(candidate);
+        let candidateType = itemData?.type;
+        let candidateRarity = itemData?.rarity;
+
+        // Limiti massimi per raid
+        if (candidateRarity === 'mitico' && mythicCount >= 1) { attempts++; continue; }
+        if (candidateRarity === 'leggendario' && legendaryCount >= 2) { attempts++; continue; }
+
+        if (!['weapon', 'helmet', 'chest', 'pants', 'shoes', 'backpack'].includes(candidateType)) { 
+            finalItemStr = candidate; break; 
+        }
+        
         if (!found.some(f => safeName(f) === candidate) && !uniqueEquipmentFound.has(candidate)) {
           finalItemStr = candidate; uniqueEquipmentFound.add(candidate); break;
         }
         attempts++;
       }
-      if (finalItemStr) found.push(createItemObj(finalItemStr)); 
+
+      if (finalItemStr) {
+          let iData = safeItem(finalItemStr);
+          if (iData.rarity === 'mitico') mythicCount++;
+          if (iData.rarity === 'leggendario') legendaryCount++;
+          found.push(createItemObj(finalItemStr)); 
+      }
     }
+
     if (found.length > 0) { setPendingLoot({ items: found, location: loc }); } 
     else { addLog('Zona perquisita, non hai trovato nulla.', 'warning'); setView('map'); }
   };
@@ -526,7 +556,18 @@ export default function App() {
   const executeExplore = (loc) => {
     setEnergy(prev => prev - loc.cost);
     if (loc.type === 'safe') { setView(loc.id === 'rifugio' ? 'base' : 'market'); addLog(`Sei arrivato a: ${loc.name}`, 'info'); return; }
-    if (loc.id !== 'duomo' && loc.id !== 'linate' && Math.random() > 0.5) { addLog(`Zona sicura.`, 'success'); generateAndShowLoot(loc); return; }
+    
+    // GESTIONE ENCOUNTER GARANTITO AD ALTI LIVELLI
+    let safeChance = 0;
+    if (loc.lvl < 10) safeChance = 0.4;       // 40% sicuro nei primi livelli
+    else if (loc.lvl < 15) safeChance = 0.15; // 15% sicuro medi livelli
+    // Livelli 15+ = 0% safe chance. Nemico garantito.
+
+    if (Math.random() < safeChance && loc.id !== 'duomo' && loc.id !== 'linate') { 
+        addLog(`Zona esplorata in sicurezza.`, 'success'); 
+        generateAndShowLoot(loc); 
+        return; 
+    }
 
     const enemyName = loc.enemies[Math.floor(Math.random() * loc.enemies.length)];
     const enemyData = ENEMIES_DB[enemyName] || { name: 'Mutante Sconosciuto', hp: 50, atk: 10, def: 0, desc: 'Errore Dati.' };
@@ -627,7 +668,7 @@ export default function App() {
     setLevel(1); setXp(0); setHp(100); setEnergy(MAX_ENERGY); setCredits(100); setDay(1); setShelterLevel(1);
     setInventory([createItemObj('Acqua Purificata'), createItemObj('Razione K'), createItemObj('Bende')]);
     setStash([createItemObj('Acqua Purificata'), createItemObj('Razione K'), createItemObj('Rottami')]);
-    setEquipped({ helmet: createItemObj('Berretto di Lana'), chest: createItemObj('Giacca Casual'), pants: createItemObj('Jeans Strappati'), shoes: createItemObj('Scarpe da Ginnastica'), weapon: createItemObj('Pistola Glock'), backpack: createItemObj('Sacca Sportiva') });
+    setEquipped({ helmet: createItemObj('Berretto di Lana'), chest: createItemObj('Giacca Casual'), pants: createItemObj('Jeans Strappati'), shoes: createItemObj('Scarpe da Ginnastica'), weapon: createItemObj('Coltellino'), backpack: createItemObj('Sacca Sportiva') });
     setLogs([{ text: 'Nuova partita iniziata.', type: 'info' }]);
     setCombatState(null); setPendingLoot(null); chiudiPopup();
     setGameOver(false); setGameState('playing'); setView('equipment');
@@ -641,7 +682,7 @@ export default function App() {
     const a = document.createElement('a');
     a.href = url; a.download = `MilanoAnnoZero_Day${day}.json`;
     document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url);
-    addLog('Dati salvati su disco.', 'success');
+    addLog('Dati salvati su disco esterno.', 'success');
   };
 
   const handleFileUpload = (e) => {
@@ -656,7 +697,7 @@ export default function App() {
             setCredits(data.credits); setDay(data.day); setShelterLevel(data.shelterLevel || 1);
             setEquipped(data.equipped); setInventory(data.inventory); setStash(data.stash); 
             setLogs(data.logs); setGameState('playing'); setView('base');
-            addLog('Salvataggio caricato.', 'success');
+            addLog('Salvataggio caricato con successo.', 'success');
         } else { setLoadError('File non compatibile.'); setTimeout(() => setLoadError(''), 3000); }
       } catch (err) { setLoadError('Errore di lettura.'); setTimeout(() => setLoadError(''), 3000); }
     };
@@ -1189,7 +1230,7 @@ export default function App() {
                       </button>
                     </div>
 
-                    <div className="bg-[#111] rounded-md p-4 border border-red-900 shadow-[0_0_15px_rgba(220,38,38,0.1)] flex justify-between items-center relative overflow-hidden">
+                    <div className="bg-[url('https://www.transparenttextures.com/patterns/dark-matter.png')] bg-[#111] rounded-md p-4 border border-red-900 shadow-[0_0_15px_rgba(220,38,38,0.1)] flex justify-between items-center relative overflow-hidden">
                       <div className="absolute inset-0 bg-gradient-to-r from-red-900/20 to-transparent pointer-events-none"></div>
                       <div className="relative z-10">
                          <h4 className="text-red-500 font-black uppercase tracking-widest text-sm drop-shadow-[0_0_5px_rgba(220,38,38,0.5)]">Cassa Militare Nera</h4>
