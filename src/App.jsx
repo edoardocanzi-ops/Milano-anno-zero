@@ -25,7 +25,7 @@ const CUSTOM_IMAGES = {
   'Mazza da Baseball': '', 
 
   // --- ZAINI ---
-  'Sacca Sportiva': 'https://i.postimg.cc/cCws9TFJ/Screenshot_20260330_142331_2.jpg',
+  'Sacca Sportiva': 'https://i.postimg.cc/cCWx9TFJ/Screenshot_20260330_142331_2.jpg',
   'Sacca a Tracolla': 'https://i.postimg.cc/cCcSVYjq/Screenshot_20260330_142331_3.jpg',
   'Zaino da Escursionismo': 'https://i.postimg.cc/T1xd7QtW/Screenshot_20260330_142331_4.jpg',
   'Zaino Tattico Militare': 'https://i.postimg.cc/D0hvj5xZ/Screenshot_20260330_142331_6.jpg',
