@@ -48,20 +48,20 @@ const CUSTOM_IMAGES = {
   'Corazza Antisommossa': 'https://i.postimg.cc/qqGk9nFw/Screenshot_20260330_141043_8.jpg',
   'Pantaloni Antisommossa': 'https://i.postimg.cc/rsTVngfD/Screenshot_20260330_164352_5.jpg',
   'Anfibi Antisommossa': 'https://i.postimg.cc/Wz72QryH/Screenshot_20260330_141126_6.jpg',
-  'Casco Hazmat Potenziato': 'https://i.postimg.cc/x8Qfxg6y/Screenshot_20260330_132744_6.jpg',
-  'Corazza Hazmat Potenziata': 'https://i.postimg.cc/nrxFRT3x/Screenshot_20260330_141043_4.jpg',
-  'Pantaloni Hazmat Potenziati': 'https://i.postimg.cc/5ymxZvr5/Screenshot_20260330_164352_6.jpg',
-  'Stivali Hazmat Potenziati': 'https://i.postimg.cc/VvwfG4K0/Screenshot_20260330_141126_7.jpg',
-  'Casco da Pompiere': '', 'Giacca da Pompiere': '', 'Pantaloni da Pompiere': '', 'Stivali da Pompiere': '',
-  'Berretto Sportivo': '', 'Felpa con Cappuccio': '', 'Pantaloni Sportivi': '', 'Scarpe da Corsa': '',
-  'Cappuccio CBRN': '', 'Tuta CBRN': '', 'Pantaloni CBRN': '', 'Stivali CBRN': '',
-  'Casco Forze Speciali': '', 'Corazza Forze Speciali': '', 'Pantaloni Forze Speciali': '', 'Anfibi Forze Speciali': '',
-  'Casco Juggernaut': '', 'Corazza Juggernaut': '', 'Pantaloni Juggernaut': '', 'Stivali Juggernaut': '',
+  'Casco Hazmat Potenziato': 'https://i.postimg.cc/mZyRXxcg/Screenshot_20260401_162946_6.jpg',
+  'Corazza Hazmat Potenziata': 'https://i.postimg.cc/qBx0bftB/Screenshot_20260401_170202_7.jpg',
+  'Pantaloni Hazmat Potenziati': 'https://i.postimg.cc/59S17cXZ/Screenshot_20260401_174125_6.jpg',
+  'Stivali Hazmat Potenziati': 'https://i.postimg.cc/L43RCdJc/Screenshot_20260401_174049_6.jpg',
+  'Casco da Pompiere': 'https://i.postimg.cc/L43RCdqR/Screenshot_20260401_162946_3.jpg', 'Giacca da Pompiere': 'https://i.postimg.cc/c1BZ9qK6/Screenshot_20260401_170202_4.jpg', 'Pantaloni da Pompiere': 'https://i.postimg.cc/SQfqT0nP/Screenshot_20260401_174125_3.jpg', 'Stivali da Pompiere': 'https://i.postimg.cc/8kmDK87X/Screenshot_20260401_174049_3.jpg',
+  'Berretto Sportivo': 'https://i.postimg.cc/nVGZR8sf/Screenshot_20260401_162946_2.jpg', 'Felpa con Cappuccio': 'https://i.postimg.cc/Y2zknc4q/Screenshot_20260401_170202_2.jpg', 'Pantaloni Sportivi': 'https://i.postimg.cc/Y2zkncvV/Screenshot_20260401_174125_2.jpg', 'Scarpe da Corsa': 'https://i.postimg.cc/PfQh3GC9/Screenshot_20260401_174049_2.jpg',
+  'Cappuccio CBRN': 'https://i.postimg.cc/qBx0bftd/Screenshot_20260401_162946_4.jpg', 'Tuta CBRN': 'https://i.postimg.cc/2j7mcpq1/Screenshot_20260401_170202_5.jpg', 'Pantaloni CBRN': 'https://i.postimg.cc/CMsYPyZZ/Screenshot_20260401_174125_4.jpg', 'Stivali CBRN': 'https://i.postimg.cc/c1BZ9qvP/Screenshot_20260401_174049_4.jpg',
+  'Casco Forze Speciali': 'https://i.postimg.cc/nVGZR8sb/Screenshot_20260401_162946_5.jpg', 'Corazza Forze Speciali': 'https://i.postimg.cc/66fwjs7y/Screenshot_20260401_170202_6.jpg', 'Pantaloni Forze Speciali': 'https://i.postimg.cc/050xWgzB/Screenshot_20260401_174125_5.jpg', 'Anfibi Forze Speciali': 'https://i.postimg.cc/2j7mcpqp/Screenshot_20260401_174049_5.jpg',
+  'Casco Juggernaut': 'https://i.postimg.cc/x8Qfxg6y/Screenshot_20260330_132744_6.jpg', 'Corazza Juggernaut': 'https://i.postimg.cc/nrxFRT3x/Screenshot_20260330_141043_4.jpg', 'Pantaloni Juggernaut': 'https://i.postimg.cc/5ymxZvr5/Screenshot_20260330_164352_6.jpg', 'Stivali Juggernaut': 'https://i.postimg.cc/VvwfG4K0/Screenshot_20260330_141126_7.jpg',
 
   // --- CIBO E ACQUA (NUOVI E VECCHI) ---
   'Acqua Purificata': '',
   'Razione K': '',
-  'Zucchero Grezzo': '',
+  'Zucchero Grezzo': 'https://i.postimg.cc/SKGp2zYv/1775062687389_11.jpg',
   'Scatoletta di Fagioli': '',
   'Bottiglia d\'Acqua': '',
   'Barretta Energetica': '',
@@ -71,15 +71,15 @@ const CUSTOM_IMAGES = {
   // --- CURE MEDICHE ---
   'Bende': '',
   'Medikit': '',
-  'Disinfettante': '',
+  'Disinfettante': 'https://i.postimg.cc/nL1tjQ9T/1775062687389_6.jpg',
 
   // --- RISORSE E MATERIALI ---
-  'Rottami': '', 'Nastro Adesivo': '', 'Caffè in Grani': '', 'Lingotto di Rame': '',
-  'Batteria al Litio': '', 'Orologio d\'Epoca': '', 'Carburante Sintetico': '',
-  'Scheda Madre Intatta': '', 'Chiavetta USB Criptata': '',
-  'Assi di Legno': '', 'Chiodi': '', 'Mattoni in Cotto': '', 'Tubi d\'Acciaio': '',
+  'Rottami': '', 'Nastro Adesivo': 'https://i.postimg.cc/ZqLhByvg/1775062687389_10.jpg', 'Caffè in Grani': 'https://i.postimg.cc/TPcXLW59/1775062687389_12.jpg', 'Lingotto di Rame': 'https://i.postimg.cc/5tmMYFQZ/1775062687389_13.jpg',
+  'Batteria al Litio': 'https://i.postimg.cc/jjhrwJnp/1775062687389_14.jpg', 'Orologio d\'Epoca': 'https://i.postimg.cc/vmysZvTS/1775062687389_5.jpg', 'Carburante Sintetico': 'https://i.postimg.cc/zfNrGkv2/1775062687389_7.jpg',
+  'Scheda Madre Intatta': 'https://i.postimg.cc/MGY8Mjjk/1775062687389_8.jpg', 'Chiavetta USB Criptata': 'https://i.postimg.cc/CK4VBfn6/1775062687389_9.jpg',
+  'Assi di Legno': 'https://i.postimg.cc/Bn2QByhJ/Screenshot_20260413_155820_4.jpg', 'Chiodi': 'https://i.postimg.cc/Dw1yPDCh/Screenshot_20260413_155820_6.jpg', 'Mattoni in Cotto': 'https://i.postimg.cc/g23kH5Md/Screenshot_20260413_155820_5.jpg', 'Tubi d\'Acciaio': 'https://i.postimg.cc/dVGtjXWs/Screenshot_20260413_155820_7.jpg',
   'Componenti Elettronici': '', 'Munizioni 9mm': '', 'Munizioni 5.56': '',
-  'Cimelio d\'Oro': '', 'Disco Dati Governativo': '', 'Chiave d\'Accesso Linate': ''
+  'Cimelio d\'Oro': '', 'Disco Dati Governativo': '', 'Chiave d\'Accesso Linate': 'https://i.postimg.cc/zGTXFMd8/Screenshot_20260413_155820_3.jpg'
 };
 
 const CUSTOM_ENEMIES_IMAGES = {
