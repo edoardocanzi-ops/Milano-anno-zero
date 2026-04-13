@@ -7,9 +7,10 @@ import {
 } from 'lucide-react';
 
 // ==========================================
-// 🎨 DATABASE IMMAGINI
+// 🎨 DATABASE IMMAGINI (TUTTI GLI ITEM)
 // ==========================================
 const CUSTOM_IMAGES = {
+  // --- ARMI ---
   'Pistola Glock': 'https://i.postimg.cc/Hntpf5KC/Screenshot_20260330_143029_4.jpg',
   'Fucile M16': 'https://i.postimg.cc/MHw6Pt9c/Screenshot_20260330_143029_5.jpg',
   'Fucile AK-47': 'https://i.postimg.cc/yxK1QnLB/Screenshot_20260330_143029_12.jpg',
@@ -22,11 +23,15 @@ const CUSTOM_IMAGES = {
   'Minigun Vulcan': 'https://i.postimg.cc/vBf8tCtZ/Screenshot_20260330_143029_8.jpg',
   'Coltellino': '', 
   'Mazza da Baseball': '', 
-  'Sacca Sportiva': 'https://i.postimg.cc/cCWx9TFJ/Screenshot_20260330_142331_2.jpg',
-  'Sacca a Tracolla': 'https://i.postimg.cc/cCcsVYjq/Screenshot_20260330_142331_3.jpg',
+
+  // --- ZAINI ---
+  'Sacca Sportiva': 'https://i.postimg.cc/cCws9TFJ/Screenshot_20260330_142331_2.jpg',
+  'Sacca a Tracolla': 'https://i.postimg.cc/cCcSVYjq/Screenshot_20260330_142331_3.jpg',
   'Zaino da Escursionismo': 'https://i.postimg.cc/T1xd7QtW/Screenshot_20260330_142331_4.jpg',
-  'Zaino Tattico Militare': 'https://i.postimg.cc/h48PzWGP/Screenshot_20260330_142331_5.jpg',
-  'Zaino Sopravvivenza': 'https://i.postimg.cc/D0hvj5xZ/Screenshot_20260330_142331_6.jpg', 
+  'Zaino Tattico Militare': 'https://i.postimg.cc/D0hvj5xZ/Screenshot_20260330_142331_6.jpg',
+  'Zaino Sopravvivenza': '', 
+
+  // --- SET ARMATURE ---
   'Berretto di Lana': 'https://i.postimg.cc/3Nh8S9tj/Screenshot_20260330_132744_2.jpg',
   'Giacca Casual': 'https://i.postimg.cc/wvLxQnQT/Screenshot_20260330_141043_5.jpg',
   'Jeans Strappati': 'https://i.postimg.cc/D0c2tsNc/Screenshot_20260330_164352_2.jpg',
@@ -43,20 +48,38 @@ const CUSTOM_IMAGES = {
   'Corazza Antisommossa': 'https://i.postimg.cc/qqGk9nFw/Screenshot_20260330_141043_8.jpg',
   'Pantaloni Antisommossa': 'https://i.postimg.cc/rsTVngfD/Screenshot_20260330_164352_5.jpg',
   'Anfibi Antisommossa': 'https://i.postimg.cc/Wz72QryH/Screenshot_20260330_141126_6.jpg',
-  'Casco Hazmat Potenziato': 'https://i.postimg.cc/mZyRXxcg/Screenshot_20260401_162946_6.jpg',
-  'Corazza Hazmat Potenziata': 'https://i.postimg.cc/qBx0bftB/Screenshot_20260401_170202_7.jpg',
-  'Pantaloni Hazmat Potenziati': 'https://i.postimg.cc/59S17cXZ/Screenshot_20260401_174125_6.jpg',
-  'Stivali Hazmat Potenziati': 'https://i.postimg.cc/L43RCdJc/Screenshot_20260401_174049_6.jpg',
-  'Casco da Pompiere': 'https://i.postimg.cc/L43RCdqR/Screenshot_20260401_162946_3.jpg', 'Giacca da Pompiere': 'https://i.postimg.cc/c1BZ9qK6/Screenshot_20260401_170202_4.jpg', 'Pantaloni da Pompiere': 'https://i.postimg.cc/SQfqT0nP/Screenshot_20260401_174125_3.jpg', 'Stivali da Pompiere': 'https://i.postimg.cc/8kmDK87X/Screenshot_20260401_174049_3.jpg',
-  'Berretto Sportivo': 'https://i.postimg.cc/nVGZR8sf/Screenshot_20260401_162946_2.jpg', 'Felpa con Cappuccio': 'https://i.postimg.cc/Y2zknc4q/Screenshot_20260401_170202_2.jpg', 'Pantaloni Sportivi': 'https://i.postimg.cc/Y2zkncvV/Screenshot_20260401_174125_2.jpg', 'Scarpe da Corsa': 'https://i.postimg.cc/PfQh3GC9/Screenshot_20260401_174049_2.jpg',
-  'Cappuccio CBRN': 'https://i.postimg.cc/qBx0bftd/Screenshot_20260401_162946_4.jpg', 'Tuta CBRN': 'https://i.postimg.cc/2j7mcpq1/Screenshot_20260401_170202_5.jpg', 'Pantaloni CBRN': 'https://i.postimg.cc/CMsYPyZZ/Screenshot_20260401_174125_4.jpg', 'Stivali CBRN': 'https://i.postimg.cc/c1BZ9qvP/Screenshot_20260401_174049_4.jpg',
-  'Casco Forze Speciali': 'https://i.postimg.cc/nVGZR8sb/Screenshot_20260401_162946_5.jpg', 'Corazza Forze Speciali': 'https://i.postimg.cc/66fwjs7y/Screenshot_20260401_170202_6.jpg', 'Pantaloni Forze Speciali': 'https://i.postimg.cc/050xWgzB/Screenshot_20260401_174125_5.jpg', 'Anfibi Forze Speciali': 'https://i.postimg.cc/2j7mcpqp/Screenshot_20260401_174049_5.jpg',
-  'Casco Juggernaut': 'https://i.postimg.cc/x8Qfxg6y/Screenshot_20260330_132744_6.jpg', 'Corazza Juggernaut': 'https://i.postimg.cc/nrxFRT3x/Screenshot_20260330_141043_4.jpg', 'Pantaloni Juggernaut': 'https://i.postimg.cc/5ymxZvr5/Screenshot_20260330_164352_6.jpg', 'Stivali Juggernaut': 'https://i.postimg.cc/VvwfG4K0/Screenshot_20260330_141126_7.jpg',
-  'Nastro Adesivo': 'https://i.postimg.cc/ZqLhByvg/1775062687389_10.jpg', 'Zucchero Grezzo': 'https://i.postimg.cc/SKGp2zYv/1775062687389_11.jpg', 'Caffè in Grani': 'https://i.postimg.cc/TPcXLW59/1775062687389_12.jpg', 'Lingotto di Rame': 'https://i.postimg.cc/5tmMYFQZ/1775062687389_13.jpg',
-  'Batteria al Litio': 'https://i.postimg.cc/jjhrwJnp/1775062687389_14.jpg', 'Orologio d\'Epoca': 'https://i.postimg.cc/vmysZvTS/1775062687389_5.jpg', 'Disinfettante': 'https://i.postimg.cc/nL1tjQ9T/1775062687389_6.jpg', 'Carburante Sintetico': 'https://i.postimg.cc/zfNrGkv2/1775062687389_7.jpg',
-  'Scheda Madre Intatta': 'https://i.postimg.cc/MGY8Mjjk/1775062687389_8.jpg', 'Chiavetta USB Criptata': 'https://i.postimg.cc/CK4VBfn6/1775062687389_9.jpg',
+  'Casco Hazmat Potenziato': 'https://i.postimg.cc/x8Qfxg6y/Screenshot_20260330_132744_6.jpg',
+  'Corazza Hazmat Potenziata': 'https://i.postimg.cc/nrxFRT3x/Screenshot_20260330_141043_4.jpg',
+  'Pantaloni Hazmat Potenziati': 'https://i.postimg.cc/5ymxZvr5/Screenshot_20260330_164352_6.jpg',
+  'Stivali Hazmat Potenziati': 'https://i.postimg.cc/VvwfG4K0/Screenshot_20260330_141126_7.jpg',
+  'Casco da Pompiere': '', 'Giacca da Pompiere': '', 'Pantaloni da Pompiere': '', 'Stivali da Pompiere': '',
+  'Berretto Sportivo': '', 'Felpa con Cappuccio': '', 'Pantaloni Sportivi': '', 'Scarpe da Corsa': '',
+  'Cappuccio CBRN': '', 'Tuta CBRN': '', 'Pantaloni CBRN': '', 'Stivali CBRN': '',
+  'Casco Forze Speciali': '', 'Corazza Forze Speciali': '', 'Pantaloni Forze Speciali': '', 'Anfibi Forze Speciali': '',
+  'Casco Juggernaut': '', 'Corazza Juggernaut': '', 'Pantaloni Juggernaut': '', 'Stivali Juggernaut': '',
+
+  // --- CIBO E ACQUA (NUOVI E VECCHI) ---
+  'Acqua Purificata': '',
+  'Razione K': '',
+  'Zucchero Grezzo': '',
+  'Scatoletta di Fagioli': '',
+  'Bottiglia d\'Acqua': '',
+  'Barretta Energetica': '',
+  'Succo di Frutta': '',
+  'Carne in Scatola': '',
+  
+  // --- CURE MEDICHE ---
+  'Bende': '',
+  'Medikit': '',
+  'Disinfettante': '',
+
+  // --- RISORSE E MATERIALI ---
+  'Rottami': '', 'Nastro Adesivo': '', 'Caffè in Grani': '', 'Lingotto di Rame': '',
+  'Batteria al Litio': '', 'Orologio d\'Epoca': '', 'Carburante Sintetico': '',
+  'Scheda Madre Intatta': '', 'Chiavetta USB Criptata': '',
   'Assi di Legno': '', 'Chiodi': '', 'Mattoni in Cotto': '', 'Tubi d\'Acciaio': '',
-  'Chiave d\'Accesso Linate': ''
+  'Componenti Elettronici': '', 'Munizioni 9mm': '', 'Munizioni 5.56': '',
+  'Cimelio d\'Oro': '', 'Disco Dati Governativo': '', 'Chiave d\'Accesso Linate': ''
 };
 
 const CUSTOM_ENEMIES_IMAGES = {
@@ -89,15 +112,22 @@ const ENEMIES_DB = {
 
 // --- DATABASE OGGETTI ---
 const ITEMS = {
-  // Consumabili & Cure
-  'Acqua Purificata': { type: 'consumable', rarity: 'comune', value: 5, heal: 0, desc: 'Idratazione essenziale.', iconType: Coffee },
-  'Razione K': { type: 'consumable', rarity: 'comune', value: 8, heal: 5, desc: 'Cibo liofilizzato.', iconType: Package },
-  'Zucchero Grezzo': { type: 'consumable', rarity: 'comune', value: 15, heal: 5, desc: 'Picco di energia.', iconType: Coffee },
+  // --- CIBO E ACQUA ---
+  'Acqua Purificata': { type: 'consumable', rarity: 'comune', value: 5, water: 40, food: 0, heal: 0, desc: 'Idratazione essenziale.', iconType: Coffee },
+  'Razione K': { type: 'consumable', rarity: 'comune', value: 8, water: 0, food: 40, heal: 5, desc: 'Cibo militare a lunga conservazione.', iconType: Package },
+  'Zucchero Grezzo': { type: 'consumable', rarity: 'comune', value: 15, water: -5, food: 15, heal: 0, desc: 'Picco di energia, ma fa venire sete.', iconType: Coffee },
+  'Scatoletta di Fagioli': { type: 'consumable', rarity: 'comune', value: 6, water: 10, food: 30, heal: 0, desc: 'Classico pasto da sopravvissuto.', iconType: Package },
+  'Bottiglia d\'Acqua': { type: 'consumable', rarity: 'comune', value: 6, water: 50, food: 0, heal: 0, desc: 'Plastica sigillata, pura e fresca.', iconType: Coffee },
+  'Barretta Energetica': { type: 'consumable', rarity: 'raro', value: 12, water: -10, food: 25, heal: 10, desc: 'Piena di proteine, ma molto secca.', iconType: Package },
+  'Succo di Frutta': { type: 'consumable', rarity: 'raro', value: 15, water: 30, food: 10, heal: 5, desc: 'Vitamine preziose pre-bomba.', iconType: Coffee },
+  'Carne in Scatola': { type: 'consumable', rarity: 'epico', value: 25, water: 0, food: 55, heal: 15, desc: 'Un pasto di lusso.', iconType: Package },
+
+  // --- CURE MEDICHE ---
   'Bende': { type: 'medical', rarity: 'comune', value: 12, heal: 20, desc: 'Ferma le emorragie.', iconType: PlusSquare },
   'Medikit': { type: 'medical', rarity: 'raro', value: 40, heal: 60, desc: 'Kit tattico medico.', iconType: PlusSquare },
   'Disinfettante': { type: 'medical', rarity: 'epico', value: 70, heal: 40, desc: 'Previene infezioni.', iconType: PlusSquare },
   
-  // Risorse & Costruzione
+  // --- RISORSE & COSTRUZIONE ---
   'Rottami': { type: 'resource', rarity: 'comune', value: 2, desc: 'Metallo arrugginito.', iconType: Package },
   'Nastro Adesivo': { type: 'resource', rarity: 'comune', value: 5, desc: 'Riparazioni rapide.', iconType: Package },
   'Assi di Legno': { type: 'resource', rarity: 'comune', value: 3, desc: 'Materiale da costruzione base.', iconType: Hammer },
@@ -118,14 +148,14 @@ const ITEMS = {
   'Chiavetta USB Criptata': { type: 'resource', rarity: 'mitico', value: 300, desc: 'Progetti top-secret.', iconType: Package },
   'Chiave d\'Accesso Linate': { type: 'resource', rarity: 'mitico', value: 1000, desc: 'Tessera d\'accesso Aeroporto.', iconType: Key },
 
-  // Zaini
-  'Sacca Sportiva': { type: 'backpack', rarity: 'comune', value: 20, slots: 10, desc: '10 Slot', iconType: Backpack },
-  'Sacca a Tracolla': { type: 'backpack', rarity: 'raro', value: 50, slots: 15, desc: '15 Slot', iconType: Backpack },
-  'Zaino da Escursionismo': { type: 'backpack', rarity: 'epico', value: 120, slots: 20, desc: '20 Slot', iconType: Backpack },
-  'Zaino Tattico Militare': { type: 'backpack', rarity: 'leggendario', value: 250, slots: 25, desc: '25 Slot', iconType: Backpack },
-  'Zaino Sopravvivenza': { type: 'backpack', rarity: 'mitico', value: 600, slots: 30, desc: '30 Slot', iconType: Backpack },
+  // --- ZAINI ---
+  'Sacca Sportiva': { type: 'backpack', rarity: 'comune', value: 20, slots: 10, desc: 'Capienza: 10 Slot', iconType: Backpack },
+  'Sacca a Tracolla': { type: 'backpack', rarity: 'raro', value: 50, slots: 15, desc: 'Capienza: 15 Slot', iconType: Backpack },
+  'Zaino da Escursionismo': { type: 'backpack', rarity: 'epico', value: 120, slots: 20, desc: 'Capienza: 20 Slot', iconType: Backpack },
+  'Zaino Tattico Militare': { type: 'backpack', rarity: 'leggendario', value: 250, slots: 25, desc: 'Capienza: 25 Slot', iconType: Backpack },
+  'Zaino Sopravvivenza': { type: 'backpack', rarity: 'mitico', value: 600, slots: 30, desc: 'Capienza: 30 Slot', iconType: Backpack },
 
-  // Armi
+  // --- ARMI ---
   'Coltellino': { type: 'weapon', rarity: 'comune', value: 10, atk: 5, desc: 'Lama corta.', iconType: Crosshair },
   'Mazza da Baseball': { type: 'weapon', rarity: 'comune', value: 20, atk: 12, desc: 'Pesante.', iconType: Crosshair },
   'Pistola Glock': { type: 'weapon', rarity: 'raro', value: 80, atk: 25, desc: 'Affidabile 9mm.', iconType: Crosshair },
@@ -139,13 +169,12 @@ const ITEMS = {
   'Mitragliatrice M249': { type: 'weapon', rarity: 'mitico', value: 900, atk: 120, desc: 'Fuoco di soppressione.', iconType: Crosshair },
   'Minigun Vulcan': { type: 'weapon', rarity: 'mitico', value: 1500, atk: 200, desc: 'Devastazione.', iconType: Crosshair },
 
-  // Armature Base
+  // --- ARMATURE BASE E MISTE ---
   'Berretto di Lana': { type: 'helmet', rarity: 'comune', value: 5, def: 1, desc: 'Protezione minima.', iconType: Shield },
   'Giacca Casual': { type: 'chest', rarity: 'comune', value: 10, def: 3, desc: 'Tessuto leggero.', iconType: Shirt },
   'Jeans Strappati': { type: 'pants', rarity: 'comune', value: 8, def: 2, desc: 'Usurati.', iconType: Scissors },
   'Scarpe da Ginnastica': { type: 'shoes', rarity: 'comune', value: 8, def: 1, desc: 'Comode.', iconType: User },
 
-  // Set Armature Misti
   'Berretto Sportivo': { type: 'helmet', rarity: 'raro', value: 15, def: 2, desc: 'Traspirante.', iconType: Shield },
   'Felpa con Cappuccio': { type: 'chest', rarity: 'raro', value: 25, def: 5, desc: 'Comoda per muoversi.', iconType: Shirt },
   'Pantaloni Sportivi': { type: 'pants', rarity: 'raro', value: 20, def: 3, desc: 'Agili.', iconType: Scissors },
@@ -197,11 +226,12 @@ const ITEMS = {
   'Stivali Juggernaut': { type: 'shoes', rarity: 'mitico', value: 600, def: 40, desc: 'Inarrestabili.', iconType: User },
 };
 
-// Modificati loot tables per "inquinare" le zone ad alto livello con spazzatura e limitare farming
+// --- MAPPA (Aggiunta Esselunga Via Solari) ---
 const LOCATIONS = [
   { id: 'duomo', name: 'Cratere del Duomo', type: 'danger', x: 50, y: 50, reqRad: 2, desc: 'Ground Zero. REQ: HAZMAT POTENZIATA.', lvl: 25, cost: 40, enemies: ['Chimera'], loot: ['Disco Dati Governativo', 'Chiavetta USB Criptata', 'Minigun Vulcan', 'Corazza Juggernaut', 'Casco Juggernaut', 'Zaino Sopravvivenza', 'Rottami', 'Bende', 'Acqua Purificata'], minLoot: 4, maxLoot: 6 },
   { id: 'mercato', name: 'Mercato (Cadorna)', type: 'safe', x: 37, y: 43, desc: 'Zona neutrale. Puoi scambiare oggetti.', lvl: 1, cost: 5 },
   { id: 'sempione', name: 'Foresta Sempione', type: 'danger', x: 33, y: 31, desc: 'Vegetazione fitta.', lvl: 2, cost: 10, enemies: ['Ratto Mutante', 'Randagio'], loot: ['Rottami', 'Assi di Legno', 'Felpa con Cappuccio', 'Scarpe da Corsa', 'Sacca Sportiva', 'Mazza da Baseball', 'Berretto di Lana'], minLoot: 1, maxLoot: 3 },
+  { id: 'esselunga', name: 'Esselunga Via Solari', type: 'danger', x: 35, y: 65, desc: 'Supermercato saccheggiato, ma potresti trovare cibo.', lvl: 3, cost: 12, enemies: ['Ratto Mutante', 'Lurker'], loot: ['Scatoletta di Fagioli', 'Bottiglia d\'Acqua', 'Barretta Energetica', 'Succo di Frutta', 'Carne in Scatola', 'Razione K', 'Acqua Purificata', 'Rottami', 'Chiodi', 'Bende'], minLoot: 2, maxLoot: 4 }, // Bottino strutturato al 70% Cibo
   { id: 'breda', name: 'Stadio Breda', type: 'danger', x: 20, y: 10, desc: 'Vecchio stadio in rovina.', lvl: 6, cost: 12, enemies: ['Randagio', 'Lurker'], loot: ['Bende', 'Sacca a Tracolla', 'Assi di Legno', 'Casco da Pompiere', 'Pistola Glock', 'Casco da Lavoro'], minLoot: 1, maxLoot: 3 },
   { id: 'caserma', name: 'Caserma Firenze', type: 'danger', x: 16, y: 15, desc: 'Avamposto abbandonato.', lvl: 10, cost: 20, enemies: ['Lurker', 'Slasher'], loot: ['Munizioni 9mm', 'Razione K', 'Chiodi', 'Tubi d\'Acciaio', 'Medikit', 'Pistola Glock', 'Giubbotto di Pelle'], minLoot: 2, maxLoot: 4 },
   { id: 'isola', name: 'Quartiere Isola', type: 'danger', x: 45, y: 20, desc: 'Vicoli stretti e grattacieli.', lvl: 11, cost: 20, enemies: ['Slasher', 'Sputa-Acido'], loot: ['Mitraglietta Uzi', 'Componenti Elettronici', 'Lingotto di Rame', 'Giacca da Pompiere', 'Zaino da Escursionismo'], minLoot: 2, maxLoot: 4 },
@@ -212,12 +242,14 @@ const LOCATIONS = [
   { id: 'fiera', name: 'Fiera Milano', type: 'danger', x: 10, y: 25, desc: 'Enorme polo espositivo.', lvl: 20, cost: 30, enemies: ['Golia', 'Sputa-Acido'], loot: ['Fucile AK-47', 'Zaino da Escursionismo', 'Corazza Forze Speciali', 'Carburante Sintetico', 'Chiodi', 'Acqua Purificata'], minLoot: 3, maxLoot: 5 },
   { id: 'castello', name: 'Castello Sforzesco', type: 'danger', x: 40, y: 35, desc: 'Fortezza espugnata.', lvl: 22, cost: 35, enemies: ['Golia', 'Chimera'], loot: ['Mitragliatrice M249', 'Scheda Madre Intatta', 'Corazza Juggernaut', 'Anfibi Forze Speciali', 'Razione K', 'Rottami'], minLoot: 3, maxLoot: 5 },
   { id: 'rifugio', name: 'Il Tuo Rifugio', type: 'safe', x: 79, y: 26, desc: 'La tua base operativa.', lvl: 1, cost: 0 },
-  { id: 'navigli', name: 'Paludi Darsena', type: 'danger', x: 37, y: 70, desc: 'Fanghi tossici.', lvl: 5, cost: 15, enemies: ['Lurker', 'Ratto Mutante'], loot: ['Rottami', 'Assi di Legno', 'Bende', 'Pantaloni Sportivi', 'Berretto Sportivo', 'Giacca Casual'], minLoot: 2, maxLoot: 4 },
+  { id: 'navigli', name: 'Paludi Darsena', type: 'danger', x: 40, y: 75, desc: 'Fanghi tossici.', lvl: 5, cost: 15, enemies: ['Lurker', 'Ratto Mutante'], loot: ['Rottami', 'Assi di Legno', 'Bende', 'Pantaloni Sportivi', 'Berretto Sportivo', 'Giacca Casual'], minLoot: 2, maxLoot: 4 },
   { id: 'idroscalo', name: 'Idroscalo Tossico', type: 'danger', x: 92, y: 65, reqRad: 1, desc: 'Gas venefici. REQ: TUTA HAZMAT.', lvl: 20, cost: 35, enemies: ['Sputa-Acido', 'Golia'], loot: ['AK-47 Tamburo', 'Pistola Tamburo', 'Munizioni 5.56', 'Pantaloni Juggernaut', 'Tuta Hazmat', 'Bende', 'Rottami'], minLoot: 3, maxLoot: 5 },
   { id: 'linate', name: 'Linate (Aeroporto)', type: 'danger', x: 88, y: 80, reqKey: 'Chiave d\'Accesso Linate', desc: 'Area blindata. REQ: CHIAVE LINATE.', lvl: 28, cost: 45, enemies: ['Gilbert'], loot: ['Mitragliatrice M249', 'Stivali Juggernaut', 'Pantaloni Hazmat Potenziati', 'Stivali Hazmat Potenziati', 'Acqua Purificata', 'Nastro Adesivo'], minLoot: 4, maxLoot: 6 }
 ];
 
 const MAX_ENERGY = 100;
+const MAX_HUNGER = 100;
+const MAX_THIRST = 100;
 const BASE_ATK = 5;
 const BASE_DEF = 0;
 
@@ -237,9 +269,12 @@ export default function App() {
   const [level, setLevel] = useState(1);
   const [xp, setXp] = useState(0);
   
-  const currentMaxHp = 100; // HP bloccati a 100
+  const currentMaxHp = 100; // HP bloccati a 100 per renderlo Hardcore
   const [hp, setHp] = useState(currentMaxHp);
   const [energy, setEnergy] = useState(MAX_ENERGY);
+  const [hunger, setHunger] = useState(MAX_HUNGER);
+  const [thirst, setThirst] = useState(MAX_THIRST);
+
   const [credits, setCredits] = useState(100);
   const [day, setDay] = useState(1);
   const [gameOver, setGameOver] = useState(false);
@@ -256,9 +291,9 @@ export default function App() {
   });
 
   const [inventory, setInventory] = useState([createItemObj('Acqua Purificata'), createItemObj('Razione K'), createItemObj('Bende')]); 
-  const [stash, setStash] = useState([createItemObj('Acqua Purificata'), createItemObj('Razione K'), createItemObj('Rottami')]); 
+  const [stash, setStash] = useState([createItemObj('Bottiglia d\'Acqua'), createItemObj('Scatoletta di Fagioli'), createItemObj('Rottami')]); 
   
-  const [logs, setLogs] = useState([{ text: 'Stazione operativa avviata.', type: 'info' }]);
+  const [logs, setLogs] = useState([{ text: 'Sistema avviato. Fai attenzione alla fame e alla sete.', type: 'info' }]);
   const [selectedLocation, setSelectedLocation] = useState(null);
   
   const [selectedItem, setSelectedItem] = useState(null);
@@ -275,7 +310,7 @@ export default function App() {
 
   useEffect(() => { logEndRef.current?.scrollIntoView({ behavior: 'smooth' }); }, [logs]);
 
-  // Game Over
+  // Game Over Sicuro
   useEffect(() => { 
     if (hp <= 0 && !gameOver) {
       setGameOver(true); setCombatState(null); setPendingLoot(null);
@@ -322,6 +357,15 @@ export default function App() {
     });
   };
 
+  // --- NUOVA FUNZIONE: Consumo Energia ---
+  const spendEnergy = (amount) => {
+      setEnergy(prev => Math.max(0, prev - amount));
+      // Usare energia fa scendere fame e sete in proporzione
+      setHunger(prev => Math.max(0, prev - Math.floor(amount * 0.4))); 
+      setThirst(prev => Math.max(0, prev - Math.floor(amount * 0.6))); 
+  };
+
+  // --- AZIONI OGGETTI ---
   const handleItemAction = (e, itemObj, index, context) => {
     e.stopPropagation();
     if (!itemObj) return;
@@ -372,10 +416,13 @@ export default function App() {
     if (!selectedItem) return;
     const { name, index, data } = selectedItem;
     if (data.type === 'medical' || data.type === 'consumable') {
-      if (hp >= currentMaxHp) { addLog('Salute al massimo.', 'warning'); chiudiPopup(); return; }
-      setHp(prev => Math.min(currentMaxHp, prev + data.heal));
+      
+      if (data.heal) setHp(prev => Math.min(currentMaxHp, prev + data.heal));
+      if (data.food) setHunger(prev => Math.min(MAX_HUNGER, prev + data.food));
+      if (data.water) setThirst(prev => Math.min(MAX_THIRST, prev + data.water));
+      
       let newInv = [...inventory]; newInv.splice(index, 1); setInventory(newInv);
-      addLog(`Usato ${name}. (+${data.heal} HP)`, 'success'); chiudiPopup();
+      addLog(`Usato ${name}.`, 'success'); chiudiPopup();
     }
   };
 
@@ -458,7 +505,7 @@ export default function App() {
       addLog(`🛠️ RIFUGIO MIGLIORATO AL LIVELLO ${shelterLevel + 1}! Cassa espansa.`, 'success');
   };
 
-  // LIMITI DI BOTTINO PUNITIVI
+  // LIMITI DI BOTTINO PUNITIVI E 60% CIBO ESSELUNGA
   const generateAndShowLoot = (loc) => {
     const numItems = Math.floor(Math.random() * (loc.maxLoot - loc.minLoot + 1)) + loc.minLoot;
     let found = []; 
@@ -474,7 +521,7 @@ export default function App() {
         let candidateType = itemData?.type;
         let candidateRarity = itemData?.rarity;
 
-        // Limiti massimi per raid
+        // Limiti massimi per raid (Anti-Farming Hardcore)
         if (candidateRarity === 'mitico' && mythicCount >= 1) { attempts++; continue; }
         if (candidateRarity === 'leggendario' && legendaryCount >= 2) { attempts++; continue; }
 
@@ -554,7 +601,8 @@ export default function App() {
   };
 
   const executeExplore = (loc) => {
-    setEnergy(prev => prev - loc.cost);
+    spendEnergy(loc.cost); // Consuma anche fame e sete
+    
     if (loc.type === 'safe') { setView(loc.id === 'rifugio' ? 'base' : 'market'); addLog(`Sei arrivato a: ${loc.name}`, 'info'); return; }
     
     // GESTIONE ENCOUNTER GARANTITO AD ALTI LIVELLI
@@ -641,33 +689,44 @@ export default function App() {
 
   const combatFlee = () => {
       if (isEnemyTurn) return;
-      if (energy >= 15) { setEnergy(prev => prev - 15); addLog('🏃 Fuga riuscita.', 'warning'); setCombatState(null); setView('map'); } 
+      if (energy >= 15) { 
+        spendEnergy(15); 
+        addLog('🏃 Fuga riuscita.', 'warning'); setCombatState(null); setView('map'); 
+      } 
       else { addLog('❌ Troppo stanco per fuggire!', 'danger'); }
   };
 
   const rest = () => {
     chiudiPopup();
-    let hasFood = stash.some(i => safeName(i) === 'Razione K'); 
-    let hasWater = stash.some(i => safeName(i) === 'Acqua Purificata');
-    let dmg = 0; let newStash = [...stash];
-
-    if (hasFood) { newStash.splice(newStash.findIndex(i => safeName(i) === 'Razione K'), 1); addLog('Razione consumata.', 'success'); } else { dmg += 20; addLog('Fame estrema (-20 HP).', 'danger'); }
-    if (hasWater) { newStash.splice(newStash.findIndex(i => safeName(i) === 'Acqua Purificata'), 1); addLog('Acqua consumata.', 'success'); } else { dmg += 20; addLog('Sete estrema (-20 HP).', 'danger'); }
-
-    setStash(newStash); setDay(prev => prev + 1); setEnergy(MAX_ENERGY);
-
-    if (dmg > 0) {
-      setHp(prev => { const nextHp = prev - dmg; if (nextHp <= 0) setDeathReason("Morto di stenti nel rifugio."); return nextHp; });
+    
+    // NUOVE REGOLE SONNO:
+    if (hunger === 0 && thirst === 0) {
+        setHp(0);
+        setDeathReason("Morto di fame e sete durante il sonno.");
+        return;
+    } else if (hunger === 0 || thirst === 0) {
+        const damage = Math.floor(currentMaxHp / 2);
+        setHp(prev => { 
+            const nextHp = prev - damage; 
+            if (nextHp <= 0) setDeathReason("Il tuo corpo ha ceduto agli stenti nel sonno."); 
+            return Math.max(0, nextHp); 
+        });
+        addLog(`Malnutrizione grave! Hai perso ${damage} HP.`, 'danger');
     } else {
-      setHp(prev => Math.min(currentMaxHp, prev + 30)); addLog('Riposo completato. HP recuperati.', 'info');
+        setHp(prev => Math.min(currentMaxHp, prev + 30)); 
+        addLog('Riposo completato. Energia recuperata.', 'info');
     }
+
+    setDay(prev => prev + 1); 
+    setEnergy(MAX_ENERGY);
     addLog(`--- GIORNO ${day + 1} ---`, 'warning');
   };
 
   const restartGame = () => {
     setLevel(1); setXp(0); setHp(100); setEnergy(MAX_ENERGY); setCredits(100); setDay(1); setShelterLevel(1);
-    setInventory([createItemObj('Acqua Purificata'), createItemObj('Razione K'), createItemObj('Bende')]);
-    setStash([createItemObj('Acqua Purificata'), createItemObj('Razione K'), createItemObj('Rottami')]);
+    setHunger(MAX_HUNGER); setThirst(MAX_THIRST);
+    setInventory([createItemObj('Acqua Purificata'), createItemObj('Razione K'), createItemObj('Coltellino')]);
+    setStash([createItemObj('Acqua Purificata'), createItemObj('Razione K'), createItemObj('Bende')]);
     setEquipped({ helmet: createItemObj('Berretto di Lana'), chest: createItemObj('Giacca Casual'), pants: createItemObj('Jeans Strappati'), shoes: createItemObj('Scarpe da Ginnastica'), weapon: createItemObj('Coltellino'), backpack: createItemObj('Sacca Sportiva') });
     setLogs([{ text: 'Nuova partita iniziata.', type: 'info' }]);
     setCombatState(null); setPendingLoot(null); chiudiPopup();
@@ -676,7 +735,7 @@ export default function App() {
 
   // --- DOWNLOAD / UPLOAD DATI ---
   const downloadSave = () => {
-    const saveData = { level, xp, hp, energy, credits, day, shelterLevel, equipped, inventory, stash, logs };
+    const saveData = { level, xp, hp, energy, hunger, thirst, credits, day, shelterLevel, equipped, inventory, stash, logs };
     const blob = new Blob([JSON.stringify(saveData)], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
@@ -694,6 +753,7 @@ export default function App() {
         const data = JSON.parse(event.target.result);
         if (data.level) {
             setLevel(data.level); setXp(data.xp); setHp(data.hp); setEnergy(data.energy);
+            setHunger(data.hunger || 100); setThirst(data.thirst || 100);
             setCredits(data.credits); setDay(data.day); setShelterLevel(data.shelterLevel || 1);
             setEquipped(data.equipped); setInventory(data.inventory); setStash(data.stash); 
             setLogs(data.logs); setGameState('playing'); setView('base');
@@ -859,7 +919,9 @@ export default function App() {
                   {selectedItem.data?.atk && <span className="bg-[#111] px-2 py-1 rounded text-red-500 border border-[#222] flex items-center"><Crosshair className="w-3 h-3 mr-1"/>+{selectedItem.data.atk}</span>}
                   {selectedItem.data?.def && <span className="bg-[#111] px-2 py-1 rounded text-blue-500 border border-[#222] flex items-center"><Shield className="w-3 h-3 mr-1"/>+{selectedItem.data.def}</span>}
                   {selectedItem.data?.radProtect && <span className="bg-[#111] px-2 py-1 rounded text-green-400 border border-[#222] flex items-center"><AlertTriangle className="w-3 h-3 mr-1"/>RAD +{selectedItem.data.radProtect}</span>}
-                  {selectedItem.data?.heal && <span className="bg-[#111] px-2 py-1 rounded text-green-500 border border-[#222] flex items-center"><PlusSquare className="w-3 h-3 mr-1"/>+{selectedItem.data.heal}</span>}
+                  {selectedItem.data?.heal > 0 && <span className="bg-[#111] px-2 py-1 rounded text-green-500 border border-[#222] flex items-center"><PlusSquare className="w-3 h-3 mr-1"/>+{selectedItem.data.heal}</span>}
+                  {selectedItem.data?.food > 0 && <span className="bg-[#111] px-2 py-1 rounded text-orange-400 border border-[#222] flex items-center">🍖 +{selectedItem.data.food}</span>}
+                  {selectedItem.data?.water > 0 && <span className="bg-[#111] px-2 py-1 rounded text-cyan-400 border border-[#222] flex items-center">💧 +{selectedItem.data.water}</span>}
                   {selectedItem.data?.slots && <span className="bg-[#111] px-2 py-1 rounded text-stone-300 border border-[#222] flex items-center"><Backpack className="w-3 h-3 mr-1"/>{selectedItem.data.slots} Slt</span>}
                </div>
             </div>
@@ -887,41 +949,14 @@ export default function App() {
         </div>
       )}
 
+      {/* HEADER SUPERIORE: ORA CON 4 BARRE (HP, Energia, Fame, Sete) */}
       <header className="bg-[#141615]/90 backdrop-blur-sm border-b border-[#232624] p-3 shadow-[0_4px_10px_rgba(0,0,0,0.5)] z-10 flex-shrink-0 relative">
         <div className="max-w-6xl mx-auto flex flex-col gap-2">
-          <div className="flex items-center space-x-3 w-full">
-            <div className="flex items-center bg-[#0a0a0a] px-2 py-1 rounded border border-[#2d312f] shadow-inner">
-               <Star className="w-3 h-3 text-amber-400 mr-1.5" />
-               <span className="text-[10px] font-black text-amber-500 uppercase tracking-widest">LVL {level}</span>
-            </div>
-            <div className="relative flex-1 h-3 bg-[#0a0a0a] border border-[#2d312f] rounded overflow-hidden shadow-[inset_0_2px_4px_rgba(0,0,0,0.8)]">
-              <div className="absolute h-full bg-gradient-to-r from-amber-600 to-amber-400 transition-all duration-300" style={{ width: `${(xp / (level * 100)) * 100}%` }}></div>
-              <div className="absolute w-full text-center text-[8px] font-black tracking-widest text-white drop-shadow-[0_1px_1px_rgba(0,0,0,1)] flex items-center justify-center h-full z-10">
-                 XP {xp} / {level * 100}
-              </div>
-            </div>
-          </div>
-
+          
           <div className="flex justify-between items-center w-full">
             <div className="flex items-center space-x-2">
-              <div className="relative w-24 sm:w-32 h-5 bg-[#0a0a0a] border border-[#2d312f] rounded overflow-hidden shadow-[inset_0_2px_4px_rgba(0,0,0,0.8)]">
-                <div className="absolute h-full bg-gradient-to-b from-red-500 to-red-700 transition-all duration-300" style={{ width: `${(hp / currentMaxHp) * 100}%` }}></div>
-                <div className="absolute w-full text-center text-[9px] font-black tracking-widest text-white drop-shadow-[0_1px_1px_rgba(0,0,0,1)] flex items-center justify-center h-full z-10">
-                   <Heart className="w-2.5 h-2.5 mr-1"/> {hp} / {currentMaxHp}
-                </div>
-              </div>
-              <div className="relative w-16 sm:w-24 h-5 bg-[#0a0a0a] border border-[#2d312f] rounded overflow-hidden shadow-[inset_0_2px_4px_rgba(0,0,0,0.8)]">
-                <div className="absolute h-full bg-gradient-to-b from-blue-400 to-blue-600 transition-all duration-300" style={{ width: `${(energy / MAX_ENERGY) * 100}%` }}></div>
-                <div className="absolute w-full text-center text-[9px] font-black tracking-widest text-white drop-shadow-[0_1px_1px_rgba(0,0,0,1)] flex items-center justify-center h-full z-10">
-                  <Zap className="w-2.5 h-2.5 mr-1"/> {energy}
-                </div>
-              </div>
-              {getRadProtect() > 0 && (
-                <div className="flex items-center bg-[#0a0a0a] px-2 py-0.5 rounded border border-green-800 text-[10px] shadow-[0_0_10px_rgba(34,197,94,0.2)]">
-                  <AlertTriangle className="w-3 h-3 text-green-500 mr-1" />
-                  <span className="font-mono font-bold text-green-400">RAD {getRadProtect()}</span>
-                </div>
-              )}
+               <Star className="w-4 h-4 text-amber-400 mr-1" />
+               <span className="text-xs font-black text-stone-200">LVL {level}</span>
             </div>
             <div className="flex items-center space-x-2">
                <div className="flex items-center bg-[#1a1d1b] px-2 py-0.5 rounded border border-[#2d312f] text-[10px] shadow-inner">
@@ -931,7 +966,44 @@ export default function App() {
                <div className="text-[10px] font-mono bg-[#1a1d1b] px-2 py-0.5 rounded border border-[#2d312f] text-stone-400 shadow-inner">
                  DAY <span className="text-stone-200 font-bold ml-1">{day}</span>
                </div>
+               {getRadProtect() > 0 && (
+                 <div className="flex items-center bg-[#0a0a0a] px-2 py-0.5 rounded border border-green-800 text-[10px] shadow-[0_0_10px_rgba(34,197,94,0.2)]">
+                   <AlertTriangle className="w-3 h-3 text-green-500 mr-1" />
+                   <span className="font-mono font-bold text-green-400">RAD {getRadProtect()}</span>
+                 </div>
+               )}
             </div>
+          </div>
+
+          <div className="grid grid-cols-4 gap-1.5 w-full">
+              {/* HP */}
+              <div className="relative h-4 bg-[#0a0a0a] border border-[#2d312f] rounded overflow-hidden shadow-[inset_0_2px_4px_rgba(0,0,0,0.8)]">
+                <div className="absolute h-full bg-gradient-to-b from-red-500 to-red-700 transition-all duration-300" style={{ width: `${(hp / currentMaxHp) * 100}%` }}></div>
+                <div className="absolute w-full text-center text-[8px] font-black tracking-widest text-white drop-shadow-[0_1px_1px_rgba(0,0,0,1)] flex items-center justify-center h-full z-10">
+                   <Heart className="w-2.5 h-2.5 mr-1"/> {hp}
+                </div>
+              </div>
+              {/* ENERGIA */}
+              <div className="relative h-4 bg-[#0a0a0a] border border-[#2d312f] rounded overflow-hidden shadow-[inset_0_2px_4px_rgba(0,0,0,0.8)]">
+                <div className="absolute h-full bg-gradient-to-b from-yellow-400 to-yellow-600 transition-all duration-300" style={{ width: `${(energy / MAX_ENERGY) * 100}%` }}></div>
+                <div className="absolute w-full text-center text-[8px] font-black tracking-widest text-white drop-shadow-[0_1px_1px_rgba(0,0,0,1)] flex items-center justify-center h-full z-10">
+                  <Zap className="w-2.5 h-2.5 mr-1"/> {energy}
+                </div>
+              </div>
+              {/* FAME */}
+              <div className="relative h-4 bg-[#0a0a0a] border border-[#2d312f] rounded overflow-hidden shadow-[inset_0_2px_4px_rgba(0,0,0,0.8)]">
+                <div className="absolute h-full bg-gradient-to-b from-orange-700 to-orange-900 transition-all duration-300" style={{ width: `${(hunger / MAX_HUNGER) * 100}%` }}></div>
+                <div className="absolute w-full text-center text-[8px] font-black tracking-widest text-white drop-shadow-[0_1px_1px_rgba(0,0,0,1)] flex items-center justify-center h-full z-10">
+                  🍖 {hunger}
+                </div>
+              </div>
+              {/* SETE */}
+              <div className="relative h-4 bg-[#0a0a0a] border border-[#2d312f] rounded overflow-hidden shadow-[inset_0_2px_4px_rgba(0,0,0,0.8)]">
+                <div className="absolute h-full bg-gradient-to-b from-cyan-600 to-blue-800 transition-all duration-300" style={{ width: `${(thirst / MAX_THIRST) * 100}%` }}></div>
+                <div className="absolute w-full text-center text-[8px] font-black tracking-widest text-white drop-shadow-[0_1px_1px_rgba(0,0,0,1)] flex items-center justify-center h-full z-10">
+                  💧 {thirst}
+                </div>
+              </div>
           </div>
         </div>
       </header>
@@ -1142,10 +1214,10 @@ export default function App() {
                     <div className="absolute top-2 right-2 bg-[#111] border border-[#3e4340] text-amber-500 text-[9px] font-black px-2 py-1 rounded">LVL {shelterLevel}</div>
                     <Home className="w-10 h-10 text-green-600 mb-2 opacity-80" />
                     <h2 className="text-base font-black text-stone-200 uppercase tracking-widest mb-1">Rifugio</h2>
-                    <p className="text-[#888] text-[10px] mb-4">Costo: 1 Razione + 1 Acqua.</p>
+                    <p className="text-[#888] text-[10px] mb-4">Riposare costa tempo, non risorse.</p>
                     
                     <button onClick={rest} className="w-full bg-gradient-to-b from-[#445b3c] to-[#2c3d26] border border-[#5c7a52] text-white text-[10px] py-2.5 rounded font-black uppercase tracking-widest shadow-[0_2px_0_#1a2416] active:translate-y-0.5 active:shadow-none flex items-center justify-center mb-2">
-                      <Coffee className="w-4 h-4 mr-2" /> Riposa
+                      <Coffee className="w-4 h-4 mr-2" /> Dormi nel Rifugio
                     </button>
                     <button onClick={downloadSave} className="w-full bg-gradient-to-b from-blue-800 to-blue-950 border border-blue-700 text-stone-200 text-[10px] py-2.5 rounded font-black uppercase tracking-widest shadow-[0_2px_0_#0a1e4a] active:translate-y-0.5 active:shadow-none flex items-center justify-center mb-4">
                       <ArchiveRestore className="w-4 h-4 mr-2" /> Salva su File
@@ -1230,7 +1302,7 @@ export default function App() {
                       </button>
                     </div>
 
-                    <div className="bg-[url('https://www.transparenttextures.com/patterns/dark-matter.png')] bg-[#111] rounded-md p-4 border border-red-900 shadow-[0_0_15px_rgba(220,38,38,0.1)] flex justify-between items-center relative overflow-hidden">
+                    <div className="bg-[#111] rounded-md p-4 border border-red-900 shadow-[0_0_15px_rgba(220,38,38,0.1)] flex justify-between items-center relative overflow-hidden">
                       <div className="absolute inset-0 bg-gradient-to-r from-red-900/20 to-transparent pointer-events-none"></div>
                       <div className="relative z-10">
                          <h4 className="text-red-500 font-black uppercase tracking-widest text-sm drop-shadow-[0_0_5px_rgba(220,38,38,0.5)]">Cassa Militare Nera</h4>
