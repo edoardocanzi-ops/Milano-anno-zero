@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { 
   Shield, Zap, Heart, Map, Home, Backpack, Skull, AlertTriangle, 
   Package, ArchiveRestore, Coffee, PlusSquare, Crosshair, Shirt, 
-  Scissors, Coins, Store, Navigation, MapPin, User, ShoppingCart, 
+  Scissors, Coins, Store, Navigation, MapPin, User, Users, ShoppingCart, 
   Activity, Star, Hammer, Key, ArrowUp, ArrowDown, ArrowLeft, ArrowRight, Pickaxe, Check
 } from 'lucide-react';
 
@@ -10,7 +10,6 @@ import {
 // 🎨 DATABASE IMMAGINI
 // ==========================================
 const CUSTOM_IMAGES = {
-  // --- ARMI ---
   'Pistola Glock': 'https://i.postimg.cc/Hntpf5KC/Screenshot_20260330_143029_4.jpg',
   'Fucile M16': 'https://i.postimg.cc/MHw6Pt9c/Screenshot_20260330_143029_5.jpg',
   'Fucile AK-47': 'https://i.postimg.cc/yxK1QnLB/Screenshot_20260330_143029_12.jpg',
@@ -21,17 +20,14 @@ const CUSTOM_IMAGES = {
   'AK-47 Tamburo': 'https://i.postimg.cc/L5VHrfWZ/Screenshot_20260330_143029_13.jpg',
   'Mitragliatrice M249': 'https://i.postimg.cc/vTvQp9KW/Screenshot_20260330_143029_7.jpg',
   'Minigun Vulcan': 'https://i.postimg.cc/vBf8tCtZ/Screenshot_20260330_143029_8.jpg',
-  'Coltellino': '', 
-  'Mazza da Baseball': '', 
+  'Coltellino': '', 'Mazza da Baseball': '', 
 
-  // --- ZAINI ---
-  'Sacca Sportiva': 'https://i.postimg.cc/cCWx9TFJ/Screenshot_20260330_142331_2.jpg',
+  'Sacca Sportiva': 'https://i.postimg.cc/cCws9TFJ/Screenshot_20260330_142331_2.jpg',
   'Sacca a Tracolla': 'https://i.postimg.cc/cCcSVYjq/Screenshot_20260330_142331_3.jpg',
   'Zaino da Escursionismo': 'https://i.postimg.cc/T1xd7QtW/Screenshot_20260330_142331_4.jpg',
   'Zaino Tattico Militare': 'https://i.postimg.cc/D0hvj5xZ/Screenshot_20260330_142331_6.jpg',
   'Zaino Sopravvivenza': 'https://i.postimg.cc/cCcSVYjq/Screenshot_20260330_142331_3.jpg', 
 
-  // --- SET ARMATURE ---
   'Berretto di Lana': 'https://i.postimg.cc/3Nh8S9tj/Screenshot_20260330_132744_2.jpg',
   'Giacca Casual': 'https://i.postimg.cc/wvLxQnQT/Screenshot_20260330_141043_5.jpg',
   'Jeans Strappati': 'https://i.postimg.cc/D0c2tsNc/Screenshot_20260330_164352_2.jpg',
@@ -84,7 +80,6 @@ const CUSTOM_IMAGES = {
   'Pantaloni Juggernaut': 'https://i.postimg.cc/5ymxZvr5/Screenshot_20260330_164352_6.jpg',
   'Stivali Juggernaut': 'https://i.postimg.cc/VvwfG4K0/Screenshot_20260330_141126_7.jpg',
   
-  // --- RISORSE E MATERIALI ---
   'Disinfettante': 'https://i.postimg.cc/nL1tjQ9T/1775062687389_6.jpg',
   'Nastro Adesivo': 'https://i.postimg.cc/ZqLhByvg/1775062687389_10.jpg',
   'Caffè in Grani': 'https://i.postimg.cc/TPcXLW59/1775062687389_12.jpg',
@@ -100,42 +95,21 @@ const CUSTOM_IMAGES = {
   'Tubi d\'Acciaio': 'https://i.postimg.cc/dVGtjXWs/Screenshot_20260413_155820_7.jpg',
   'Chiave d\'Accesso Linate': 'https://i.postimg.cc/zGTXFMd8/Screenshot_20260413_155820_3.jpg',
   
-  // --- CIBO, ACQUA E CURE ---
   'Acqua Purificata': '', 'Razione K': '', 'Zucchero Grezzo': '', 'Scatoletta di Fagioli': '',
   'Bottiglia d\'Acqua': '', 'Barretta Energetica': '', 'Succo di Frutta': '', 'Carne in Scatola': '',
   'Pasto Caldo': '', 
   'Rottami': '', 'Componenti Elettronici': '', 'Munizioni 9mm': '', 'Munizioni 5.56': '',
   'Cimelio d\'Oro': '', 'Disco Dati Governativo': '', 'Bende': '', 'Medikit': '',
 
-  // --- 🗺️ IMMAGINI LUOGHI MAPPA ---
-  'Loc_citylife': 'https://i.postimg.cc/Mpg4tR0z/Gemini_Generated_Image_qz1q3kqz1q3kqz1q.png', // Incolla qui l'immagine di CityLife!
-  'Loc_duomo': '',
-  'Loc_mercato': '',
-  'Loc_sempione': '',
-  'Loc_esselunga': '',
-  'Loc_breda': '',
-  'Loc_caserma': '',
-  'Loc_isola': '',
-  'Loc_ospedale': '',
-  'Loc_m5': '',
-  'Loc_monumentale': '',
-  'Loc_centrale': '',
-  'Loc_fiera': '',
-  'Loc_castello': '',
-  'Loc_rifugio': '',
-  'Loc_navigli': '',
-  'Loc_idroscalo': '',
-  'Loc_linate': '',
+  // --- IMMAGINI LUOGHI MAPPA ---
+  'Loc_citylife': '', 'Loc_duomo': '', 'Loc_mercato': '', 'Loc_sempione': '', 'Loc_esselunga': '',
+  'Loc_breda': '', 'Loc_caserma': '', 'Loc_isola': '', 'Loc_ospedale': '', 'Loc_m5': '',
+  'Loc_monumentale': '', 'Loc_centrale': '', 'Loc_fiera': '', 'Loc_castello': '', 'Loc_rifugio': '',
+  'Loc_navigli': '', 'Loc_idroscalo': '', 'Loc_linate': '',
 
-  // --- 🏗️ GRAFICHE BUNKER ---
-  'Bunker_Entrance': '',
-  'Bunker_Empty': '',
-  'Bunker_Dirt': '',
-  'Bunker_Storage': '',
-  'Bunker_Water': '',
-  'Bunker_Greenhouse': '',
-  'Bunker_Workshop': '',
-  'Bunker_Kitchen': ''
+  // --- GRAFICHE BUNKER ---
+  'Bunker_Entrance': '', 'Bunker_Empty': '', 'Bunker_Dirt': '', 'Bunker_Storage': '', 'Bunker_Water': '',
+  'Bunker_Greenhouse': '', 'Bunker_Workshop': '', 'Bunker_Kitchen': ''
 };
 
 const CUSTOM_ENEMIES_IMAGES = {
@@ -143,7 +117,6 @@ const CUSTOM_ENEMIES_IMAGES = {
   'Ratto Mutante': '', 'Randagio': '', 'Sputa-Acido': '', 'Cacciatore Cieco': '', 'Golia': ''
 };
 
-// --- STILE E RARITÀ ---
 const RARITY = {
   comune: { color: 'text-stone-300', border: 'border-stone-500', shadow: 'rgba(120, 113, 108, 0.4)', name: 'Comune', xp: 0 },
   raro: { color: 'text-blue-300', border: 'border-blue-500', shadow: 'rgba(59, 130, 246, 0.4)', name: 'Raro', xp: 15 },
@@ -152,11 +125,10 @@ const RARITY = {
   mitico: { color: 'text-red-500', border: 'border-red-500', shadow: 'rgba(239, 68, 68, 0.6)', name: 'Mitico', xp: 250 }
 };
 
-// --- DB COSTI BUNKER ---
 const ROOM_TYPES = {
-    'dirt': { name: 'Terra Compatta', desc: 'Roccia e terra da scavare.' },
+    'dirt': { name: 'Terra Compatta', desc: 'Roccia e terra da scavare. Deve essere adiacente a una stanza.' },
     'empty': { name: 'Stanza Vuota', desc: 'Spazio edificabile rinforzato.' },
-    'entrance': { name: 'Ingresso Rifugio', desc: 'Il tuo letto e il terminale base. (+20 Slot Scorte)' },
+    'entrance': { name: 'Ingresso Rifugio', desc: 'Il tuo letto e terminale base.' },
     'storage': { name: 'Magazzino', desc: 'Espande la Cassa Sicura di +30 Slot.', buildCost: {'Assi di Legno': 15, 'Chiodi': 10} },
     'water': { name: 'Collettore Pioggia', desc: 'Filtra umidità: +1 Bottiglia d\'Acqua a notte.', buildCost: {'Tubi d\'Acciaio': 10, 'Nastro Adesivo': 5} },
     'greenhouse': { name: 'Serra Idroponica', desc: 'Coltiva: +1 Razione K a notte.', buildCost: {'Tubi d\'Acciaio': 15, 'Batteria al Litio': 2, 'Componenti Elettronici': 5} },
@@ -179,7 +151,6 @@ const ENEMIES_DB = {
 };
 
 const ITEMS = {
-  // CIBO E ACQUA
   'Acqua Purificata': { type: 'consumable', rarity: 'comune', value: 5, water: 40, food: 0, heal: 0, desc: 'Idratazione essenziale.', iconType: Coffee },
   'Razione K': { type: 'consumable', rarity: 'comune', value: 8, water: 0, food: 40, heal: 5, desc: 'Cibo militare a lunga conservazione.', iconType: Package },
   'Zucchero Grezzo': { type: 'consumable', rarity: 'comune', value: 15, water: -5, food: 15, heal: 0, desc: 'Picco di energia, ma fa venire sete.', iconType: Coffee },
@@ -189,13 +160,9 @@ const ITEMS = {
   'Succo di Frutta': { type: 'consumable', rarity: 'raro', value: 15, water: 30, food: 10, heal: 5, desc: 'Vitamine preziose pre-bomba.', iconType: Coffee },
   'Carne in Scatola': { type: 'consumable', rarity: 'epico', value: 25, water: 0, food: 55, heal: 15, desc: 'Un pasto di lusso.', iconType: Package },
   'Pasto Caldo': { type: 'consumable', rarity: 'epico', value: 50, water: 30, food: 60, heal: 25, desc: 'Cucinato con amore. Risolleva lo spirito.', iconType: Package },
-
-  // CURE MEDICHE
   'Bende': { type: 'medical', rarity: 'comune', value: 12, heal: 20, desc: 'Ferma le emorragie.', iconType: PlusSquare },
   'Medikit': { type: 'medical', rarity: 'raro', value: 40, heal: 60, desc: 'Kit tattico medico.', iconType: PlusSquare },
   'Disinfettante': { type: 'medical', rarity: 'epico', value: 70, heal: 40, desc: 'Previene infezioni.', iconType: PlusSquare },
-  
-  // RISORSE
   'Rottami': { type: 'resource', rarity: 'comune', value: 2, desc: 'Metallo arrugginito.', iconType: Package },
   'Nastro Adesivo': { type: 'resource', rarity: 'comune', value: 5, desc: 'Riparazioni rapide.', iconType: Package },
   'Assi di Legno': { type: 'resource', rarity: 'comune', value: 3, desc: 'Materiale da costruzione base.', iconType: Hammer },
@@ -216,14 +183,12 @@ const ITEMS = {
   'Chiavetta USB Criptata': { type: 'resource', rarity: 'mitico', value: 300, desc: 'Progetti top-secret.', iconType: Package },
   'Chiave d\'Accesso Linate': { type: 'resource', rarity: 'mitico', value: 1000, desc: 'Tessera d\'accesso Aeroporto.', iconType: Key },
 
-  // ZAINI
   'Sacca Sportiva': { type: 'backpack', rarity: 'comune', value: 20, slots: 10, desc: 'Capienza: 10 Slot', iconType: Backpack },
   'Sacca a Tracolla': { type: 'backpack', rarity: 'raro', value: 50, slots: 15, desc: 'Capienza: 15 Slot', iconType: Backpack },
   'Zaino da Escursionismo': { type: 'backpack', rarity: 'epico', value: 120, slots: 20, desc: 'Capienza: 20 Slot', iconType: Backpack },
   'Zaino Tattico Militare': { type: 'backpack', rarity: 'leggendario', value: 250, slots: 25, desc: 'Capienza: 25 Slot', iconType: Backpack },
   'Zaino Sopravvivenza': { type: 'backpack', rarity: 'mitico', value: 600, slots: 30, desc: 'Capienza: 30 Slot', iconType: Backpack },
-
-  // ARMI
+  
   'Coltellino': { type: 'weapon', rarity: 'comune', value: 10, atk: 5, desc: 'Lama corta.', iconType: Crosshair },
   'Mazza da Baseball': { type: 'weapon', rarity: 'comune', value: 20, atk: 12, desc: 'Pesante.', iconType: Crosshair },
   'Pistola Glock': { type: 'weapon', rarity: 'raro', value: 80, atk: 25, desc: 'Affidabile 9mm.', iconType: Crosshair },
@@ -236,8 +201,7 @@ const ITEMS = {
   'AK-47 Tamburo': { type: 'weapon', rarity: 'mitico', value: 500, atk: 85, desc: 'Inarrestabile.', iconType: Crosshair },
   'Mitragliatrice M249': { type: 'weapon', rarity: 'mitico', value: 900, atk: 120, desc: 'Fuoco di soppressione.', iconType: Crosshair },
   'Minigun Vulcan': { type: 'weapon', rarity: 'mitico', value: 1500, atk: 200, desc: 'Devastazione.', iconType: Crosshair },
-
-  // ARMATURE
+  
   'Berretto di Lana': { type: 'helmet', rarity: 'comune', value: 5, def: 1, desc: 'Protezione minima.', iconType: Shield },
   'Giacca Casual': { type: 'chest', rarity: 'comune', value: 10, def: 3, desc: 'Tessuto leggero.', iconType: Shirt },
   'Jeans Strappati': { type: 'pants', rarity: 'comune', value: 8, def: 2, desc: 'Usurati.', iconType: Scissors },
@@ -316,7 +280,6 @@ const createItemObj = (nameStr) => {
   return { id: Math.random().toString(36).substr(2, 9), name: nameStr, dura: isEquipment ? 100 : null };
 };
 
-// --- STRUTTURA INIZIALE DEL BUNKER ---
 const INITIAL_BUNKER = [
   [{ id: '0-0', type: 'dirt' }, { id: '0-1', type: 'entrance' }, { id: '0-2', type: 'dirt' }],
   [{ id: '1-0', type: 'dirt' }, { id: '1-1', type: 'dirt' }, { id: '1-2', type: 'dirt' }],
@@ -342,10 +305,14 @@ export default function App() {
   const [gameOver, setGameOver] = useState(false);
   const [deathReason, setDeathReason] = useState('');
   
-  // IL NUOVO BUNKER
   const [bunker, setBunker] = useState(INITIAL_BUNKER);
   const [selectedRoom, setSelectedRoom] = useState(null);
-  const [repairTarget, setRepairTarget] = useState(null);
+  
+  // --- FASE 1: Nuovi Stati Operazione Esodo ---
+  const [civilians, setCivilians] = useState(0);
+  const [specialists, setSpecialists] = useState({ mechanic: false, hacker: false, pilot: false });
+  const [escapeProgress, setEscapeProgress] = useState(0);
+  const [exodusWave, setExodusWave] = useState(0); // 0 = non attivo
 
   const [equipped, setEquipped] = useState({
     helmet: createItemObj('Berretto di Lana'), chest: createItemObj('Giacca Casual'), 
@@ -356,7 +323,7 @@ export default function App() {
   const [inventory, setInventory] = useState([createItemObj('Acqua Purificata'), createItemObj('Razione K'), createItemObj('Bende')]); 
   const [stash, setStash] = useState([createItemObj('Bottiglia d\'Acqua'), createItemObj('Scatoletta di Fagioli'), createItemObj('Rottami')]); 
   
-  const [logs, setLogs] = useState([{ text: 'Stazione operativa avviata. Sistema Bunker attivato.', type: 'info' }]);
+  const [logs, setLogs] = useState([{ text: 'Stazione operativa avviata. Esplora per sopravvivere.', type: 'info' }]);
   const [selectedLocation, setSelectedLocation] = useState(null);
   
   const [selectedItem, setSelectedItem] = useState(null);
@@ -445,7 +412,7 @@ export default function App() {
     setSelectedItem({ obj: itemObj, name: name, index, context, data: safeItem(name) });
   };
 
-  const chiudiPopup = () => { setSelectedItem(null); setSelectedRoom(null); setRepairTarget(null); };
+  const chiudiPopup = () => { setSelectedItem(null); setSelectedRoom(null); };
 
   const equipItem = () => {
     if (!selectedItem) return;
@@ -475,7 +442,6 @@ export default function App() {
     if (!selectedItem) return;
     const { name, index, data } = selectedItem;
     if (data.type === 'medical' || data.type === 'consumable') {
-      
       if (data.heal) setHp(prev => Math.min(currentMaxHp, prev + data.heal));
       if (data.food) setHunger(prev => Math.min(MAX_HUNGER, prev + data.food));
       if (data.water) setThirst(prev => Math.min(MAX_THIRST, prev + data.water));
@@ -522,18 +488,16 @@ export default function App() {
     addLog(`🎁 Trovato: ${wonItemStr}`, 'success');
   };
 
-  // ==========================================
-  // 🔨 LOGICA DEL BUNKER
-  // ==========================================
+  // --- LOGICA DEL BUNKER E COMANDO ---
   const ROOM_TYPES = {
-    'dirt': { name: 'Terra Compatta', desc: 'Roccia e terra da scavare. Deve essere adiacente a una stanza.' },
+    'dirt': { name: 'Terra Compatta', desc: 'Roccia e terra da scavare.' },
     'empty': { name: 'Stanza Vuota', desc: 'Spazio edificabile rinforzato.' },
     'entrance': { name: 'Ingresso Rifugio', desc: 'Il tuo letto e terminale base.' },
     'storage': { name: 'Magazzino', desc: 'Espande la Cassa Sicura di +30 Slot.', buildCost: {'Assi di Legno': 15, 'Chiodi': 10} },
-    'water': { name: 'Collettore Pioggia', desc: 'Filtra umidità: +1 Acqua a notte.', buildCost: {'Tubi d\'Acciaio': 10, 'Nastro Adesivo': 5} },
+    'water': { name: 'Collettore Pioggia', desc: 'Filtra umidità: +1 Bottiglia d\'Acqua a notte.', buildCost: {'Tubi d\'Acciaio': 10, 'Nastro Adesivo': 5} },
     'greenhouse': { name: 'Serra Idroponica', desc: 'Coltiva: +1 Razione K a notte.', buildCost: {'Tubi d\'Acciaio': 15, 'Batteria al Litio': 2, 'Componenti Elettronici': 5} },
     'workshop': { name: 'Officina', desc: 'Ripara la durabilità di armi e armature.', buildCost: {'Rottami': 20, 'Mattoni in Cotto': 10, 'Nastro Adesivo': 5} },
-    'kitchen': { name: 'Cucina da Campo', desc: 'Prepara Pasti Caldi (+60 Fame).', buildCost: {'Mattoni in Cotto': 15, 'Rottami': 10} }
+    'kitchen': { name: 'Cucina da Campo', desc: 'Cucina Pasti Caldi.', buildCost: {'Mattoni in Cotto': 15, 'Rottami': 10} }
   };
   const DIG_COST = { 'Assi di Legno': 5, 'Chiodi': 2 };
 
@@ -546,10 +510,7 @@ export default function App() {
     return false;
   };
 
-  const handleRoomAction = (r, c) => {
-    chiudiPopup();
-    setSelectedRoom({ r, c, room: bunker[r][c] });
-  };
+  const handleRoomAction = (r, c) => { chiudiPopup(); setSelectedRoom({ r, c, room: bunker[r][c] }); };
 
   const payResources = (costs) => {
       let hasAll = true; let missingMsg = 'Mancano: ';
@@ -582,51 +543,72 @@ export default function App() {
 
   const digRoom = () => {
       if (!payResources(DIG_COST)) return;
-      let newBunker = [...bunker];
-      newBunker[selectedRoom.r][selectedRoom.c].type = 'empty';
-      setBunker(newBunker);
-      addLog('Scavo completato. Nuova Stanza Vuota creata.', 'success');
-      chiudiPopup();
+      let newBunker = [...bunker]; newBunker[selectedRoom.r][selectedRoom.c].type = 'empty';
+      setBunker(newBunker); addLog('Scavo completato. Nuova Stanza Vuota creata.', 'success'); chiudiPopup();
   };
 
   const buildRoom = (roomType) => {
       if (!payResources(ROOM_TYPES[roomType].buildCost)) return;
-      let newBunker = [...bunker];
-      newBunker[selectedRoom.r][selectedRoom.c].type = roomType;
-      setBunker(newBunker);
-      addLog(`${ROOM_TYPES[roomType].name} costruita!`, 'success');
-      chiudiPopup();
+      let newBunker = [...bunker]; newBunker[selectedRoom.r][selectedRoom.c].type = roomType;
+      setBunker(newBunker); addLog(`${ROOM_TYPES[roomType].name} costruita!`, 'success'); chiudiPopup();
   };
 
   const repairItem = (targetObj, isEquipped, slotType) => {
       if (targetObj.dura >= 100) { addLog('L\'oggetto è già in perfette condizioni.', 'warning'); return; }
       if (!payResources({'Rottami': 2})) return;
       const newDura = Math.min(100, targetObj.dura + 25);
-      if (isEquipped) {
-          setEquipped(prev => ({ ...prev, [slotType]: { ...targetObj, dura: newDura } }));
-      } else {
-          let newInv = [...inventory];
-          let idx = newInv.findIndex(i => i.id === targetObj.id);
-          if (idx !== -1) {
-              newInv[idx] = { ...targetObj, dura: newDura };
-              setInventory(newInv);
-          }
+      if (isEquipped) { setEquipped(prev => ({ ...prev, [slotType]: { ...targetObj, dura: newDura } })); } 
+      else {
+          let newInv = [...inventory]; let idx = newInv.findIndex(i => i.id === targetObj.id);
+          if (idx !== -1) { newInv[idx] = { ...targetObj, dura: newDura }; setInventory(newInv); }
       }
-      addLog(`Riparato ${safeName(targetObj)} a ${newDura}% dura.`, 'success');
-      setRepairTarget(null);
+      addLog(`Riparato ${safeName(targetObj)}.`, 'success');
   };
 
   const cookFood = () => {
       if (!payResources({'Scatoletta di Fagioli': 1, 'Acqua Purificata': 1})) return;
-      if (inventory.length >= getMaxInventory() && stash.length >= getMaxStash()) {
-          addLog('Non hai spazio per il pasto!', 'danger'); return;
-      }
+      if (inventory.length >= getMaxInventory() && stash.length >= getMaxStash()) { addLog('Spazio esaurito!', 'danger'); return; }
       let newPasto = createItemObj('Pasto Caldo');
       if (inventory.length < getMaxInventory()) setInventory(prev => [...prev, newPasto]);
       else setStash(prev => [...prev, newPasto]);
       addLog('Hai cucinato un Pasto Caldo!', 'success');
   };
 
+  // --- FASE 4: FUNZIONI OPERAZIONE ESODO ---
+  const repairTrain = () => {
+      if (escapeProgress >= 100) { addLog('Treno già riparato al 100%!', 'warning'); return; }
+      if (payResources({'Rottami': 10, 'Tubi d\'Acciaio': 2})) {
+          setEscapeProgress(prev => Math.min(100, prev + 10));
+          addLog('Il Meccanico ha riparato una parte del treno! +10%', 'success');
+      }
+  };
+
+  const hackCodes = () => {
+      if (escapeProgress >= 100) { addLog('Codici già acquisiti!', 'warning'); return; }
+      const hasUSB = inventory.some(i => safeName(i) === 'Chiavetta USB Criptata') || stash.some(i => safeName(i) === 'Chiavetta USB Criptata');
+      const hasDisk = inventory.some(i => safeName(i) === 'Disco Dati Governativo') || stash.some(i => safeName(i) === 'Disco Dati Governativo');
+      
+      if (hasUSB) {
+          payResources({'Chiavetta USB Criptata': 1});
+          setEscapeProgress(prev => Math.min(100, prev + 20));
+          addLog('L\'Hacker ha decriptato la Chiavetta! +20%', 'success');
+      } else if (hasDisk) {
+          payResources({'Disco Dati Governativo': 1});
+          setEscapeProgress(prev => Math.min(100, prev + 20));
+          addLog('L\'Hacker ha estratto i dati dal Disco! +20%', 'success');
+      } else {
+          addLog('Servono Chiavette USB o Dischi Dati.', 'danger');
+      }
+  };
+
+  const startExodus = () => {
+      chiudiPopup();
+      setExodusWave(1);
+      setCombatState({ enemy: ENEMIES_DB['Rioter'], hp: ENEMIES_DB['Rioter'].hp, maxHp: ENEMIES_DB['Rioter'].hp, location: {name: 'L\'Ultima Fuga'} });
+      addLog('ESODO AVVIATO! Difendi il treno ad ogni costo!', 'danger');
+  };
+
+  // --- LOOT E ESPLORAZIONE ---
   const generateAndShowLoot = (loc) => {
     const numItems = Math.floor(Math.random() * (loc.maxLoot - loc.minLoot + 1)) + loc.minLoot;
     let found = []; let uniqueEquipmentFound = new Set(); 
@@ -656,6 +638,13 @@ export default function App() {
           found.push(createItemObj(finalItemStr)); 
       }
     }
+    
+    // FASE 2: Possibilità di trovare Civili post-esplorazione se pericolosa
+    if (loc.type === 'danger' && Math.random() < 0.20) {
+        setCivilians(prev => prev + 1);
+        addLog('👤 Hai trovato un CIVILE disperato. Si è unito al Rifugio!', 'success');
+    }
+
     if (found.length > 0) { setPendingLoot({ items: found, location: loc }); } 
     else { addLog('Zona perquisita, non hai trovato nulla.', 'warning'); setView('map'); }
   };
@@ -702,7 +691,6 @@ export default function App() {
 
   const executeExplore = (loc) => {
     spendEnergy(loc.cost); 
-    
     if (loc.type === 'safe') { setView(loc.id === 'rifugio' ? 'base' : 'market'); addLog(`Sei arrivato a: ${loc.name}`, 'info'); return; }
     
     let safeChance = loc.lvl < 10 ? 0.4 : loc.lvl < 15 ? 0.15 : 0;
@@ -726,9 +714,41 @@ export default function App() {
     if (equipped.weapon) damageEquipment('weapon', Math.floor(Math.random() * 5) + 1);
 
     if (newEnemyHp <= 0) {
+        // --- FASE 5: ESODO BOSS RUSH ---
+        if (exodusWave > 0) {
+            if (exodusWave === 1) {
+                setExodusWave(2);
+                setCombatState({ enemy: ENEMIES_DB['Chimera'], hp: ENEMIES_DB['Chimera'].hp, maxHp: ENEMIES_DB['Chimera'].hp, location: {name: 'L\'Ultima Fuga'} });
+                addLog('Ondata 1 superata! Arriva un abominio!', 'warning');
+                setIsEnemyTurn(false);
+            } else if (exodusWave === 2) {
+                setExodusWave(3);
+                setCombatState({ enemy: ENEMIES_DB['Gilbert'], hp: ENEMIES_DB['Gilbert'].hp, maxHp: ENEMIES_DB['Gilbert'].hp, location: {name: 'L\'Ultima Fuga'} });
+                addLog('Ondata 2 superata! Gilbert tenta di fermarti!', 'warning');
+                setIsEnemyTurn(false);
+            } else if (exodusWave === 3) {
+                setGameState('victory');
+                setCombatState(null);
+            }
+            return;
+        }
+
         const xpGained = Math.floor((combatState.maxHp || 10) / 2);
         addLog(`🏆 Nemico eliminato!`, 'success');
         setXp(prev => prev + xpGained);
+        
+        // --- FASE 2: SPECIALISTI SBLOCCATI ---
+        if (combatState.location.id === 'fiera' && !specialists.mechanic) {
+            setSpecialists(prev => ({...prev, mechanic: true}));
+            addLog('🛠️ Hai salvato il MECCANICO!', 'success');
+        } else if (combatState.location.id === 'citylife' && !specialists.hacker) {
+            setSpecialists(prev => ({...prev, hacker: true}));
+            addLog('💻 Hai salvato l\'HACKER!', 'success');
+        } else if (combatState.location.id === 'caserma' && !specialists.pilot) {
+            setSpecialists(prev => ({...prev, pilot: true}));
+            addLog('✈️ Hai salvato il PILOTA!', 'success');
+        }
+
         setIsEnemyTurn(false); setCombatState(null); generateAndShowLoot(combatState.location); 
     } else {
         setCombatState(prev => ({...prev, hp: newEnemyHp}));
@@ -776,34 +796,53 @@ export default function App() {
 
   const combatFlee = () => {
       if (isEnemyTurn) return;
+      if (exodusWave > 0) { addLog('Non puoi fuggire durante l\'Esodo!', 'danger'); return; }
       if (energy >= 15) { spendEnergy(15); addLog('🏃 Fuga riuscita.', 'warning'); setCombatState(null); setView('map'); } 
       else { addLog('❌ Troppo stanco per fuggire!', 'danger'); }
   };
 
   const rest = () => {
     chiudiPopup();
-    const nextHunger = Math.max(0, hunger - 20);
-    const nextThirst = Math.max(0, thirst - 20);
-    setHunger(nextHunger); setThirst(nextThirst);
     
-    if (nextHunger === 0 && nextThirst === 0) { setHp(0); setDeathReason("Morto di fame e sete nel sonno."); return; } 
-    else if (nextHunger === 0 || nextThirst === 0) {
-        const damage = Math.floor(currentMaxHp / 2);
-        setHp(prev => { const nextHp = prev - damage; if (nextHp <= 0) setDeathReason("Ceduto agli stenti nel sonno."); return Math.max(0, nextHp); });
-        addLog(`Malnutrizione grave! Dormire ti ha stremato. Persi ${damage} HP.`, 'danger');
-    } else {
-        setHp(prev => Math.min(currentMaxHp, prev + 30)); addLog('Riposo completato (-20 Fame/Sete). Energia e HP recuperati.', 'info');
+    // --- FASE 3: Consumi Civili ---
+    const hungerCost = 20 + (civilians * 5);
+    const thirstCost = 20 + (civilians * 5);
+    
+    const nextHunger = hunger - hungerCost;
+    const nextThirst = thirst - thirstCost;
+
+    if ((nextHunger < 0 || nextThirst < 0) && civilians > 0) {
+        setCivilians(prev => prev - 1);
+        addLog('Un civile è morto di stenti nel rifugio...', 'danger');
     }
 
+    setHunger(Math.max(0, nextHunger)); 
+    setThirst(Math.max(0, nextThirst));
+    
+    if (Math.max(0, nextHunger) === 0 && Math.max(0, nextThirst) === 0) { 
+        setHp(0); setDeathReason("Morto di fame e sete nel sonno."); return; 
+    } 
+    else if (Math.max(0, nextHunger) === 0 || Math.max(0, nextThirst) === 0) {
+        const damage = Math.floor(currentMaxHp / 2);
+        setHp(prev => { const nextHp = prev - damage; if (nextHp <= 0) setDeathReason("Ceduto agli stenti nel sonno."); return Math.max(0, nextHp); });
+        addLog(`Malnutrizione grave! Persi ${damage} HP.`, 'danger');
+    } else {
+        setHp(prev => Math.min(currentMaxHp, prev + 30)); addLog(`Riposo completato (-${hungerCost} Fame/Sete).`, 'info');
+    }
+
+    // --- FASE 3: Produzione Bonus Civili ---
     let newStash = [...stash];
-    let waterProduced = bunker.flat().filter(r => r.type === 'water').length;
-    let foodProduced = bunker.flat().filter(r => r.type === 'greenhouse').length;
+    let waterRooms = bunker.flat().filter(r => r.type === 'water').length;
+    let foodRooms = bunker.flat().filter(r => r.type === 'greenhouse').length;
+    
+    let waterProduced = waterRooms > 0 ? waterRooms + Math.floor(civilians / 3) : 0;
+    let foodProduced = foodRooms > 0 ? foodRooms + Math.floor(civilians / 3) : 0;
     
     const maxS = getMaxStash();
     for(let i=0; i<waterProduced; i++) { if(newStash.length < maxS) newStash.push(createItemObj('Bottiglia d\'Acqua')); }
     for(let i=0; i<foodProduced; i++) { if(newStash.length < maxS) newStash.push(createItemObj('Razione K')); }
     if (waterProduced > 0 || foodProduced > 0) {
-       addLog(`💧/🍖 Le strutture del bunker hanno generato risorse.`, 'success');
+       addLog(`💧/🍖 Bunker e Civili hanno prodotto risorse.`, 'success');
        setStash(newStash);
     }
 
@@ -814,6 +853,7 @@ export default function App() {
   const restartGame = () => {
     setLevel(1); setXp(0); setHp(100); setEnergy(MAX_ENERGY); setCredits(100); setDay(1); 
     setHunger(MAX_HUNGER); setThirst(MAX_THIRST); setBunker(INITIAL_BUNKER);
+    setCivilians(0); setSpecialists({ mechanic: false, hacker: false, pilot: false }); setEscapeProgress(0); setExodusWave(0);
     setInventory([createItemObj('Acqua Purificata'), createItemObj('Razione K'), createItemObj('Coltellino')]);
     setStash([createItemObj('Acqua Purificata'), createItemObj('Razione K'), createItemObj('Bende')]);
     setEquipped({ helmet: createItemObj('Berretto di Lana'), chest: createItemObj('Giacca Casual'), pants: createItemObj('Jeans Strappati'), shoes: createItemObj('Scarpe da Ginnastica'), weapon: createItemObj('Coltellino'), backpack: createItemObj('Sacca Sportiva') });
@@ -823,12 +863,12 @@ export default function App() {
   };
 
   const downloadSave = () => {
-    const saveData = { level, xp, hp, energy, hunger, thirst, credits, day, bunker, equipped, inventory, stash, logs };
+    const saveData = { level, xp, hp, energy, hunger, thirst, credits, day, bunker, equipped, inventory, stash, logs, civilians, specialists, escapeProgress };
     const blob = new Blob([JSON.stringify(saveData)], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a'); a.href = url; a.download = `MilanoAnnoZero_Day${day}.json`;
     document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url);
-    addLog('Dati salvati su disco esterno.', 'success');
+    addLog('Dati salvati su disco.', 'success');
   };
 
   const handleFileUpload = (e) => {
@@ -842,9 +882,12 @@ export default function App() {
             setHunger(data.hunger || 100); setThirst(data.thirst || 100);
             setCredits(data.credits); setDay(data.day); 
             setBunker(data.bunker || INITIAL_BUNKER);
+            setCivilians(data.civilians || 0);
+            setSpecialists(data.specialists || { mechanic: false, hacker: false, pilot: false });
+            setEscapeProgress(data.escapeProgress || 0);
             setEquipped(data.equipped); setInventory(data.inventory); setStash(data.stash); 
             setLogs(data.logs); setGameState('playing'); setView('base');
-            addLog('Salvataggio caricato con successo.', 'success');
+            addLog('Salvataggio caricato.', 'success');
         } else { setLoadError('File non compatibile.'); setTimeout(() => setLoadError(''), 3000); }
       } catch (err) { setLoadError('Errore di lettura.'); setTimeout(() => setLoadError(''), 3000); }
     };
@@ -874,6 +917,25 @@ export default function App() {
         </div>
       </div>
     );
+  }
+
+  // --- FASE 5: SCHERMATA VITTORIA ---
+  if (gameState === 'victory') {
+      return (
+        <div className="min-h-screen bg-[#121312] flex flex-col items-center justify-center p-6 text-center animate-fadeIn relative overflow-hidden">
+           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#0a1e3f] via-[#121312] to-[#0a0a0a] opacity-80 pointer-events-none"></div>
+           <div className="relative z-10 flex flex-col items-center">
+             <h1 className="text-5xl sm:text-6xl font-black text-cyan-500 mb-4 drop-shadow-[0_0_15px_rgba(6,182,212,0.8)] uppercase tracking-widest">ESODO COMPLETATO</h1>
+             <p className="text-stone-300 mb-8 italic">Hai guidato i sopravvissuti fuori dalle rovine di Milano.</p>
+             <div className="bg-[#111] p-6 rounded-lg border border-[#2d312f] space-y-3 font-mono text-left w-72 mb-8 shadow-2xl">
+                <p className="flex justify-between text-stone-400"><span>Giorni Sopravvissuti:</span> <span className="text-white font-bold">{day}</span></p>
+                <p className="flex justify-between text-stone-400"><span>Livello Raggiunto:</span> <span className="text-white font-bold">{level}</span></p>
+                <p className="flex justify-between text-stone-400 mt-2 pt-2 border-t border-stone-800"><span>Civili Salvati:</span> <span className="text-cyan-400 font-black text-lg">{civilians}</span></p>
+             </div>
+             <button onClick={restartGame} className="px-8 py-4 bg-gradient-to-b from-cyan-700 to-cyan-900 border border-cyan-600 text-white font-black rounded uppercase tracking-widest shadow-[0_4px_0_#0a2f4c] active:translate-y-1 active:shadow-none hover:brightness-110 transition-all">Inizia Nuova Era</button>
+           </div>
+        </div>
+      )
   }
 
   if (gameOver) {
@@ -1092,7 +1154,7 @@ export default function App() {
                 </div>
               )}
 
-              {/* MODALITÀ OFFICINA (Riparazione) */}
+              {/* MODALITÀ OFFICINA */}
               {selectedRoom.room.type === 'workshop' && (
                 <div className="space-y-3 max-h-[60vh] overflow-y-auto custom-scrollbar pr-2">
                   <h5 className="text-[10px] font-black text-stone-500 uppercase tracking-widest mb-2">Attrezzatura Danneggiata</h5>
@@ -1173,7 +1235,7 @@ export default function App() {
         </div>
       )}
 
-      {/* HEADER SUPERIORE: ORA CON 4 BARRE (HP, Energia, Fame, Sete) */}
+      {/* HEADER SUPERIORE: ORA CON ICONA CIVILI */}
       <header className="bg-[#141615]/90 backdrop-blur-sm border-b border-[#232624] p-3 shadow-[0_4px_10px_rgba(0,0,0,0.5)] z-10 flex-shrink-0 relative">
         <div className="max-w-6xl mx-auto flex flex-col gap-2">
           
@@ -1186,6 +1248,10 @@ export default function App() {
                <div className="flex items-center bg-[#1a1d1b] px-2 py-0.5 rounded border border-[#2d312f] text-[10px] shadow-inner">
                  <Coins className="w-3 h-3 text-amber-500 mr-1" />
                  <span className="font-mono font-bold text-stone-200">{credits}</span>
+               </div>
+               <div className="flex items-center bg-[#1a1d1b] px-2 py-0.5 rounded border border-[#2d312f] text-[10px] shadow-inner">
+                 <Users className="w-3 h-3 text-cyan-400 mr-1" />
+                 <span className="font-mono font-bold text-cyan-200">{civilians}</span>
                </div>
                <div className="text-[10px] font-mono bg-[#1a1d1b] px-2 py-0.5 rounded border border-[#2d312f] text-stone-400 shadow-inner">
                  DAY <span className="text-stone-200 font-bold ml-1">{day}</span>
@@ -1365,7 +1431,6 @@ export default function App() {
                 {selectedLocation && !combatState && !pendingLoot && !isTraveling && (
                   <div className="absolute bottom-4 left-4 right-4 bg-[#1a1816]/95 backdrop-blur border border-stone-600 rounded-xl shadow-2xl flex flex-col z-20 animate-slideUp overflow-hidden">
                     
-                    {/* --- INIZIO IMMAGINE LUOGO --- */}
                     <div className="w-full h-32 sm:h-48 bg-[#0a0908] relative flex-shrink-0">
                       {CUSTOM_IMAGES['Loc_' + selectedLocation.id] ? (
                         <img 
@@ -1382,7 +1447,6 @@ export default function App() {
                       <div className="absolute inset-0 bg-gradient-to-t from-[#1a1816] to-transparent"></div>
                       <button onClick={() => setSelectedLocation(null)} className="absolute top-3 right-3 w-8 h-8 bg-black/60 rounded-full flex items-center justify-center text-white hover:bg-red-600 transition-colors z-10 shadow-lg border border-stone-600">✕</button>
                     </div>
-                    {/* --- FINE IMMAGINE LUOGO --- */}
 
                     <div className="p-5 pt-2">
                       <h3 className="font-black text-xl text-white uppercase tracking-wide mb-2 relative z-10">{selectedLocation.name}</h3>
@@ -1395,16 +1459,26 @@ export default function App() {
                         <span className="flex items-center text-amber-400 font-bold"><Zap className="w-4 h-4 mr-1.5"/> COSTO: {selectedLocation.cost}</span>
                       </div>
 
-                      <button 
-                        onClick={() => handleTravelClick(selectedLocation)}
-                        className={`w-full py-4 rounded-lg font-black tracking-widest flex items-center justify-center uppercase transition-all text-sm
-                          ${energy >= selectedLocation.cost 
-                            ? 'bg-green-600 hover:bg-green-500 text-white shadow-[0_4px_0_rgb(21,128,61)] active:translate-y-1 active:shadow-none' 
-                            : 'bg-stone-900 border border-stone-800 text-stone-600 cursor-not-allowed'}`}
-                      >
-                        <Navigation className="w-5 h-5 mr-2"/>
-                        {selectedLocation.type === 'safe' ? 'VIAGGIA ORA' : 'ESPLORA SETTORE'}
-                      </button>
+                      {/* FASE 5: BOTTONE ESODO FINALE */}
+                      {selectedLocation.id === 'centrale' && escapeProgress >= 100 && specialists.pilot ? (
+                         <button 
+                           onClick={startExodus}
+                           className="w-full py-4 rounded-lg font-black tracking-widest flex items-center justify-center uppercase transition-all text-sm bg-red-700 hover:bg-red-600 text-white shadow-[0_4px_0_rgb(153,27,27)] active:translate-y-1 active:shadow-none animate-pulse"
+                         >
+                           <Skull className="w-5 h-5 mr-2"/> AVVIA ESODO
+                         </button>
+                      ) : (
+                         <button 
+                           onClick={() => handleTravelClick(selectedLocation)}
+                           className={`w-full py-4 rounded-lg font-black tracking-widest flex items-center justify-center uppercase transition-all text-sm
+                             ${energy >= selectedLocation.cost 
+                               ? 'bg-green-600 hover:bg-green-500 text-white shadow-[0_4px_0_rgb(21,128,61)] active:translate-y-1 active:shadow-none' 
+                               : 'bg-stone-900 border border-stone-800 text-stone-600 cursor-not-allowed'}`}
+                         >
+                           <Navigation className="w-5 h-5 mr-2"/>
+                           {selectedLocation.type === 'safe' ? 'VIAGGIA ORA' : 'ESPLORA SETTORE'}
+                         </button>
+                      )}
                     </div>
                   </div>
                 )}
@@ -1458,10 +1532,8 @@ export default function App() {
               </div>
             )}
 
-            {/* === NUOVA VISTA BUNKER SOTTERRANEO === */}
             {view === 'base' && (
               <div className="flex flex-col h-full overflow-hidden">
-                {/* GRIGLIA BUNKER VISIVA */}
                 <div className="bg-[#0f0a05] rounded-xl border-4 border-[#2d1a11] p-3 shadow-[inset_0_0_50px_rgba(0,0,0,0.9)] mb-4 flex-shrink-0 relative">
                   <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/dark-matter.png')] opacity-30 pointer-events-none"></div>
                   <div className="grid grid-cols-3 gap-2 max-w-lg mx-auto relative z-10">
@@ -1480,7 +1552,6 @@ export default function App() {
                           >
                             <CustomImageRenderer itemData={null} itemName={cell.type} isBunker={true} />
                             
-                            {/* Overlay Interazione */}
                             {cell.type === 'dirt' && canDig(rIndex, cIndex) && (
                                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 flex flex-col items-center justify-center transition-opacity cursor-pointer">
                                   <Pickaxe className="w-6 h-6 text-amber-500 mb-1" />
@@ -1494,14 +1565,46 @@ export default function App() {
                   </div>
                 </div>
 
-                {/* INVENTARIO E CASSA SOTTO */}
                 <div className="flex flex-col lg:flex-row gap-3 flex-1 overflow-hidden">
-                  <div className="bg-[#1c1e1d] rounded-md p-3 border border-[#2d312f] flex-1 flex flex-col shadow-md">
-                    <h3 className="text-[10px] font-black text-stone-400 uppercase tracking-widest mb-2 border-b border-[#2d312f] pb-1">Zaino Attuale</h3>
-                    <div className="flex-1 overflow-y-auto custom-scrollbar relative">
-                      <InventoryGrid items={inventory} maxSlots={getMaxInventory()} onSelect={handleItemAction} context="inventory" />
+                  {/* --- FASE 4: CENTRO DI COMANDO ESODO --- */}
+                  <div className="bg-[#1c1e1d] rounded-md p-3 border border-[#2d312f] w-full lg:w-1/3 flex flex-col shadow-md overflow-y-auto custom-scrollbar">
+                    <h3 className="text-[10px] font-black text-cyan-400 uppercase tracking-widest mb-2 border-b border-cyan-900 pb-1">Operazione Esodo</h3>
+                    
+                    <div className="bg-[#111] p-2 rounded border border-[#232624] mb-3 shadow-inner">
+                       <div className="flex justify-between text-[9px] font-bold mb-1">
+                          <span className="text-stone-400">Progresso Fuga</span>
+                          <span className="text-cyan-400">{escapeProgress}%</span>
+                       </div>
+                       <div className="w-full h-1.5 bg-black rounded-full overflow-hidden">
+                          <div className="h-full bg-cyan-500 transition-all duration-500" style={{width: `${escapeProgress}%`}}></div>
+                       </div>
+                    </div>
+                    
+                    <div className="space-y-2">
+                       {specialists.mechanic ? (
+                          <button onClick={repairTrain} className="w-full text-left bg-[#1a1d1b] border border-stone-700 hover:border-amber-500 p-2 rounded text-[9px] text-stone-300 transition-colors">
+                             <span className="font-bold text-amber-500 block mb-1">🛠️ Meccanico: Ripara Treno</span>
+                             Costo: 10x Rottami, 2x Tubi d'Acciaio<br/>(+10% Progresso)
+                          </button>
+                       ) : ( <p className="text-[9px] text-stone-600 italic px-1">🛠️ Nessun meccanico (Esplora Fiera Milano)</p> )}
+
+                       {specialists.hacker ? (
+                          <button onClick={hackCodes} className="w-full text-left bg-[#1a1d1b] border border-stone-700 hover:border-green-500 p-2 rounded text-[9px] text-stone-300 transition-colors">
+                             <span className="font-bold text-green-500 block mb-1">💻 Hacker: Decripta Codici</span>
+                             Costo: 1x Chiavetta USB o Disco Dati<br/>(+20% Progresso)
+                          </button>
+                       ) : ( <p className="text-[9px] text-stone-600 italic px-1">💻 Nessun hacker (Esplora CityLife)</p> )}
+
+                       {specialists.pilot ? (
+                          escapeProgress >= 100 ? (
+                             <div className="bg-green-900/30 border border-green-600 p-2 rounded">
+                               <p className="text-[9px] text-green-400 font-bold text-center">✅ Treno Pronto. Vai alla Stazione Centrale.</p>
+                             </div>
+                          ) : ( <p className="text-[9px] text-stone-400 italic px-1">✈️ Pilota in attesa del Treno 100%.</p> )
+                       ) : ( <p className="text-[9px] text-stone-600 italic px-1">✈️ Nessun pilota (Esplora Caserma)</p> )}
                     </div>
                   </div>
+
                   <div className="bg-[#1c1e1d] rounded-md p-3 border border-[#2d312f] flex-[1.5] flex flex-col shadow-md">
                     <div className="flex justify-between items-center mb-2 border-b border-[#2d312f] pb-1">
                       <h3 className="text-[10px] font-black text-stone-400 uppercase tracking-widest">Cassa Sicura (Slot: {getMaxStash()})</h3>
