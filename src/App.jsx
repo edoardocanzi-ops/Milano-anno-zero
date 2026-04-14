@@ -95,10 +95,10 @@ const CUSTOM_IMAGES = {
   'Tubi d\'Acciaio': 'https://i.postimg.cc/dVGtjXWs/Screenshot_20260413_155820_7.jpg',
   'Chiave d\'Accesso Linate': 'https://i.postimg.cc/zGTXFMd8/Screenshot_20260413_155820_3.jpg',
   
-  'Acqua Purificata': '', 'Razione K': '', 'Zucchero Grezzo': '', 'Scatoletta di Fagioli': '',
-  'Bottiglia d\'Acqua': '', 'Barretta Energetica': '', 'Succo di Frutta': '', 'Carne in Scatola': '',
-  'Pasto Caldo': '', 
-  'Rottami': '', 'Componenti Elettronici': '', 'Munizioni 9mm': '', 'Munizioni 5.56': '',
+  'Acqua Purificata': 'https://i.postimg.cc/C1JQdBV4/1776156761219_14.jpg', 'Razione K': 'https://i.postimg.cc/qRQ5ghdX/1776156761219_15.jpg', 'Zucchero Grezzo': 'https://i.postimg.cc/SKGp2zYv/1775062687389_11.jpg', 'Scatoletta di Fagioli': 'https://i.postimg.cc/brJFnyzg/1776156761219_16.jpg',
+  'Bottiglia d\'Acqua': 'https://i.postimg.cc/hjM5hzqy/1776156761219_13.jpg', 'Barretta Energetica': 'https://i.postimg.cc/2y6XWkzT/1776156761219_17.jpg', 'Succo di Frutta': 'https://i.postimg.cc/d31SCssF/1776156761219_4.jpg', 'Carne in Scatola': 'https://i.postimg.cc/7h6QzHHL/1776156761219_5.jpg',
+  'Pasto Caldo': 'https://i.postimg.cc/cCH53xxx/1776156761219_6.jpg', 
+  'Rottami': 'https://i.postimg.cc/PJxFDXXj/1776156761219_7.jpg', 'Componenti Elettronici': 'https://i.postimg.cc/pTk6yhtZ/1776156761219_8.jpg', 'Munizioni 9mm': '', 'Munizioni 5.56': '',
   'Cimelio d\'Oro': '', 'Disco Dati Governativo': '', 'Bende': '', 'Medikit': '',
 
   // --- IMMAGINI LUOGHI MAPPA ---
