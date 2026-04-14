@@ -20,7 +20,7 @@ const CUSTOM_IMAGES = {
   'AK-47 Tamburo': 'https://i.postimg.cc/L5VHrfWZ/Screenshot_20260330_143029_13.jpg',
   'Mitragliatrice M249': 'https://i.postimg.cc/vTvQp9KW/Screenshot_20260330_143029_7.jpg',
   'Minigun Vulcan': 'https://i.postimg.cc/vBf8tCtZ/Screenshot_20260330_143029_8.jpg',
-  'Coltellino': '', 'Mazza da Baseball': '', 
+  'Coltellino': 'https://i.postimg.cc/gcRSLTqg/1776159609444_2.jpg', 'Mazza da Baseball': 'https://i.postimg.cc/h4xyQ5bM/1776159609444_3.jpg', 
 
   'Sacca Sportiva': 'https://i.postimg.cc/cCWx9TFJ/Screenshot_20260330_142331_2.jpg',
   'Sacca a Tracolla': 'https://i.postimg.cc/cCcsVYjq/Screenshot_20260330_142331_3.jpg',
