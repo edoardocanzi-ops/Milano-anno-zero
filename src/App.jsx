@@ -108,8 +108,8 @@ const CUSTOM_IMAGES = {
   'Loc_navigli': '', 'Loc_idroscalo': '', 'Loc_linate': '',
 
   // --- GRAFICHE BUNKER ---
-  'Bunker_Entrance': '', 'Bunker_Empty': '', 'Bunker_Dirt': '', 'Bunker_Storage': '', 'Bunker_Water': '',
-  'Bunker_Greenhouse': '', 'Bunker_Workshop': '', 'Bunker_Kitchen': ''
+  'Bunker_Entrance': 'https://i.postimg.cc/1XtYFm9b/1776156448888_2.jpg', 'Bunker_Empty': 'https://i.postimg.cc/Z5WRYp6Y/1776158534106_2.jpg', 'Bunker_Dirt': '', 'Bunker_Storage': 'https://i.postimg.cc/prT1jW2c/1776107887064_2.jpg', 'Bunker_Water': 'https://i.postimg.cc/XJtJCJWD/1776158813857_2.jpg',
+  'Bunker_Greenhouse': 'https://i.postimg.cc/7h6QzHxK/1776156308227_2.jpg', 'Bunker_Workshop': 'https://i.postimg.cc/Y09yFrrM/1776156681937_2.jpg', 'Bunker_Kitchen': 'https://i.postimg.cc/3R5HTDFP/1776158153411_2.jpg'
 };
 
 const CUSTOM_ENEMIES_IMAGES = {
